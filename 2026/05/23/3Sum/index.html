@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>Best Time to Buy and Sell Stock with Cooldown | ljz&#39;s Blog</title>
+  <title>3Sum | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -15,21 +15,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="Algorithm, LeetCode" />
+    <meta name="keywords" content="Array, C++, LeetCode, Sorting, Two-Pointers" />
   
-  <meta name="description" content="DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day. Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e.,">
+  <meta name="description" content="1. Problem Link15. 3Sum - LeetCode 2. Problem DescriptionGiven an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i !&#x3D; j, i !&#x3D; k, and j !&#x3D; k, and nums[i] + nums[j] +">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Best Time to Buy and Sell Stock with Cooldown">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/index.html">
+<meta property="og:title" content="3Sum">
+<meta property="og:url" content="https://pure-master.github.io/2026/05/23/3Sum/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day. Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e.,">
+<meta property="og:description" content="1. Problem Link15. 3Sum - LeetCode 2. Problem DescriptionGiven an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i !&#x3D; j, i !&#x3D; k, and j !&#x3D; k, and nums[i] + nums[j] +">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2024-04-12T09:54:10.000Z">
-<meta property="article:modified_time" content="2024-04-19T13:55:59.628Z">
+<meta property="article:published_time" content="2026-05-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-23T07:27:51.199Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta property="article:tag" content="LeetCode">
-<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Two-Pointers">
+<meta property="article:tag" content="Sorting">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
   
@@ -204,15 +207,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/05/23/3Sum/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Best Time to Buy and Sell Stock with Cooldown</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">3Sum</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-12T09:54:10.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-12</time></li>
+                <li><time datetime="2026-05-22T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-05-23</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -221,7 +224,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.82K
+                            ~3.67K
                         
                         字
                     </li>
@@ -233,63 +236,68 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1713534959628"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1779521271199"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#analysis"><span class="toc-number">2.1.</span> <span class="toc-text">analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conclusion"><span class="toc-number">2.2.</span> <span class="toc-text">conclusion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#code"><span class="toc-number">2.3.</span> <span class="toc-text">code</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-number">1.</span> <span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-number">2.</span> <span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-number">3.</span> <span class="toc-text">3. Core Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-number">4.</span> <span class="toc-text">4. C++ Solution</span></a></li></ol>
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>ith</code> day.</p>
-<p>Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times) with the following restrictions:</p>
-<ul>
-<li>After you sell your stock, you cannot buy stock on the next day (i.e., cooldown one day).</li>
-</ul>
-<p><strong>Note:</strong> You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).</p>
+            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum/description/?envType=study-plan-v2&amp;envId=top-100-liked">15. 3Sum - LeetCode</a></p>
+<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>Given an integer array <code>nums</code>, return all the triplets <code>[nums[i], nums[j], nums[k]]</code> such that <code>i != j</code>, <code>i != k</code>, and <code>j != k</code>, and <code>nums[i] + nums[j] + nums[k] == 0</code>.</p>
+<p>Notice that the solution set must not contain duplicate triplets.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: prices = [1,2,3,0,2]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: transactions = [buy, sell, cooldown, buy, sell]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Input:</strong> <code>nums = [-1,0,1,2,-1,-4]</code></li>
+<li><strong>Output:</strong> <code>[[-1,-1,2],[-1,0,1]]</code></li>
+<li><strong>Explanation:</strong> <ul>
+<li><code>nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0</code>.</li>
+<li><code>nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0</code>.</li>
+<li><code>nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0</code>.</li>
+<li>The distinct triplets are <code>[-1,0,1]</code> and <code>[-1,-1,2]</code>.</li>
+<li>Notice that the order of the output and the order of the triplets does not matter.</li>
+</ul>
+</li>
+</ul>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: prices = [1]</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Input:</strong> <code>nums = [0,1,1]</code></li>
+<li><strong>Output:</strong> <code>[]</code></li>
+<li><strong>Explanation:</strong> The only possible triplet does not sum up to 0.</li>
+</ul>
+<p><strong>Example 3:</strong></p>
+<ul>
+<li><strong>Input:</strong> <code>nums = [0,0,0]</code></li>
+<li><strong>Output:</strong> <code>[[0,0,0]]</code></li>
+<li><strong>Explanation:</strong> The only possible triplet sums up to 0.</li>
+</ul>
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>1 &lt;= prices.length &lt;= 5000</code></li>
-<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
+<li>3 &lt;= nums.length &lt;= 3000</li>
+<li>-10^5 &lt;= nums[i] &lt;= 10^5</li>
 </ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h3><p>可以尝试使用动态规划解决</p>
-<p>存在三种状态：</p>
-<ul>
-<li>手中持有股票</li>
-<li>处于冷冻期</li>
-<li>手中不持有股票且不处于冷冻期</li>
+<h2 id="3-Core-Idea"><a href="#3-Core-Idea" class="headerlink" title="3. Core Idea"></a>3. Core Idea</h2><ul>
+<li><strong>Approach</strong>: Sorting + Two-Pointers.</li>
+<li><strong>Mechanism</strong>:<ul>
+<li>First, sort the array in ascending order. This simplifies handling duplicates and allows using two pointers to scan for matching elements.</li>
+<li>Iterate through the array with a fixed index <code>i</code>. For each <code>i</code>, treat it as the first element of our triplet and set up a target <code>target = -nums[i]</code>. Then, use a two-pointer approach (<code>l = i + 1</code> and <code>r = n - 1</code>) to find two elements whose sum equals <code>target</code>.</li>
+<li><strong>Pruning and Optimization</strong>:<ul>
+<li>If <code>nums[i] + nums[i+1] + nums[i+2] &gt; 0</code>, the smallest possible sum starting with <code>i</code> is already greater than 0, so we can stop the entire loop immediately.</li>
+<li>If <code>nums[i] + nums[n-2] + nums[n-1] &lt; 0</code>, the largest possible sum with the current <code>i</code> is still less than 0, meaning the current <code>i</code> is too small, so we skip it using <code>continue</code>.</li>
 </ul>
-<p>分别将以上三种状态标记为<code>hold</code> <code>freeze</code> <code>not</code>,最大余额为<code>f0</code> <code>f1</code> <code>f2</code></p>
-<ul>
-<li><p>对于<code>hold</code>状态，有两种情况：目前持有股票和目前未持有股票</p>
-<ul>
-<li>对于目前持有股票，无须操作，余额仍为<code>f0</code></li>
-<li>对于目前未持有股票，要达到<code>hold</code>状态需要购买当天股票，那么前一天的状态必须是<code>hold</code>，由此余额为<code>f2-prices[i]</code></li>
-</ul>
-<p>由此可以得到状态<code>hold</code>收益的最大值为<code>max(f0,f2-prices[i])</code></p>
 </li>
-<li><p>对于<code>cold</code>状态只有一种情况：前一天状态为<code>hold</code>，当天卖出了股票，收益为<code>f0+prices[i]</code></p>
-<p>因此<code>cold</code>状态的最大收益为<code>f0+prices[i]</code></p>
-</li>
-<li><p>对于<code>not</code>状态有两种情况：前一天是状态为<code>not</code>、前一天状态为<code>cold</code></p>
-<ul>
-<li>对于前一天状态为<code>not</code>，无需操作，余额仍为<code>f2</code></li>
-<li>对于前一天状态为<code>cold</code>，余额为前一天的<code>cold</code>状态的余额，即<code>f1</code></li>
+<li><strong>Deduplication</strong>:<ul>
+<li>Skip identical values for <code>i</code> (<code>nums[i] == nums[i-1]</code>).</li>
+<li>Once a valid triplet is found, advance <code>l</code> and decrement <code>r</code> while skipping consecutive identical elements to avoid duplicate results.</li>
 </ul>
-<p>由此可以得到状态<code>not</code>的取得收益的最大值为<code>max(f1,f2)</code></p>
 </li>
 </ul>
-<p>最后结束天要想得到收益最大值有两种情况：当天卖出股票处于冷冻期<code>cold</code>和当前未持有股票且不处于冷冻状态<code>not</code>，取两者最大值即可<code>max(f1,f2)</code></p>
-<h3 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h3><p>对于本题来说，采用暴力算法需要将尝试每一天的<code>hold</code> <code>cold</code> <code>not</code>的可能情况</p>
-<p>而动态规划记录了三种状态在某一天收益最大值的可能性，而不是一味记录所有可能的收入情况，极大减少了重复计算量</p>
-<h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</span><br><span class="line">        int n=prices.size();</span><br><span class="line">        int f0=-prices[0],f1=0,f2=0;</span><br><span class="line">        for(int i=1;i&lt;n;i++)&#123;</span><br><span class="line">            tmp_f0=max(f0,f2-prices[i]);</span><br><span class="line">            tmp_f1=f0+prices[i];</span><br><span class="line">            tmp_f2=max(f1,f2);</span><br><span class="line">            f0=tmp_f0;</span><br><span class="line">            f1=tmp_f1;</span><br><span class="line">            f2=tmp_f2;</span><br><span class="line">        &#125;</span><br><span class="line">        return max(f1,f2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</div>
+</li>
+</ul>
+<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">3</span>)</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">2</span>; ++i) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 去重</span></span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 最小三数和 &gt; 0，后面不可能</span></span><br><span class="line">            <span class="keyword">if</span> (nums[i] + nums[i + <span class="number">1</span>] + nums[i + <span class="number">2</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 最大三数和 &lt; 0，当前 i 太小</span></span><br><span class="line">            <span class="keyword">if</span> (nums[i] + nums[n - <span class="number">2</span>] + nums[n - <span class="number">1</span>] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> l = i + <span class="number">1</span>;</span><br><span class="line">            <span class="type">int</span> r = n - <span class="number">1</span>;</span><br><span class="line">            <span class="type">int</span> target = -nums[i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="type">int</span> sum = nums[l] + nums[r];</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (sum &lt; target) &#123;</span><br><span class="line">                    ++l;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">                    --r;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">                    ans.<span class="built_in">push_back</span>(&#123;nums[i], nums[l], nums[r]&#125;);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// l 去重</span></span><br><span class="line">                    <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[l] == nums[l + <span class="number">1</span>]) &#123;</span><br><span class="line">                        ++l;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// r 去重</span></span><br><span class="line">                    <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[r] == nums[r - <span class="number">1</span>]) &#123;</span><br><span class="line">                        --r;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    ++l;</span><br><span class="line">                    --r;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -342,7 +350,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/",
+                text: "https://pure-master.github.io/2026/05/23/3Sum/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -354,10 +362,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/12/Best-Time-to-Buy-and-Sell-Stock-with-Cooldown/";
-            const title         = "「Best Time to Buy and Sell Stock with Cooldown」";
-            const excerpt       = `DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day.
-Find the maxim...`;
+            const hostUrl       = "https://pure-master.github.io/2026/05/23/3Sum/";
+            const title         = "「3Sum」";
+            const excerpt       = `1. Problem Link15. 3Sum - LeetCode
+2. Problem DescriptionGiven an integer array nums, return all the triplets [nums[i...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -376,10 +384,10 @@ Find the maxim...`;
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>
+                    <a class="tag-none-link" href="/tags/Array/" rel="tag">Array</a>, <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>, <a class="tag-none-link" href="/tags/Sorting/" rel="tag">Sorting</a>, <a class="tag-none-link" href="/tags/Two-Pointers/" rel="tag">Two-Pointers</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-19T13:55:59.628Z" itemprop="dateModified">最后编辑：2024-04-19</time>
+                    <time datetime="2026-05-23T07:27:51.199Z" itemprop="dateModified">最后编辑：2026-05-23</time>
                 </div>
             </div>
         </footer>
@@ -388,13 +396,9 @@ Find the maxim...`;
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Linux expand disk" href="/2024/04/11/Linux-expand-disk/">&lt; 上一篇</a>
+                <a title=" Container With Most Water" href="/2026/05/23/Container-With-Most-Water/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Word Search" href="/2024/04/16/Word-Search/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
@@ -462,7 +466,7 @@ Find the maxim...`;
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#analysis"><span class="toc-text">analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conclusion"><span class="toc-text">conclusion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#code"><span class="toc-text">code</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-text">3. Core Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-text">4. C++ Solution</span></a></li></ol>
     </div>
 </aside>
                 
