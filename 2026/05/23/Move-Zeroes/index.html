@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>combinations and permutation | ljz&#39;s Blog</title>
+  <title>Move Zeroes | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -15,20 +15,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="Algorithm" />
+    <meta name="keywords" content="Array, C++, LeetCode, Two-Pointers" />
   
-  <meta name="description" content="Combinations 12345678910111213141516171819202122void GospersHack(int k, int n)&amp;#123;    int set &#x3D; (1 &lt;&lt; k) - 1;    int limit &#x3D; (1 &lt;&lt; n);    while (set &lt; limit)    &amp;#123;        &#x2F;&#x2F;DoStu">
+  <meta name="description" content="1. Problem Link283. Move Zeroes - LeetCode 2. Problem DescriptionGiven an integer array nums, move all 0‘s to the end of it while maintaining the relative order of the non-zero elements. Note that you">
 <meta property="og:type" content="article">
-<meta property="og:title" content="combinations and permutation">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/04/combinations-and-permutation/index.html">
+<meta property="og:title" content="Move Zeroes">
+<meta property="og:url" content="https://pure-master.github.io/2026/05/23/Move-Zeroes/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="Combinations 12345678910111213141516171819202122void GospersHack(int k, int n)&amp;#123;    int set &#x3D; (1 &lt;&lt; k) - 1;    int limit &#x3D; (1 &lt;&lt; n);    while (set &lt; limit)    &amp;#123;        &#x2F;&#x2F;DoStu">
+<meta property="og:description" content="1. Problem Link283. Move Zeroes - LeetCode 2. Problem DescriptionGiven an integer array nums, move all 0‘s to the end of it while maintaining the relative order of the non-zero elements. Note that you">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2024-04-04T10:43:27.000Z">
-<meta property="article:modified_time" content="2024-04-19T13:56:14.358Z">
+<meta property="article:published_time" content="2026-05-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-23T05:51:07.077Z">
 <meta property="article:author" content="Lao Jinzan">
-<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Two-Pointers">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
   
@@ -203,15 +206,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/04/combinations-and-permutation/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/05/23/Move-Zeroes/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">combinations and permutation</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Move Zeroes</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-04T10:43:27.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-04</time></li>
+                <li><time datetime="2026-05-22T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-05-23</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -220,7 +223,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1286
+                            1253
                         
                         字
                     </li>
@@ -232,22 +235,44 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1713534974358"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1779515467077"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-number">1.</span> <span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-number">2.</span> <span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-number">3.</span> <span class="toc-text">3. Core Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-number">4.</span> <span class="toc-text">4. C++ Solution</span></a></li></ol>
+                </div>
+            
             <hr />
-            <div itemprop="articleBody"><ul>
-<li><p>Combinations</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">GospersHack</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> set = (<span class="number">1</span> &lt;&lt; k) - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> limit = (<span class="number">1</span> &lt;&lt; n);</span><br><span class="line">    <span class="keyword">while</span> (set &lt; limit)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//DoStuff(set);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Gosper&#x27;s hack:</span></span><br><span class="line">        <span class="type">int</span> c = set &amp; -set;</span><br><span class="line">        <span class="type">int</span> r = set + c;</span><br><span class="line">        set = (((r ^ set) &gt;&gt; <span class="number">2</span>) / c) | r;</span><br><span class="line">        <span class="comment">//set = ((r ^ set) &gt;&gt; __builtin_ctz(c) + 2) | r;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">GospersHack</span>(<span class="number">3</span>, <span class="number">6</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/move-zeroes/?envType=study-plan-v2&amp;envId=top-100-liked">283. Move Zeroes - LeetCode</a></p>
+<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>Given an integer array <code>nums</code>, move all <code>0</code>‘s to the end of it while maintaining the relative order of the non-zero elements.</p>
+<p>Note that you must do this <strong>in-place</strong> without making a copy of the array.</p>
+<p><strong>Example 1:</strong></p>
+<ul>
+<li><strong>Input:</strong> <code>nums = [0,1,0,3,12]</code></li>
+<li><strong>Output:</strong> <code>[1,3,12,0,0]</code></li>
+</ul>
+<p><strong>Example 2:</strong></p>
+<ul>
+<li><strong>Input:</strong> <code>nums = [0]</code></li>
+<li><strong>Output:</strong> <code>[0]</code></li>
+</ul>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;= nums.length &lt;= 10^4</li>
+<li>-231 &lt;= nums[i] &lt;= 231 - 1</li>
+</ul>
+<h2 id="3-Core-Idea"><a href="#3-Core-Idea" class="headerlink" title="3. Core Idea"></a>3. Core Idea</h2><ul>
+<li><strong>Approach</strong>: Two-Pointers (Slow and Fast Pointers).</li>
+<li><strong>Mechanism</strong>: <ul>
+<li>The <code>slow</code> pointer keeps track of the position where the next non-zero element should be placed.</li>
+<li>The <code>fast</code> pointer iterates through the array to find non-zero elements.</li>
+<li>Whenever <code>nums[fast]</code> is not zero, we swap <code>nums[slow]</code> and <code>nums[fast]</code>, then advance the <code>slow</code> pointer. This automatically pushes zeroes to the right while maintaining the original relative order of non-zero numbers.</li>
+</ul>
 </li>
 </ul>
-<ul>
-<li><p>Permutations</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">generate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; a, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : a) &#123;</span><br><span class="line">            cout &lt;&lt; num &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="built_in">generate</span>(a, n - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (i &lt; n - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="built_in">swap</span>(a[i], a[n - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">swap</span>(a[<span class="number">0</span>], a[n - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; nums = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line">    <span class="built_in">generate</span>(nums, nums.<span class="built_in">size</span>());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</div>
+<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">moveZeroes</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> slow = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> fast = <span class="number">0</span>; fast &lt; nums.<span class="built_in">size</span>(); fast++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[fast] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="built_in">swap</span>(nums[slow], nums[fast]);</span><br><span class="line">                slow++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -300,7 +325,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/04/combinations-and-permutation/",
+                text: "https://pure-master.github.io/2026/05/23/Move-Zeroes/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -312,11 +337,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/04/combinations-and-permutation/";
-            const title         = "「combinations and permutation」";
-            const excerpt       = `
-Combinations
-12345678910111213141516171819202122void GospersHack(int k, int n)&#123;    int set = (1 &lt;&lt; k) - 1...`;
+            const hostUrl       = "https://pure-master.github.io/2026/05/23/Move-Zeroes/";
+            const title         = "「Move Zeroes」";
+            const excerpt       = `1. Problem Link283. Move Zeroes - LeetCode
+2. Problem DescriptionGiven an integer array nums, move all 0‘s to the end...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -335,10 +359,10 @@ Combinations
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a>
+                    <a class="tag-none-link" href="/tags/Array/" rel="tag">Array</a>, <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>, <a class="tag-none-link" href="/tags/Two-Pointers/" rel="tag">Two-Pointers</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-19T13:56:14.358Z" itemprop="dateModified">最后编辑：2024-04-19</time>
+                    <time datetime="2026-05-23T05:51:07.077Z" itemprop="dateModified">最后编辑：2026-05-23</time>
                 </div>
             </div>
         </footer>
@@ -346,10 +370,10 @@ Combinations
     
         <nav class="navigation post-navigation clearfix" role="navigation">
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Linux command" href="/2024/04/04/Linux-command/">下一篇 &gt;</a>
+            <div class="nav-previous clearfix">
+                <a title=" Group Anagrams" href="/2026/05/23/group-anagrams/">&lt; 上一篇</a>
             </div>
+            
             
         </nav>
     
@@ -408,6 +432,18 @@ Combinations
 </aside>
             
                     <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-text">3. Core Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-text">4. C++ Solution</span></a></li></ol>
+    </div>
+</aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
