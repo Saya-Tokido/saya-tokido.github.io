@@ -17,12 +17,12 @@
   
     <meta name="keywords" content="Tutorial" />
   
-  <meta name="description" content="procedure网络设置桥连 用户 tc  加载 OpenSSH 软件包：在 Tiny Core Linux 上执行以下命令来加载 OpenSSH 软件包： 1tce-load -wi openssh  这将下载并安装 OpenSSH 软件包。  编辑 SSH 配置文件：首先，打开 SSH 服务器的配置文件。在 Tiny Core Linux 中，可以执行以下命令打开 OpenSSH 服务器的配">
+  <meta name="description" content="procedure网络设置桥连 用户 tc  加载 OpenSSH 软件包：在 Tiny Core Linux 上执行以下命令来加载 OpenSSH 软件包： 1tce-load -wi openssh 这将下载并安装 OpenSSH 软件包。  编辑 SSH 配置文件：首先，打开 SSH 服务器的配置文件。在 Tiny Core Linux 中，可以执行以下命令打开 OpenSSH 服务器的配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tiny Core Linux install openssh">
 <meta property="og:url" content="https://pure-master.github.io/2024/06/13/Tiny-Core-Linux-install-openssh/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="procedure网络设置桥连 用户 tc  加载 OpenSSH 软件包：在 Tiny Core Linux 上执行以下命令来加载 OpenSSH 软件包： 1tce-load -wi openssh  这将下载并安装 OpenSSH 软件包。  编辑 SSH 配置文件：首先，打开 SSH 服务器的配置文件。在 Tiny Core Linux 中，可以执行以下命令打开 OpenSSH 服务器的配">
+<meta property="og:description" content="procedure网络设置桥连 用户 tc  加载 OpenSSH 软件包：在 Tiny Core Linux 上执行以下命令来加载 OpenSSH 软件包： 1tce-load -wi openssh 这将下载并安装 OpenSSH 软件包。  编辑 SSH 配置文件：首先，打开 SSH 服务器的配置文件。在 Tiny Core Linux 中，可以执行以下命令打开 OpenSSH 服务器的配置">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
 <meta property="article:published_time" content="2024-06-13T03:20:43.000Z">
@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            620
+                            614
                         
                         字
                     </li>
@@ -247,32 +247,26 @@
 <ol>
 <li><p><strong>加载 OpenSSH 软件包：</strong>在 Tiny Core Linux 上执行以下命令来加载 OpenSSH 软件包：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tce-load -wi openssh</span><br></pre></td></tr></table></figure>
-
 <p>这将下载并安装 OpenSSH 软件包。</p>
 </li>
 <li><p><strong>编辑 SSH 配置文件：</strong>首先，打开 SSH 服务器的配置文件。在 Tiny Core Linux 中，可以执行以下命令打开 OpenSSH 服务器的配置文件：</p>
 </li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /usr/local/etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-
 <p>如果配置文件不存在，可以创建一个新文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /usr/local/etc/ssh/sshd_config</span><br><span class="line">sudo chmod 644 /usr/local/etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
+<ol>
 <li><strong>修改配置：</strong>在配置文件中找到 <code>PasswordAuthentication</code> 选项，并将其设置为 <code>yes</code>，以允许使用密码进行身份验证。确保行没有被注释（以 <code>#</code> 开头）。</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
+<ol>
 <li><strong>启动 SSH 服务器：</strong>安装完成后，你需要启动 SSH 服务器。你可以通过以下命令启动 OpenSSH 服务器：</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/etc/init.d/openssh start</span><br></pre></td></tr></table></figure>
-
 <p>这将会启动 SSH 服务器。</p>
-<ol start="5">
+<ol>
 <li><p>更改密码 </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
-
 <p>如linux123233</p>
 </li>
 </ol>
@@ -348,8 +342,7 @@
 
 加载 OpenSSH 软件包：在 Tiny Core Linux 上执行以下命令来加载 OpenSSH 软件包：
 1tce-load -wi openssh
-
-这将下载并安装 OpenSS...`;
+这将下载并安装 OpenSSH...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -422,7 +415,7 @@
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -430,7 +423,7 @@
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -438,7 +431,7 @@
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -459,13 +452,18 @@
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -476,6 +474,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -502,11 +506,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -615,7 +615,7 @@
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

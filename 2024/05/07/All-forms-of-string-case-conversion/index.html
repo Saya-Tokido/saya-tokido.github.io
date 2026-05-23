@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.55K
+                            ~1.54K
                         
                         字
                     </li>
@@ -244,11 +244,6 @@
             <hr />
             <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a string, convert uppercase letters to lowercase letters, or convert lowercase letters to uppercase letters, and output all forms</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入用例 1:</span><br><span class="line">&quot;a1b2&quot;</span><br><span class="line"></span><br><span class="line">输出用例 1:</span><br><span class="line">[&quot;a1b2&quot;, &quot;A1b2&quot;, &quot;a1B2&quot;, &quot;A1B2&quot;]</span><br><span class="line"></span><br><span class="line">输入用例 2:</span><br><span class="line">&quot;3z4&quot;</span><br><span class="line"></span><br><span class="line">输出用例 2:</span><br><span class="line">[&quot;3z4&quot;, &quot;3Z4&quot;]</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>回溯，遍历每个字符，如果是数字直接插入，如果字符分两种情况</p>
 <h3 id="代码讲解"><a href="#代码讲解" class="headerlink" title="代码讲解"></a>代码讲解</h3><p><code>fun</code>为入口函数，接受一个字符串，并返回所有形式的字符串变换</p>
 <ol>
@@ -260,15 +255,6 @@
 <li>遍历完整个字符串，当前字符串即可</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;string&gt; strv;</span><br><span class="line">    string str;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">fun</span><span class="params">(string _str)</span> </span>&#123;</span><br><span class="line">        str = _str;</span><br><span class="line">        n = str.<span class="built_in">length</span>();</span><br><span class="line">        <span class="built_in">backtrack</span>(<span class="string">&quot;&quot;</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> strv;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtrack</span><span class="params">(string curr, <span class="type">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == index) &#123;</span><br><span class="line">            strv.<span class="built_in">push_back</span>(curr);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isdigit</span>(str[index])) &#123;</span><br><span class="line">            curr.<span class="built_in">push_back</span>(str[index]);</span><br><span class="line">            <span class="built_in">backtrack</span>(curr, index + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isalpha</span>(str[index])) &#123;</span><br><span class="line">            <span class="built_in">backtrack</span>(curr + str[index], index + <span class="number">1</span>);</span><br><span class="line">            <span class="type">char</span> temp;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isupper</span>(str[index])) &#123;</span><br><span class="line">                temp = <span class="built_in">tolower</span>(str[index]); <span class="comment">// Convert uppercase to lowercase</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                temp = <span class="built_in">toupper</span>(str[index]); <span class="comment">// Convert lowercase to uppercase</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">backtrack</span>(curr + temp, index + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
 </div>
         </div>
         
@@ -409,7 +395,7 @@
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -417,7 +403,7 @@
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -425,7 +411,7 @@
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -446,13 +432,18 @@
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -463,6 +454,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -489,11 +486,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -602,7 +595,7 @@
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

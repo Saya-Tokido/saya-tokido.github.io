@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.22K
+                            ~2.21K
                         
                         字
                     </li>
@@ -249,27 +249,10 @@
 </ul>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p><img src="/images/image-20240515220900000.png" alt="Observer pattern"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * subject</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &lt;T&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Subject</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">registerObserver</span><span class="params">(Observer&lt;T&gt; observer)</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">removeObserver</span><span class="params">(Observer&lt;T&gt; observer)</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">notifyObservers</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * observer</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &lt;T&gt;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Observer</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(T t)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * DisplayElement</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">DisplayElement</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">display</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * NewspaperAgency</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NewspaperAgency</span> <span class="keyword">implements</span> <span class="title class_">Subject</span>&lt;Newspaper&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> Newspaper newspaper;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Observer&lt;Newspaper&gt;&gt; observers;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">NewspaperAgency</span><span class="params">()</span>&#123;</span><br><span class="line">        observers=<span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">registerObserver</span><span class="params">(Observer&lt;Newspaper&gt; observer)</span> &#123;</span><br><span class="line">        observers.add(observer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">removeObserver</span><span class="params">(Observer&lt;Newspaper&gt; observer)</span> &#123;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">b</span> <span class="operator">=</span> observers.removeIf(e -&gt; e == observer);</span><br><span class="line">        <span class="comment">//todo handle b is false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">notifyObservers</span><span class="params">()</span> &#123;</span><br><span class="line">        observers.forEach(observer-&gt;observer.update(newspaper));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">publishNewspaper</span><span class="params">()</span>&#123;</span><br><span class="line">        notifyObservers();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setNewspaper</span><span class="params">(Newspaper newspaper)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.newspaper = newspaper;</span><br><span class="line">        publishNewspaper();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Subscriber</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Subscriber</span> <span class="keyword">implements</span> <span class="title class_">Observer</span>&lt;Newspaper&gt;, DisplayElement &#123;</span><br><span class="line">    <span class="keyword">private</span> Newspaper newspaper;</span><br><span class="line">    <span class="keyword">private</span> Subject&lt;Newspaper&gt; subject;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Subscriber</span><span class="params">(Subject&lt;Newspaper&gt; newspaperSubject)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.subject= newspaperSubject;</span><br><span class="line">        subject.registerObserver(<span class="built_in">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">display</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//todo display</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(Newspaper newspaper1)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.newspaper=newspaper1;</span><br><span class="line">        display();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 </div>
         </div>
         
@@ -413,7 +396,7 @@ pull ...`;
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -421,7 +404,7 @@ pull ...`;
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -429,7 +412,7 @@ pull ...`;
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -450,13 +433,18 @@ pull ...`;
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -467,6 +455,12 @@ pull ...`;
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -493,11 +487,7 @@ pull ...`;
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -606,7 +596,7 @@ pull ...`;
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

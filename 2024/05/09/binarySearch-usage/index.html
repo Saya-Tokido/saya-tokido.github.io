@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1132
+                            1134
                         
                         字
                     </li>
@@ -251,7 +251,8 @@
 <li><p>在每次迭代时，你都会将搜索范围缩小为 <code>[l, mid)</code> 或 <code>[mid+1, r)</code>，因此当 <code>l</code> 和 <code>r</code> 相等时，搜索范围为空，此时应该停止搜索。</p>
 </li>
 <li><p>由于每次迭代都排除了 <code>mid</code>，因此 <code>l</code> 最终会超过 <code>r</code>，这时搜索结束。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">binarySearch</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">int</span>&gt;&amp; arr, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = arr.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (arr[mid] &lt; target) &#123;</span><br><span class="line">            l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            r = mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (arr[l] == target) ? l : <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">binarySearch</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">int</span>&gt;&amp; arr, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = arr.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (arr[mid] &lt; target) &#123;</span><br><span class="line">            l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            r = mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (arr[l] == target) ? l : <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 <li><p>使用 <code>l&lt;=r</code></p>
@@ -261,7 +262,8 @@
 <li><p>在每次迭代时，你会将搜索范围缩小为 <code>[l, mid-1]</code> 或 <code>[mid+1, r]</code>，此时包含了 <code>mid</code>。</p>
 </li>
 <li><p>当 <code>l</code> 和 <code>r</code> 相等时，仍然需要继续搜索，因为此时可能 <code>l</code> 或 <code>r</code> 就是要找的值。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">binarySearch</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">int</span>&gt;&amp; arr, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = arr.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">        <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (arr[mid] &lt; target) &#123;</span><br><span class="line">            l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; target) &#123;</span><br><span class="line">            r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">binarySearch</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">int</span>&gt;&amp; arr, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = arr.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">        <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (arr[mid] &lt; target) &#123;</span><br><span class="line">            l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; target) &#123;</span><br><span class="line">            r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ol>
@@ -411,7 +413,7 @@ usage
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -419,7 +421,7 @@ usage
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -427,7 +429,7 @@ usage
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -448,13 +450,18 @@ usage
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -465,6 +472,12 @@ usage
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -491,11 +504,7 @@ usage
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -604,7 +613,7 @@ usage
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

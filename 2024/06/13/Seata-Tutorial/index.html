@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~5.30K
+                            ~5.29K
                         
                         字
                     </li>
@@ -249,14 +249,8 @@
 <p>and the download page is follow <a target="_blank" rel="noopener" href="https://github.com/apache/incubator-seata/releases/tag/v2.0.0">download page</a></p>
 <h3 id="2-Set-config-file"><a href="#2-Set-config-file" class="headerlink" title="2. Set config file"></a>2. Set config file</h3><p>Refer the example file at  <code>config/application.example.yml</code></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  Copyright 1999-2019 Seata.io Group.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></span><br><span class="line"><span class="comment">#  you may not use this file except in compliance with the License.</span></span><br><span class="line"><span class="comment">#  You may obtain a copy of the License at</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#  http://www.apache.org/licenses/LICENSE-2.0</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#  Unless required by applicable law or agreed to in writing, software</span></span><br><span class="line"><span class="comment">#  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></span><br><span class="line"><span class="comment">#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></span><br><span class="line"><span class="comment">#  See the License for the specific language governing permissions and</span></span><br><span class="line"><span class="comment">#  limitations under the License.</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">7091</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">seata-server</span></span><br><span class="line"></span><br><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">config:</span> <span class="string">classpath:logback-spring.xml</span></span><br><span class="line">  <span class="attr">file:</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">$&#123;log.home:$&#123;user.home&#125;/logs/seata&#125;</span></span><br><span class="line">  <span class="attr">extend:</span></span><br><span class="line">    <span class="attr">logstash-appender:</span></span><br><span class="line">      <span class="attr">destination:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:4560</span></span><br><span class="line">    <span class="attr">kafka-appender:</span></span><br><span class="line">      <span class="attr">bootstrap-servers:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:9092</span></span><br><span class="line">      <span class="attr">topic:</span> <span class="string">logback_to_logstash</span></span><br><span class="line"></span><br><span class="line"><span class="attr">console:</span></span><br><span class="line">  <span class="attr">user:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">seata</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">seata</span></span><br><span class="line"><span class="attr">seata:</span></span><br><span class="line">  <span class="attr">config:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">nacos</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="number">10.16</span><span class="number">.40</span><span class="number">.100</span><span class="string">:8848</span></span><br><span class="line">      <span class="attr">namespace:</span></span><br><span class="line">      <span class="attr">group:</span> <span class="string">SEATA_GROUP</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">      <span class="attr">password:</span> <span class="string">nacos</span></span><br><span class="line">      <span class="attr">data-id:</span> <span class="string">seataServer.properties</span></span><br><span class="line">  <span class="attr">registry:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">nacos</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">application:</span> <span class="string">seata-tc-server</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="number">10.16</span><span class="number">.40</span><span class="number">.100</span><span class="string">:8848</span></span><br><span class="line">      <span class="attr">group:</span> <span class="string">DEFAULT_GROUP</span></span><br><span class="line">      <span class="attr">namespace:</span></span><br><span class="line">      <span class="attr">cluster:</span> <span class="string">default</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">      <span class="attr">password:</span> <span class="string">nacos</span></span><br><span class="line">  <span class="attr">store:</span></span><br><span class="line">    <span class="comment"># support: file 、 db 、 redis 、 raft</span></span><br><span class="line">    <span class="attr">mode:</span> <span class="string">file</span></span><br><span class="line">  <span class="comment">#  server:</span></span><br><span class="line">  <span class="comment">#    service-port: 8091 #If not configured, the default is &#x27;$&#123;server.port&#125; + 1000&#x27;</span></span><br><span class="line">  <span class="attr">security:</span></span><br><span class="line">    <span class="attr">secretKey:</span> <span class="string">SeataSecretKey0c382ef121d778043159209298fd40bf3850a017</span></span><br><span class="line">    <span class="attr">tokenValidityInMilliseconds:</span> <span class="number">1800000</span></span><br><span class="line">    <span class="attr">ignore:</span></span><br><span class="line">      <span class="attr">urls:</span> <span class="string">/,/**/*.css,/**/*.js,/**/*.html,/**/*.map,/**/*.svg,/**/*.png,/**/*.jpeg,/**/*.ico,/api/v1/auth/login,/metadata/v1/**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="3-Add-mysql-table"><a href="#3-Add-mysql-table" class="headerlink" title="3. Add mysql table"></a>3. Add mysql table</h3><p>The sql is in <code>scrip/server/db/mysql.sql</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">-- -------------------------------- The script used when storeMode is &#x27;db&#x27; --------------------------------</span><br><span class="line">-- the table to store GlobalSession data</span><br><span class="line">CREATE TABLE IF NOT EXISTS `global_table`</span><br><span class="line">(</span><br><span class="line">    `xid`                       VARCHAR(128) NOT NULL,</span><br><span class="line">    `transaction_id`            BIGINT,</span><br><span class="line">    `status`                    TINYINT      NOT NULL,</span><br><span class="line">    `application_id`            VARCHAR(32),</span><br><span class="line">    `transaction_service_group` VARCHAR(32),</span><br><span class="line">    `transaction_name`          VARCHAR(128),</span><br><span class="line">    `timeout`                   INT,</span><br><span class="line">    `begin_time`                BIGINT,</span><br><span class="line">    `application_data`          VARCHAR(2000),</span><br><span class="line">    `gmt_create`                DATETIME,</span><br><span class="line">    `gmt_modified`              DATETIME,</span><br><span class="line">    PRIMARY KEY (`xid`),</span><br><span class="line">    KEY `idx_status_gmt_modified` (`status` , `gmt_modified`),</span><br><span class="line">    KEY `idx_transaction_id` (`transaction_id`)</span><br><span class="line">) ENGINE = InnoDB</span><br><span class="line">  DEFAULT CHARSET = utf8mb4;</span><br><span class="line"></span><br><span class="line">-- the table to store BranchSession data</span><br><span class="line">CREATE TABLE IF NOT EXISTS `branch_table`</span><br><span class="line">(</span><br><span class="line">    `branch_id`         BIGINT       NOT NULL,</span><br><span class="line">    `xid`               VARCHAR(128) NOT NULL,</span><br><span class="line">    `transaction_id`    BIGINT,</span><br><span class="line">    `resource_group_id` VARCHAR(32),</span><br><span class="line">    `resource_id`       VARCHAR(256),</span><br><span class="line">    `branch_type`       VARCHAR(8),</span><br><span class="line">    `status`            TINYINT,</span><br><span class="line">    `client_id`         VARCHAR(64),</span><br><span class="line">    `application_data`  VARCHAR(2000),</span><br><span class="line">    `gmt_create`        DATETIME(6),</span><br><span class="line">    `gmt_modified`      DATETIME(6),</span><br><span class="line">    PRIMARY KEY (`branch_id`),</span><br><span class="line">    KEY `idx_xid` (`xid`)</span><br><span class="line">) ENGINE = InnoDB</span><br><span class="line">  DEFAULT CHARSET = utf8mb4;</span><br><span class="line"></span><br><span class="line">-- the table to store lock data</span><br><span class="line">CREATE TABLE IF NOT EXISTS `lock_table`</span><br><span class="line">(</span><br><span class="line">    `row_key`        VARCHAR(128) NOT NULL,</span><br><span class="line">    `xid`            VARCHAR(128),</span><br><span class="line">    `transaction_id` BIGINT,</span><br><span class="line">    `branch_id`      BIGINT       NOT NULL,</span><br><span class="line">    `resource_id`    VARCHAR(256),</span><br><span class="line">    `table_name`     VARCHAR(32),</span><br><span class="line">    `pk`             VARCHAR(36),</span><br><span class="line">    `status`         TINYINT      NOT NULL DEFAULT &#x27;0&#x27; COMMENT &#x27;0:locked ,1:rollbacking&#x27;,</span><br><span class="line">    `gmt_create`     DATETIME,</span><br><span class="line">    `gmt_modified`   DATETIME,</span><br><span class="line">    PRIMARY KEY (`row_key`),</span><br><span class="line">    KEY `idx_status` (`status`),</span><br><span class="line">    KEY `idx_branch_id` (`branch_id`),</span><br><span class="line">    KEY `idx_xid` (`xid`)</span><br><span class="line">) ENGINE = InnoDB</span><br><span class="line">  DEFAULT CHARSET = utf8mb4;</span><br><span class="line"></span><br><span class="line">CREATE TABLE IF NOT EXISTS `distributed_lock`</span><br><span class="line">(</span><br><span class="line">    `lock_key`       CHAR(20) NOT NULL,</span><br><span class="line">    `lock_value`     VARCHAR(20) NOT NULL,</span><br><span class="line">    `expire`         BIGINT,</span><br><span class="line">    primary key (`lock_key`)</span><br><span class="line">) ENGINE = InnoDB</span><br><span class="line">  DEFAULT CHARSET = utf8mb4;</span><br><span class="line"></span><br><span class="line">INSERT INTO `distributed_lock` (lock_key, lock_value, expire) VALUES (&#x27;AsyncCommitting&#x27;, &#x27; &#x27;, 0);</span><br><span class="line">INSERT INTO `distributed_lock` (lock_key, lock_value, expire) VALUES (&#x27;RetryCommitting&#x27;, &#x27; &#x27;, 0);</span><br><span class="line">INSERT INTO `distributed_lock` (lock_key, lock_value, expire) VALUES (&#x27;RetryRollbacking&#x27;, &#x27; &#x27;, 0);</span><br><span class="line">INSERT INTO `distributed_lock` (lock_key, lock_value, expire) VALUES (&#x27;TxTimeoutCheck&#x27;, &#x27; &#x27;, 0);</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="3-Start-seata-server"><a href="#3-Start-seata-server" class="headerlink" title="3. Start seata server"></a>3. Start seata server</h3><p>run <code>seata-server.bat</code></p>
 </div>
         </div>
@@ -401,7 +395,7 @@ Procedure1. Do...`;
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -409,7 +403,7 @@ Procedure1. Do...`;
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -417,7 +411,7 @@ Procedure1. Do...`;
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -438,13 +432,18 @@ Procedure1. Do...`;
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -455,6 +454,12 @@ Procedure1. Do...`;
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -481,11 +486,7 @@ Procedure1. Do...`;
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -594,7 +595,7 @@ Procedure1. Do...`;
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

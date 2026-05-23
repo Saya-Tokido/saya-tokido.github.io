@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~4.20K
+                            ~4.18K
                         
                         字
                     </li>
@@ -243,7 +243,6 @@
             
             <hr />
             <div itemprop="articleBody"><h2 id="配置文件介绍"><a href="#配置文件介绍" class="headerlink" title="配置文件介绍"></a>配置文件介绍</h2><h3 id="大致格式介绍"><a href="#大致格式介绍" class="headerlink" title="大致格式介绍"></a>大致格式介绍</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">...              #全局块</span><br><span class="line"></span><br><span class="line">events &#123;         #events块</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http      #http块</span><br><span class="line">&#123;</span><br><span class="line">    ...   #http全局块</span><br><span class="line">    server        #server块</span><br><span class="line">    &#123; </span><br><span class="line">        ...       #server全局块</span><br><span class="line">        location [PATTERN]   #location块</span><br><span class="line">        &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">        location [PATTERN] </span><br><span class="line">        &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    server</span><br><span class="line">    &#123;</span><br><span class="line">      ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...     #http全局块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>1、<strong>全局块</strong>：配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。</li>
 <li>2、<strong>events块</strong>：配置影响nginx服务器或与用户的网络连接。有每个进程的最大连接数，选取哪种事件驱动模型处理连接请求，是否允许同时接受多个网路连接，开启多个网络连接序列化等。</li>
@@ -252,13 +251,7 @@
 <li>5、<strong>location块</strong>：配置请求的路由，以及各种页面的处理情况。</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">全局块</span></span><br><span class="line"> user www-data;</span><br><span class="line"> worker_processes  2;  ## 默认1，一般建议设成CPU核数1-2倍</span><br><span class="line"> error_log  logs/error.log; ## 错误日志路径</span><br><span class="line"> pid  logs/nginx.pid; ## 进程id</span><br><span class="line"><span class="meta prompt_"> </span></span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">Events块</span></span><br><span class="line"> events &#123;</span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">使用epoll的I/O 模型处理轮询事件。</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">可以不设置，nginx会根据操作系统选择合适的模型</span></span><br><span class="line">   use epoll;</span><br><span class="line">   </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">工作进程的最大连接数量, 默认1024个</span></span><br><span class="line">   worker_connections  2048;</span><br><span class="line">   </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">http层面的keep-alive超时时间</span></span><br><span class="line">   keepalive_timeout 60;</span><br><span class="line">   </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">客户端请求头部的缓冲区大小</span></span><br><span class="line">   client_header_buffer_size 2k;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="meta prompt_"> </span></span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">http块</span></span><br><span class="line"> http &#123; </span><br><span class="line"> </span><br><span class="line">   include mime.types;  # 导入文件扩展名与文件类型映射表</span><br><span class="line">   default_type application/octet-stream;  # 默认文件类型</span><br><span class="line">   </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">日志格式及access日志路径</span></span><br><span class="line">   log_format   main &#x27;$remote_addr - $remote_user [$time_local]  $status &#x27;</span><br><span class="line">     &#x27;&quot;$request&quot; $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">     &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line">   access_log   logs/access.log  main;</span><br><span class="line">   </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">允许sendfile方式传输文件，默认为off。</span></span><br><span class="line">   sendfile     on;</span><br><span class="line">   tcp_nopush   on; # sendfile开启时才开启。</span><br><span class="line"> </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">http server块</span></span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">简单反向代理</span></span><br><span class="line">   server &#123;</span><br><span class="line">     listen       80;</span><br><span class="line">     server_name  domain2.com www.domain2.com;</span><br><span class="line">     access_log   logs/domain2.access.log  main;</span><br><span class="line">    </span><br><span class="line">     # 转发动态请求到web应用服务器</span><br><span class="line">     location / &#123;</span><br><span class="line">       proxy_pass      http://127.0.0.1:8000;</span><br><span class="line">       deny 192.24.40.8;  # 拒绝的ip</span><br><span class="line">       allow 192.24.40.6; # 允许的ip   </span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     # 错误页面</span><br><span class="line">     error_page   500 502 503 504  /50x.html;</span><br><span class="line">         location = /50x.html &#123;</span><br><span class="line">             root   html;</span><br><span class="line">         &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta prompt_">   # </span><span class="language-bash">负载均衡</span></span><br><span class="line">   upstream backend_server &#123;</span><br><span class="line">     server 192.168.0.1:8000 weight=5; # weight越高，权重越大</span><br><span class="line">     server 192.168.0.2:8000 weight=1;</span><br><span class="line">     server 192.168.0.3:8000;</span><br><span class="line">     server 192.168.0.4:8001 backup; # 热备</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   server &#123;</span><br><span class="line">     listen          80;</span><br><span class="line">     server_name     big.server.com;</span><br><span class="line">     access_log      logs/big.server.access.log main;</span><br><span class="line">     </span><br><span class="line">     charset utf-8;</span><br><span class="line">     client_max_body_size 10M; # 限制用户上传文件大小，默认1M</span><br><span class="line"> </span><br><span class="line">     location / &#123;</span><br><span class="line">       # 使用proxy_pass转发请求到通过upstream定义的一组应用服务器</span><br><span class="line">       proxy_pass      http://backend_server;</span><br><span class="line">       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">       proxy_set_header Host $http_host;</span><br><span class="line">       proxy_redirect off;</span><br><span class="line">       proxy_set_header X-Real-IP  $remote_addr;</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h3 id="处理转发请求"><a href="#处理转发请求" class="headerlink" title="处理转发请求"></a>处理转发请求</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  10.16.40.100;</span><br><span class="line"></span><br><span class="line">    location /nacos &#123;</span><br><span class="line">        proxy_pass http://nacos-cluster;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><code>http</code>块下</p>
 <ul>
 <li><code>listen</code> 监听的端口号，</li>
@@ -267,34 +260,24 @@
 <li><code>proxy_pass</code> 跳转的服务url</li>
 </ul>
 <h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream nacos-cluster &#123;</span><br><span class="line">        server 10.16.40.100:8803;</span><br><span class="line">        server 10.16.40.100:8825;</span><br><span class="line">        server 10.16.40.100:8847;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><code>http</code>块下与<code>server</code>同级</p>
-<h3 id="基于TCP-UDP的服务"><a href="#基于TCP-UDP的服务" class="headerlink" title="基于TCP&#x2F;UDP的服务"></a>基于TCP&#x2F;UDP的服务</h3><p>使用<code>--with-stream</code>编译niginx，才能使用stream模块</p>
+<h3 id="基于TCP-UDP的服务"><a href="#基于TCP-UDP的服务" class="headerlink" title="基于TCP/UDP的服务"></a>基于TCP/UDP的服务</h3><p>使用<code>--with-stream</code>编译niginx，才能使用stream模块</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">stream &#123;</span><br><span class="line">    upstream nacoscluster-grpc &#123;</span><br><span class="line">        server 10.16.40.100:9803 weight=1;</span><br><span class="line">        server 10.16.40.100:9825 weight=1;</span><br><span class="line">        server 10.16.40.100:9847 weight=1;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 1080;</span><br><span class="line">        proxy_pass nacoscluster-grpc;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>监听1080端口的请求，转发到负载均衡下的指定服务器</p>
 <h3 id="重新加载配置文件"><a href="#重新加载配置文件" class="headerlink" title="重新加载配置文件"></a>重新加载配置文件</h3><p>检查nginx配置文件的语法</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br></pre></td></tr></table></figure>
-
 <p>重新加载nginx</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
-
 <p>这会向Nginx主进程发送一个信号，指示它重新加载配置文件。Nginx将会重新加载配置，而不会停止已有的连接。</p>
 <h2 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx</span><br></pre></td></tr></table></figure>
-
 <p><code>nginx</code>启动时加载指定配置文件可以通过<code>-c</code></p>
 <p>起始目录为nginx文件目录内，而不是当前目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -c config/nginx.conf</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="退出nginx"><a href="#退出nginx" class="headerlink" title="退出nginx"></a>退出nginx</h2><p>优雅退出</p>
 <p>这种退出方式会等待当前连接处理完毕后再退出，确保不会中断正在处理的请求</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s quit</span><br></pre></td></tr></table></figure>
-
 <p>强制退出</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s stop</span><br></pre></td></tr></table></figure>
-
 </div>
         </div>
         
@@ -435,7 +418,7 @@
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -443,7 +426,7 @@
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -451,7 +434,7 @@
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -472,13 +455,18 @@
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -489,6 +477,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -515,11 +509,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -628,7 +618,7 @@
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

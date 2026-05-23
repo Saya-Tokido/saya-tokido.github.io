@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~3.70K
+                            ~3.66K
                         
                         字
                     </li>
@@ -250,70 +250,35 @@
 <p>但是我们发现分配后的磁盘空间不能直接利用，还需要为磁盘分区或扩容</p>
 <h2 id="查看磁盘分区结构"><a href="#查看磁盘分区结构" class="headerlink" title="查看磁盘分区结构"></a>查看磁盘分区结构</h2><p>使用<code>lsblk</code>可查看</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  128G  0 disk</span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">└─sda2            8:2    0  19G  0 part</span><br><span class="line">  ├─centos-root 253:0    0   17G  0 lvm  /</span><br><span class="line">  └─centos-swap 253:1    0    2G  0 lvm  [SWAP]</span><br><span class="line">sr0              11:0    1 1024M  0 rom</span><br></pre></td></tr></table></figure>
-
 <p>其中<code>sda1</code>和<code>sda2</code>之和远小于分配后的sda容量，究其原因是有一部分空间未分配</p>
 <h2 id="扩大分区空间"><a href="#扩大分区空间" class="headerlink" title="扩大分区空间"></a>扩大分区空间</h2><h3 id="查看分区资源具体数值"><a href="#查看分区资源具体数值" class="headerlink" title="查看分区资源具体数值"></a>查看分区资源具体数值</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
-
 <p>使用以上命令可以查看各分区资源具体数值</p>
 <h3 id="进入分区调整界面"><a href="#进入分区调整界面" class="headerlink" title="进入分区调整界面"></a>进入分区调整界面</h3><p>接下来调整分区大小,，进入分区调整界面</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sda</span><br></pre></td></tr></table></figure>
-
-
-
 <p>以下为分区调整的页面</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Command action</span><br><span class="line">   a   toggle a bootable flag</span><br><span class="line">   b   edit bsd disklabel</span><br><span class="line">   c   toggle the dos compatibility flag</span><br><span class="line">   d   delete a partition</span><br><span class="line">   g   create a new empty GPT partition table</span><br><span class="line">   G   create an IRIX (SGI) partition table</span><br><span class="line">   l   list known partition types</span><br><span class="line">   m   print this menu</span><br><span class="line">   n   add a new partition</span><br><span class="line">   o   create a new empty DOS partition table</span><br><span class="line">   p   print the partition table</span><br><span class="line">   q   quit without saving changes</span><br><span class="line">   s   create a new empty Sun disklabel</span><br><span class="line">   t   change a partition&#x27;s system id</span><br><span class="line">   u   change display/entry units</span><br><span class="line">   v   verify the partition table</span><br><span class="line">   w   write table to disk and exit</span><br><span class="line">   x   extra functionality (experts only)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h3 id="删除分区"><a href="#删除分区" class="headerlink" title="删除分区"></a>删除分区</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-
-
-
 <p><code>d</code>代表删除分区，<code>2</code>代表<code>sda2</code>分区</p>
 <h3 id="创建分区"><a href="#创建分区" class="headerlink" title="创建分区"></a>创建分区</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">n</span><br><span class="line">p</span><br><span class="line">2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
 <p><code>n</code>代表创建分区,<code>p</code>代表主分区，<code>2</code>代表<code>sda2</code>，后面扇区起始值、删除值自定，<strong>理论上包括原来的删除的区域数据就不会丢</strong>，默认为最小和最大值</p>
 <h3 id="设置分区类型"><a href="#设置分区类型" class="headerlink" title="设置分区类型"></a>设置分区类型</h3><p>采用LVM模式 8e</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t</span><br><span class="line">8e</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="保存并退出"><a href="#保存并退出" class="headerlink" title="保存并退出"></a>保存并退出</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e</span><br></pre></td></tr></table></figure>
-
-
-
 <p>因为使用的是虚拟机，保存并退出后要重启虚拟机</p>
 <h2 id="调整物理卷大小"><a href="#调整物理卷大小" class="headerlink" title="调整物理卷大小"></a>调整物理卷大小</h2><h3 id="验证分区大小是否调整"><a href="#验证分区大小是否调整" class="headerlink" title="验证分区大小是否调整"></a>验证分区大小是否调整</h3><p>此时执行<code>lsblk</code>就会发现sda2空间增长了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  128G  0 disk</span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">└─sda2            8:2    0  127G  0 part</span><br><span class="line">  ├─centos-root 253:0    0   17G  0 lvm  /</span><br><span class="line">  └─centos-swap 253:1    0    2G  0 lvm  [SWAP]</span><br><span class="line">sr0              11:0    1 1024M  0 rom</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h3 id="调整物理卷大小-1"><a href="#调整物理卷大小-1" class="headerlink" title="调整物理卷大小"></a>调整物理卷大小</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pvresize /dev/sda2</span><br></pre></td></tr></table></figure>
-
-
-
 <p>现在可以sda2物理卷可以利用上分区新分配的空间了</p>
 <p>关于卷组、物理卷、逻辑卷的描述可以看最后的<a href="#jump">讲解</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vgdisplay</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>vgdisplay</code>查看卷组</li>
 <li><code>pvdisplay</code>查看物理卷</li>
 <li><code>lvdisplay</code>查看逻辑卷</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">--- Volume group ---</span><br><span class="line">VG Name               centos</span><br><span class="line">System ID</span><br><span class="line">Format                lvm2</span><br><span class="line">Metadata Areas        1</span><br><span class="line">Metadata Sequence No  5</span><br><span class="line">VG Access             read/write</span><br><span class="line">VG Status             resizable</span><br><span class="line">MAX LV                0</span><br><span class="line">Cur LV                2</span><br><span class="line">Open LV               2</span><br><span class="line">Max PV                0</span><br><span class="line">Cur PV                1</span><br><span class="line">Act PV                1</span><br><span class="line">VG Size               &lt;127.00 GiB</span><br><span class="line">PE Size               4.00 MiB</span><br><span class="line">Total PE              32511</span><br><span class="line">Alloc PE / Size       4863 / &lt;19.00 GiB</span><br><span class="line">Free  PE / Size       27648 / 108.00 GiB</span><br><span class="line">VG UUID               9iG8kp-S0a5-sVhl-XB6P-CRIu-Wu4A-pProWn</span><br></pre></td></tr></table></figure>
-
-
-
 <p>可以看到重新分配的物理卷后，卷组总大小扩大到127G了</p>
 <h3 id="扩充逻辑卷"><a href="#扩充逻辑卷" class="headerlink" title="扩充逻辑卷"></a>扩充逻辑卷</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lvextend -l +100%FREE /dev/mapper/centos-root</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>lvextend</code>扩充逻辑卷命令</li>
 <li><code>-l +100%FREE</code> 按比例扩充</li>
@@ -322,32 +287,20 @@
 </ul>
 <p>输出</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Size of logical volume centos/root changed from &lt;17.00 GiB (4351 extents) to &lt;125.00 GiB (31999 extents).</span><br><span class="line">Logical volume centos/root successfully resized.</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h3 id="调整文件系统大小"><a href="#调整文件系统大小" class="headerlink" title="调整文件系统大小"></a>调整文件系统大小</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xfs_growfs /dev/mapper/centos-root</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>如果使用的时<code>XFS</code>文件系统，要使用<code>xfs_growfs</code></li>
 <li><code>/dev/mapper/centos-root</code>挂载的逻辑卷名</li>
 </ul>
 <h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>显示文件系统磁盘利用率的命令</li>
 <li><code>-h</code>为以人类可读的形式输出</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Filesystem               Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs                 3.8G     0  3.8G   0% /dev</span><br><span class="line">tmpfs                    3.9G     0  3.9G   0% /dev/shm</span><br><span class="line">tmpfs                    3.9G   12M  3.8G   1% /run</span><br><span class="line">tmpfs                    3.9G     0  3.9G   0% /sys/fs/cgroup</span><br><span class="line">/dev/mapper/centos-root  125G   17G  109G  14% /</span><br><span class="line">/dev/sda1               1014M  278M  737M  28% /boot</span><br><span class="line">tmpfs                    781M     0  781M   0% /run/user/0</span><br></pre></td></tr></table></figure>
-
-
-
 <p>可以看到文件系统根目录的空间扩充了</p>
-<span id="jump">
-
-<h2 id="卷组、物理卷、逻辑卷讲解"><a href="#卷组、物理卷、逻辑卷讲解" class="headerlink" title="卷组、物理卷、逻辑卷讲解"></a>卷组、物理卷、逻辑卷讲解</h2></span>
-
+<p><span id="jump"></p>
+<h2 id="卷组、物理卷、逻辑卷讲解"><a href="#卷组、物理卷、逻辑卷讲解" class="headerlink" title="卷组、物理卷、逻辑卷讲解"></a>卷组、物理卷、逻辑卷讲解</h2><p>&lt;/span&gt;</p>
 <p><code>LVM</code>（<code>Logical Volume Manager</code>）中的三个重要概念</p>
 <ul>
 <li>物理卷(<code>Physical Volume</code>)：<code>LVM</code>的基本构建单元，通常对应物理磁盘或分区</li>
@@ -501,7 +454,7 @@
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -509,7 +462,7 @@
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -517,7 +470,7 @@
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -538,13 +491,18 @@
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -555,6 +513,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -581,11 +545,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -694,7 +654,7 @@
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

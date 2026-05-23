@@ -17,12 +17,12 @@
   
     <meta name="keywords" content="Tutorial" />
   
-  <meta name="description" content="Pull RabbitMQ1docker pull rabbitmq      Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER&#x3D;root \ -e RABBITMQ_DEFAULT_PASS&#x3D;root \ --name mq \ --hostname mq1 \ -p 15672:15672 \ -p 5672:5672 \ -">
+  <meta name="description" content="Pull RabbitMQ1docker pull rabbitmq Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER&#x3D;root \ -e RABBITMQ_DEFAULT_PASS&#x3D;root \ --name mq \ --hostname mq1 \ -p 15672:15672 \ -p 5672:5672 \ -d \ r">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RabbitMQ deployment">
 <meta property="og:url" content="https://pure-master.github.io/2024/04/27/RabbitMQ-deployment/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="Pull RabbitMQ1docker pull rabbitmq      Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER&#x3D;root \ -e RABBITMQ_DEFAULT_PASS&#x3D;root \ --name mq \ --hostname mq1 \ -p 15672:15672 \ -p 5672:5672 \ -">
+<meta property="og:description" content="Pull RabbitMQ1docker pull rabbitmq Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER&#x3D;root \ -e RABBITMQ_DEFAULT_PASS&#x3D;root \ --name mq \ --hostname mq1 \ -p 15672:15672 \ -p 5672:5672 \ -d \ r">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
 <meta property="article:published_time" content="2024-04-27T13:42:23.000Z">
@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.97K
+                            ~1.95K
                         
                         字
                     </li>
@@ -243,13 +243,7 @@
             
             <hr />
             <div itemprop="articleBody"><h2 id="Pull-RabbitMQ"><a href="#Pull-RabbitMQ" class="headerlink" title="Pull RabbitMQ"></a>Pull RabbitMQ</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull rabbitmq</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h2 id="Run-RabbitMQ"><a href="#Run-RabbitMQ" class="headerlink" title="Run RabbitMQ"></a>Run RabbitMQ</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line"> -e RABBITMQ_DEFAULT_USER=root \</span><br><span class="line"> -e RABBITMQ_DEFAULT_PASS=root \</span><br><span class="line"> --name mq \</span><br><span class="line"> --hostname mq1 \</span><br><span class="line"> -p 15672:15672 \</span><br><span class="line"> -p 5672:5672 \</span><br><span class="line"> -d \</span><br><span class="line"> rabbitmq:latest</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>port 15672 is the management interface </p>
 </li>
@@ -260,18 +254,9 @@
 <p>we may find the 15672 port can be accessed</p>
 <p>Enter the container</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it /bin/bash</span><br><span class="line">rabbitmq-plugins enable rabbitmq_management </span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h2 id="Modify-the-RabbitMQ-config"><a href="#Modify-the-RabbitMQ-config" class="headerlink" title="Modify the RabbitMQ config"></a>Modify the RabbitMQ config</h2><p>if you find you can’t get information of exchange and queue in the  management interface</p>
 <p>with the error that <img src="/images/RabbitMQ-deployment-1.png" alt="Management API returned status code 500"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it [containerId] /bin/bash</span><br><span class="line">cd /etc/rabbitmq/conf.d/</span><br><span class="line">echo management_agent.disable_metrics_collector = false &gt; management_agent.disable_metrics_collector.conf</span><br><span class="line">exit</span><br><span class="line">docker restart [containerId] </span><br></pre></td></tr></table></figure>
-
-
-
-
 <p>Setting <code>management_agent.disable_metrics_collector</code> to <code>false</code> will enable the management agent’s metrics collector in RabbitMQ.</p>
 <p>By default, the RabbitMQ management plugin periodically collects and records system performance metrics such as queue lengths, connection counts, message publishing rates, etc. These metrics are valuable for monitoring and tuning RabbitMQ instances. Setting <code>management_agent.disable_metrics_collector</code> to <code>false</code> enables this metrics collector, allowing RabbitMQ to start collecting and recording these performance metrics.</p>
 <p>If this configuration item is set to <code>true</code>, i.e., <code>management_agent.disable_metrics_collector = true</code>, it will disable the metrics collector, and RabbitMQ will no longer collect and record these performance metrics. This may result in monitoring systems being unable to obtain information about RabbitMQ instance performance, making monitoring and tuning difficult.</p>
@@ -344,12 +329,7 @@
             const hostUrl       = "https://pure-master.github.io/2024/04/27/RabbitMQ-deployment/";
             const title         = "「RabbitMQ deployment」";
             const excerpt       = `Pull RabbitMQ1docker pull rabbitmq
-
-
-
-
-
-Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER=root \ -e RABBITMQ...`;
+Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER=root \ -e RABBITMQ_DEFA...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -422,7 +402,7 @@ Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER=root \ -e RABBITMQ...
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -430,7 +410,7 @@ Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER=root \ -e RABBITMQ...
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -438,7 +418,7 @@ Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER=root \ -e RABBITMQ...
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -459,13 +439,18 @@ Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER=root \ -e RABBITMQ...
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -476,6 +461,12 @@ Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER=root \ -e RABBITMQ...
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -502,11 +493,7 @@ Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER=root \ -e RABBITMQ...
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -615,7 +602,7 @@ Run RabbitMQ123456789docker run \ -e RABBITMQ_DEFAULT_USER=root \ -e RABBITMQ...
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

@@ -17,12 +17,12 @@
   
     <meta name="keywords" content="Algorithm, LeetCode" />
   
-  <meta name="description" content="DescriptionGiven the head of a linked list, return the list after sorting it in ascending order. Example 1:  12Input: head &#x3D; [4,2,1,3]Output: [1,2,3,4]  Example 2:  12Input: head &#x3D; [-1,5,3,4,0]Output:">
+  <meta name="description" content="DescriptionGiven the head of a linked list, return the list after sorting it in ascending order. Example 1:  12Input: head &#x3D; [4,2,1,3]Output: [1,2,3,4] Example 2:  12Input: head &#x3D; [-1,5,3,4,0]Output:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sort List">
 <meta property="og:url" content="https://pure-master.github.io/2024/04/20/Sort-List/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="DescriptionGiven the head of a linked list, return the list after sorting it in ascending order. Example 1:  12Input: head &#x3D; [4,2,1,3]Output: [1,2,3,4]  Example 2:  12Input: head &#x3D; [-1,5,3,4,0]Output:">
+<meta property="og:description" content="DescriptionGiven the head of a linked list, return the list after sorting it in ascending order. Example 1:  12Input: head &#x3D; [4,2,1,3]Output: [1,2,3,4] Example 2:  12Input: head &#x3D; [-1,5,3,4,0]Output:">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
 <meta property="article:published_time" content="2024-04-20T08:56:18.000Z">
@@ -221,7 +221,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.66K
+                            ~2.65K
                         
                         字
                     </li>
@@ -247,20 +247,17 @@
 <p><strong>Example 1:</strong></p>
 <p><img src="/images/Sort-List-2.jpg" alt="Example 1"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: head = [4,2,1,3]</span><br><span class="line">Output: [1,2,3,4]</span><br></pre></td></tr></table></figure>
-
 <p><strong>Example 2:</strong></p>
 <p><img src="/images/Sort-List-1.jpg" alt="Example 2"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: head = [-1,5,3,4,0]</span><br><span class="line">Output: [-1,0,3,4,5]</span><br></pre></td></tr></table></figure>
-
 <p><strong>Example 3:</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: head = []</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
-
 <p><strong>Constraints:</strong></p>
 <ul>
 <li>The number of nodes in the list is in the range <code>[0, 5 * 104]</code>.</li>
 <li><code>-105 &lt;= Node.val &lt;= 105</code></li>
 </ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p><code>O(nlogn)</code>时间复杂度 <code> O(1)</code>空间复杂度<strong>归并排序</strong></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p><code>O(nlogn)</code>时间复杂度 <code>O(1)</code>空间复杂度<strong>归并排序</strong></p>
 <p>首先判断需要排序的链表是否为空</p>
 <p>求出链表的长度传入排序函数</p>
 <p>归并排序函数由核心三部分组成</p>
@@ -280,13 +277,6 @@
 <li>返回合并后的链表</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ListNode</span> &#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    ListNode* next;</span><br><span class="line">    <span class="built_in">ListNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    <span class="built_in">ListNode</span>(<span class="type">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    <span class="built_in">ListNode</span>(<span class="type">int</span> x, ListNode* next) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(next) &#123;&#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">sortList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">nullptr</span> == head) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        ListNode* node = head;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">nullptr</span> != node) &#123;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">fun</span>(head,count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">fun</span><span class="params">(ListNode* head, <span class="type">int</span> count)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">1</span> == count) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = count &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        ListNode* part1=head;</span><br><span class="line">        ListNode* part2=head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; mid; i++) &#123;</span><br><span class="line">            part2 = part2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* temp = part2;</span><br><span class="line">        part2 = part2-&gt;next;</span><br><span class="line">        temp-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        part1=<span class="built_in">fun</span>(part1, mid);</span><br><span class="line">        part2=<span class="built_in">fun</span>(part2, count - mid);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">merge</span>(part1, part2);</span><br><span class="line">         </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">merge</span><span class="params">(ListNode* part1, ListNode* part2)</span> </span>&#123;</span><br><span class="line">        ListNode *head=<span class="keyword">new</span> <span class="built_in">ListNode</span>();</span><br><span class="line">        ListNode* temp = head;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">nullptr</span> != part1 &amp;&amp; <span class="literal">nullptr</span> != part2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (part1-&gt;val &gt; part2-&gt;val) &#123;</span><br><span class="line">                temp-&gt;next = part2;</span><br><span class="line">                part2 = part2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                temp-&gt;next = part1;</span><br><span class="line">                part1 = part1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            temp = temp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp-&gt;next = <span class="literal">nullptr</span> == part1 ? part2 : part1;</span><br><span class="line">        <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 </div>
         </div>
         
@@ -430,7 +420,7 @@ Example 1:
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -438,7 +428,7 @@ Example 1:
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -446,7 +436,7 @@ Example 1:
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -467,13 +457,18 @@ Example 1:
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -484,6 +479,12 @@ Example 1:
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -510,11 +511,7 @@ Example 1:
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -623,7 +620,7 @@ Example 1:
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1092
+                            1087
                         
                         字
                     </li>
@@ -248,23 +248,18 @@
 <p>以下是一些常用的 <code>mysqldump</code> 命令示例：</p>
 <p><strong>备份整个数据库：</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u username -p database_name &gt; backup_file.sql</span><br></pre></td></tr></table></figure>
-
 <p>这将备份名为 <code>database_name</code> 的整个数据库，并将备份内容输出到 <code>backup_file.sql</code> 文件中（不指定文件名，会直接输出在控制台）。在执行命令时，系统会提示输入密码。</p>
 <p><strong>备份指定表：</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u username -p database_name table1 table2 &gt; backup_file.sql</span><br></pre></td></tr></table></figure>
-
 <p>这将备份名为 <code>database_name</code> 的数据库中的 <code>table1</code> 和 <code>table2</code> 表，并将备份内容输出到 <code>backup_file.sql</code> 文件中。</p>
 <p><strong>备份数据库结构而不包括数据：</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u username -p --no-data database_name &gt; backup_file.sql</span><br></pre></td></tr></table></figure>
-
 <p>这将备份名为 <code>database_name</code> 的数据库的表结构，但不包括数据，并将备份内容输出到 <code>backup_file.sql</code> 文件中。</p>
 <p><strong>备份数据库并使用压缩：</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u username -p database_name | gzip &gt; backup_file.sql.gz</span><br></pre></td></tr></table></figure>
-
 <p>这将备份名为 <code>database_name</code> 的整个数据库，并使用 gzip 压缩，最终将备份内容输出到 <code>backup_file.sql.gz</code> 文件中。</p>
 <p><strong>从备份文件中还原数据库：</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u username -p database_name &lt; backup_file.sql</span><br></pre></td></tr></table></figure>
-
 <p>这将从名为 <code>backup_file.sql</code> 的备份文件中还原数据库到名为 <code>database_name</code> 的数据库中。在执行命令时，系统会提示输入密码。</p>
 <p>请注意，这些命令中的 <code>username</code> 是用于连接到 MySQL 数据库的用户名，<code>database_name</code> 是要备份或还原的数据库名，<code>backup_file.sql</code> 是备份文件的名称。在实际使用时，请替换为你自己的数据库和文件名。</p>
 </div>
@@ -409,7 +404,7 @@ approachmysqldumpmysqldump 是 MySQL 提供的用于备份数据库的命令行�
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -417,7 +412,7 @@ approachmysqldumpmysqldump 是 MySQL 提供的用于备份数据库的命令行�
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -425,7 +420,7 @@ approachmysqldumpmysqldump 是 MySQL 提供的用于备份数据库的命令行�
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -446,13 +441,18 @@ approachmysqldumpmysqldump 是 MySQL 提供的用于备份数据库的命令行�
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -463,6 +463,12 @@ approachmysqldumpmysqldump 是 MySQL 提供的用于备份数据库的命令行�
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -489,11 +495,7 @@ approachmysqldumpmysqldump 是 MySQL 提供的用于备份数据库的命令行�
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -602,7 +604,7 @@ approachmysqldumpmysqldump 是 MySQL 提供的用于备份数据库的命令行�
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

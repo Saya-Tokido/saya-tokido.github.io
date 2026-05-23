@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.74K
+                            ~1.73K
                         
                         字
                     </li>
@@ -247,23 +247,17 @@
 <p>a controller still appear in my project directory</p>
 <h2 id="Find-out"><a href="#Find-out" class="headerlink" title="Find out"></a>Find out</h2><p>I trace the source code</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FastAutoGenerator execute() --&gt; ((AbstractTemplateEngine)templateEngine).init(this.config).batchOutput().open();</span><br><span class="line">batchOutput() --&gt;</span><br><span class="line">outputController()</span><br></pre></td></tr></table></figure>
-
 <p><img src="/images/image-20240601131213492.png" alt="image-2"></p>
 <p>now I found the key</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (controller.isGenerate() || StringUtils.isNotBlank(tableInfo.getControllerName()) &amp;&amp; StringUtils.isNotBlank(controllerPath))</span><br></pre></td></tr></table></figure>
-
-
-
 <p>even if the flag of controller generate is false, the controller’s<code>OutputFile path</code> is not blank,it still execute the generation statements</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>So how to make controller’s <code>OutputFile path</code> null</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.pathInfo.putAll((<span class="keyword">new</span> <span class="title class_">PathInfoHandler</span>(<span class="built_in">this</span>.globalConfig, <span class="built_in">this</span>.templateConfig, <span class="built_in">this</span>.packageConfig)).getPathInfo());</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
-
 <p>the pathInfo is a map,controller is key, and value is path</p>
 <p>So the solution is to set packageConfig</p>
 <p>In you code generator config class</p>
 <p>set the path to controller file blank string</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.packageConfig(builder -&gt; builder</span><br><span class="line">        .parent(<span class="string">&quot;com.ljz.mybatis&quot;</span>)</span><br><span class="line">        .entity(<span class="string">&quot;po&quot;</span>)</span><br><span class="line">        .service(<span class="string">&quot;service&quot;</span>)</span><br><span class="line">        .serviceImpl(<span class="string">&quot;service.impl&quot;</span>)</span><br><span class="line">        .mapper(<span class="string">&quot;mapper&quot;</span>)</span><br><span class="line">        .xml(<span class="string">&quot;mapper&quot;</span>)</span><br><span class="line">        .pathInfo(Map.of(</span><br><span class="line">                        OutputFile.xml, finalProjectPath + <span class="string">&quot;/src/main/resources/mapper&quot;</span>,</span><br><span class="line">                        OutputFile.controller, <span class="string">&quot;&quot;</span></span><br><span class="line">                )</span><br><span class="line">        )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <p>Now boot your code generator class</p>
 <p>controller directory don’t appear anymore.</p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Let’s make a summary!</p>
@@ -411,7 +405,7 @@ a controller stil...`;
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -419,7 +413,7 @@ a controller stil...`;
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -427,7 +421,7 @@ a controller stil...`;
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -448,13 +442,18 @@ a controller stil...`;
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -465,6 +464,12 @@ a controller stil...`;
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -491,11 +496,7 @@ a controller stil...`;
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -604,7 +605,7 @@ a controller stil...`;
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

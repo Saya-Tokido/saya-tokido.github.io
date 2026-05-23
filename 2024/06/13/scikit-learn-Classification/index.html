@@ -221,7 +221,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~8.69K
+                            ~8.64K
                         
                         字
                     </li>
@@ -244,65 +244,28 @@
             
             <hr />
             <div itemprop="articleBody"><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h3 id="新建模型名列表"><a href="#新建模型名列表" class="headerlink" title="新建模型名列表"></a>新建模型名列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">names = [</span><br><span class="line">    <span class="string">&quot;Nearest Neighbors&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Linear SVM&quot;</span>,</span><br><span class="line">    <span class="string">&quot;RBF SVM&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Gaussian Process&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Decision Tree&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Random Forest&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Neural Net&quot;</span>,</span><br><span class="line">    <span class="string">&quot;AdaBoost&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Naive Bayes&quot;</span>,</span><br><span class="line">    <span class="string">&quot;QDA&quot;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
 <p>作为模型的标题，以便后面展示</p>
 <h3 id="设置分类模型"><a href="#设置分类模型" class="headerlink" title="设置分类模型"></a>设置分类模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">classifiers = [</span><br><span class="line">    KNeighborsClassifier(<span class="number">3</span>),</span><br><span class="line">    SVC(kernel=<span class="string">&quot;linear&quot;</span>, C=<span class="number">0.025</span>, random_state=<span class="number">42</span>),</span><br><span class="line">    SVC(gamma=<span class="number">2</span>, C=<span class="number">1</span>, random_state=<span class="number">42</span>),</span><br><span class="line">    GaussianProcessClassifier(<span class="number">1.0</span> * RBF(<span class="number">1.0</span>), random_state=<span class="number">42</span>),</span><br><span class="line">    DecisionTreeClassifier(max_depth=<span class="number">5</span>, random_state=<span class="number">42</span>),</span><br><span class="line">    RandomForestClassifier(</span><br><span class="line">        max_depth=<span class="number">5</span>, n_estimators=<span class="number">10</span>, max_features=<span class="number">1</span>, random_state=<span class="number">42</span></span><br><span class="line">    ),</span><br><span class="line">    MLPClassifier(alpha=<span class="number">1</span>, max_iter=<span class="number">1000</span>, random_state=<span class="number">42</span>),</span><br><span class="line">    AdaBoostClassifier(algorithm=<span class="string">&quot;SAMME&quot;</span>, random_state=<span class="number">42</span>),</span><br><span class="line">    GaussianNB(),</span><br><span class="line">    QuadraticDiscriminantAnalysis(),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="生成数据集"><a href="#生成数据集" class="headerlink" title="生成数据集"></a>生成数据集</h3><p>首先线性分割数据集单独生成</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X, y = make_classification(</span><br><span class="line">    n_features=<span class="number">2</span>, n_redundant=<span class="number">0</span>, n_informative=<span class="number">2</span>, random_state=<span class="number">1</span>, n_clusters_per_class=<span class="number">1</span></span><br><span class="line">)</span><br><span class="line">rng = np.random.RandomState(<span class="number">2</span>)</span><br><span class="line">X += <span class="number">2</span> * rng.uniform(size=X.shape)</span><br><span class="line">linearly_separable = (X, y)</span><br></pre></td></tr></table></figure>
-
 <p>生成数据集，分别为月亮形、圆形、线性分割</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">datasets = [</span><br><span class="line">    make_moons(noise=<span class="number">0.3</span>, random_state=<span class="number">0</span>),</span><br><span class="line">    make_circles(noise=<span class="number">0.2</span>, factor=<span class="number">0.5</span>, random_state=<span class="number">1</span>),</span><br><span class="line">    linearly_separable,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="绘制图像框架"><a href="#绘制图像框架" class="headerlink" title="绘制图像框架"></a>绘制图像框架</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">figure = plt.figure(figsize=(<span class="number">27</span>, <span class="number">9</span>))</span><br></pre></td></tr></table></figure>
-
 <p>2700*900 px</p>
 <h3 id="遍历数据集"><a href="#遍历数据集" class="headerlink" title="遍历数据集"></a>遍历数据集</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ds_cnt, ds <span class="keyword">in</span> <span class="built_in">enumerate</span>(datasets):</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="划分训练集和测试集"><a href="#划分训练集和测试集" class="headerlink" title="划分训练集和测试集"></a>划分训练集和测试集</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">X, y = ds</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">    X, y, test_size=<span class="number">0.4</span>, random_state=<span class="number">42</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="设置图像显示边界"><a href="#设置图像显示边界" class="headerlink" title="设置图像显示边界"></a>设置图像显示边界</h3><p>需要与边界空出间隙</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x_min, x_max = X[:, <span class="number">0</span>].<span class="built_in">min</span>() - <span class="number">0.5</span>, X[:, <span class="number">0</span>].<span class="built_in">max</span>() + <span class="number">0.5</span></span><br><span class="line">y_min, y_max = X[:, <span class="number">1</span>].<span class="built_in">min</span>() - <span class="number">0.5</span>, X[:, <span class="number">1</span>].<span class="built_in">max</span>() + <span class="number">0.5</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="设置分界颜色"><a href="#设置分界颜色" class="headerlink" title="设置分界颜色"></a>设置分界颜色</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cm = plt.cm.RdBu</span><br><span class="line">cm_bright = ListedColormap([<span class="string">&quot;#FF0000&quot;</span>, <span class="string">&quot;#0000FF&quot;</span>])</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="设置输入数据图像位置"><a href="#设置输入数据图像位置" class="headerlink" title="设置输入数据图像位置"></a>设置输入数据图像位置</h3><p>一共(数据集种类)*(分类模型+1(输入数据))张子图</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ax = plt.subplot(<span class="built_in">len</span>(datasets), <span class="built_in">len</span>(classifiers) + <span class="number">1</span>, i)</span><br><span class="line"><span class="keyword">if</span> ds_cnt == <span class="number">0</span>:</span><br><span class="line">    ax.set_title(<span class="string">&quot;Input data&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="绘制训练数据集和测试数据集散点图"><a href="#绘制训练数据集和测试数据集散点图" class="headerlink" title="绘制训练数据集和测试数据集散点图"></a>绘制训练数据集和测试数据集散点图</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Plot the training points</span></span><br><span class="line">ax.scatter(X_train[:, <span class="number">0</span>], X_train[:, <span class="number">1</span>], c=y_train, cmap=cm_bright, edgecolors=<span class="string">&quot;k&quot;</span>)</span><br><span class="line"><span class="comment"># Plot the testing points</span></span><br><span class="line">ax.scatter(</span><br><span class="line">    X_test[:, <span class="number">0</span>], X_test[:, <span class="number">1</span>], c=y_test, cmap=cm_bright, alpha=<span class="number">0.6</span>, edgecolors=<span class="string">&quot;k&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="调整图像显示"><a href="#调整图像显示" class="headerlink" title="调整图像显示"></a>调整图像显示</h3><p>设置显示边界、去掉刻度显示</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ax.set_xlim(x_min, x_max)</span><br><span class="line">ax.set_ylim(y_min, y_max)</span><br><span class="line">ax.set_xticks(())</span><br><span class="line">ax.set_yticks(())</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="遍历分类模型"><a href="#遍历分类模型" class="headerlink" title="遍历分类模型"></a>遍历分类模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> name, clf <span class="keyword">in</span> <span class="built_in">zip</span>(names, classifiers):</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="新建子图"><a href="#新建子图" class="headerlink" title="新建子图"></a>新建子图</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax = plt.subplot(<span class="built_in">len</span>(datasets), <span class="built_in">len</span>(classifiers) + <span class="number">1</span>, i)</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="训练分类器模型"><a href="#训练分类器模型" class="headerlink" title="训练分类器模型"></a>训练分类器模型</h3><p>将分类器 <code>clf</code> 包装到一个流水线（pipeline）中，并对训练数据进行标准化处理，然后训练分类器</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clf = make_pipeline(StandardScaler(), clf)</span><br><span class="line">clf.fit(X_train, y_train)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>make_pipeline</code> 是 <code>sklearn.pipeline</code> 中的一个函数，用于创建一个流水线对象。</li>
 <li><code>StandardScaler()</code> 是一个用于标准化数据的转换器，它会将数据转换为均值为 0，标准差为 1 的分布。这样可以使得不同特征的尺度相同，有助于提高某些算法（如 SVM）的性能。</li>
@@ -313,11 +276,7 @@
 </ul>
 <h3 id="评估模型"><a href="#评估模型" class="headerlink" title="评估模型"></a>评估模型</h3><p>使用测试数据评估模型，进行打分</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">score = clf.score(X_test, y_test)</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="生成决策边界"><a href="#生成决策边界" class="headerlink" title="生成决策边界"></a>生成决策边界</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DecisionBoundaryDisplay.from_estimator(</span><br><span class="line">    clf, X, cmap=cm, alpha=<span class="number">0.8</span>, ax=ax, eps=<span class="number">0.5</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>DecisionBoundaryDisplay</code> 是 <code>sklearn.inspection</code> 中的一个类，用于可视化决策边界。</li>
 <li><code>from_estimator</code> 是 <code>DecisionBoundaryDisplay</code> 类中的一个方法，它通过已经训练好的估计器（分类器）来生成决策边界。</li>
@@ -327,22 +286,14 @@
 <li><code>eps=0.5</code>：在绘制决策边界时，用于扩展决策边界的范围。这里设置为 <code>0.5</code>。</li>
 </ul>
 <h3 id="分别绘制训练集和测试集的散点图"><a href="#分别绘制训练集和测试集的散点图" class="headerlink" title="分别绘制训练集和测试集的散点图"></a>分别绘制训练集和测试集的散点图</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Plot the training points</span></span><br><span class="line">ax.scatter(</span><br><span class="line">    X_train[:, <span class="number">0</span>], X_train[:, <span class="number">1</span>], c=y_train, cmap=cm_bright, edgecolors=<span class="string">&quot;k&quot;</span></span><br><span class="line">)</span><br><span class="line"><span class="comment"># Plot the testing points</span></span><br><span class="line">ax.scatter(</span><br><span class="line">    X_test[:, <span class="number">0</span>],</span><br><span class="line">    X_test[:, <span class="number">1</span>],</span><br><span class="line">    c=y_test,</span><br><span class="line">    cmap=cm_bright,</span><br><span class="line">    edgecolors=<span class="string">&quot;k&quot;</span>,</span><br><span class="line">    alpha=<span class="number">0.6</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="设置图像显示"><a href="#设置图像显示" class="headerlink" title="设置图像显示"></a>设置图像显示</h3><p>设置边界，去除刻度，添加题目，添加得分显示</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ax.set_xlim(x_min, x_max)</span><br><span class="line">ax.set_ylim(y_min, y_max)</span><br><span class="line">ax.set_xticks(())</span><br><span class="line">ax.set_yticks(())</span><br><span class="line"><span class="keyword">if</span> ds_cnt == <span class="number">0</span>:</span><br><span class="line">    ax.set_title(name)</span><br><span class="line">ax.text(</span><br><span class="line">    x_max - <span class="number">0.3</span>,</span><br><span class="line">    y_min + <span class="number">0.3</span>,</span><br><span class="line">    (<span class="string">&quot;%.2f&quot;</span> % score).lstrip(<span class="string">&quot;0&quot;</span>),</span><br><span class="line">    size=<span class="number">15</span>,</span><br><span class="line">    horizontalalignment=<span class="string">&quot;right&quot;</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="显示最终图像"><a href="#显示最终图像" class="headerlink" title="显示最终图像"></a>显示最终图像</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>plt.tight_layout()</code> 是 <code>Matplotlib</code> 中的一个方法，用于自动调整子图参数，使之填充整个图形区域。这有助于避免子图之间的重叠，并确保子图中的元素（如标题、标签等）不会超出图形区域。</li>
 <li><code>plt.show()</code>用于显示图像</li>
 </ul>
 <h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_circles, make_classification, make_moons</span><br><span class="line"><span class="keyword">from</span> sklearn.discriminant_analysis <span class="keyword">import</span> QuadraticDiscriminantAnalysis</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> AdaBoostClassifier, RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.gaussian_process <span class="keyword">import</span> GaussianProcessClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.gaussian_process.kernels <span class="keyword">import</span> RBF</span><br><span class="line"><span class="keyword">from</span> sklearn.inspection <span class="keyword">import</span> DecisionBoundaryDisplay</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.neural_network <span class="keyword">import</span> MLPClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> make_pipeline</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"></span><br><span class="line">names = [</span><br><span class="line">    <span class="string">&quot;Nearest Neighbors&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Linear SVM&quot;</span>,</span><br><span class="line">    <span class="string">&quot;RBF SVM&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Gaussian Process&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Decision Tree&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Random Forest&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Neural Net&quot;</span>,</span><br><span class="line">    <span class="string">&quot;AdaBoost&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Naive Bayes&quot;</span>,</span><br><span class="line">    <span class="string">&quot;QDA&quot;</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">classifiers = [</span><br><span class="line">    KNeighborsClassifier(<span class="number">3</span>),</span><br><span class="line">    SVC(kernel=<span class="string">&quot;linear&quot;</span>, C=<span class="number">0.025</span>, random_state=<span class="number">42</span>),</span><br><span class="line">    SVC(gamma=<span class="number">2</span>, C=<span class="number">1</span>, random_state=<span class="number">42</span>),</span><br><span class="line">    GaussianProcessClassifier(<span class="number">1.0</span> * RBF(<span class="number">1.0</span>), random_state=<span class="number">42</span>),</span><br><span class="line">    DecisionTreeClassifier(max_depth=<span class="number">5</span>, random_state=<span class="number">42</span>),</span><br><span class="line">    RandomForestClassifier(</span><br><span class="line">        max_depth=<span class="number">5</span>, n_estimators=<span class="number">10</span>, max_features=<span class="number">1</span>, random_state=<span class="number">42</span></span><br><span class="line">    ),</span><br><span class="line">    MLPClassifier(alpha=<span class="number">1</span>, max_iter=<span class="number">1000</span>, random_state=<span class="number">42</span>),</span><br><span class="line">    AdaBoostClassifier(algorithm=<span class="string">&quot;SAMME&quot;</span>, random_state=<span class="number">42</span>),</span><br><span class="line">    GaussianNB(),</span><br><span class="line">    QuadraticDiscriminantAnalysis(),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">X, y = make_classification(</span><br><span class="line">    n_features=<span class="number">2</span>, n_redundant=<span class="number">0</span>, n_informative=<span class="number">2</span>, random_state=<span class="number">1</span>, n_clusters_per_class=<span class="number">1</span></span><br><span class="line">)</span><br><span class="line">rng = np.random.RandomState(<span class="number">2</span>)</span><br><span class="line">X += <span class="number">2</span> * rng.uniform(size=X.shape)</span><br><span class="line">linearly_separable = (X, y)</span><br><span class="line"></span><br><span class="line">datasets = [</span><br><span class="line">    make_moons(noise=<span class="number">0.3</span>, random_state=<span class="number">0</span>),</span><br><span class="line">    make_circles(noise=<span class="number">0.2</span>, factor=<span class="number">0.5</span>, random_state=<span class="number">1</span>),</span><br><span class="line">    linearly_separable,</span><br><span class="line">]</span><br><span class="line">figure = plt.figure(figsize=(<span class="number">27</span>, <span class="number">9</span>))</span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="comment"># iterate over datasets</span></span><br><span class="line"><span class="keyword">for</span> ds_cnt, ds <span class="keyword">in</span> <span class="built_in">enumerate</span>(datasets):</span><br><span class="line">    <span class="comment"># preprocess dataset, split into training and test part</span></span><br><span class="line">    X, y = ds</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">        X, y, test_size=<span class="number">0.4</span>, random_state=<span class="number">42</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    x_min, x_max = X[:, <span class="number">0</span>].<span class="built_in">min</span>() - <span class="number">0.5</span>, X[:, <span class="number">0</span>].<span class="built_in">max</span>() + <span class="number">0.5</span></span><br><span class="line">    y_min, y_max = X[:, <span class="number">1</span>].<span class="built_in">min</span>() - <span class="number">0.5</span>, X[:, <span class="number">1</span>].<span class="built_in">max</span>() + <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># just plot the dataset first</span></span><br><span class="line">    cm = plt.cm.RdBu</span><br><span class="line">    cm_bright = ListedColormap([<span class="string">&quot;#FF0000&quot;</span>, <span class="string">&quot;#0000FF&quot;</span>])</span><br><span class="line">    ax = plt.subplot(<span class="built_in">len</span>(datasets), <span class="built_in">len</span>(classifiers) + <span class="number">1</span>, i)</span><br><span class="line">    <span class="keyword">if</span> ds_cnt == <span class="number">0</span>:</span><br><span class="line">        ax.set_title(<span class="string">&quot;Input data&quot;</span>)</span><br><span class="line">    <span class="comment"># Plot the training points</span></span><br><span class="line">    ax.scatter(X_train[:, <span class="number">0</span>], X_train[:, <span class="number">1</span>], c=y_train, cmap=cm_bright, edgecolors=<span class="string">&quot;k&quot;</span>)</span><br><span class="line">    <span class="comment"># Plot the testing points</span></span><br><span class="line">    ax.scatter(</span><br><span class="line">        X_test[:, <span class="number">0</span>], X_test[:, <span class="number">1</span>], c=y_test, cmap=cm_bright, alpha=<span class="number">0.6</span>, edgecolors=<span class="string">&quot;k&quot;</span></span><br><span class="line">    )</span><br><span class="line">    ax.set_xlim(x_min, x_max)</span><br><span class="line">    ax.set_ylim(y_min, y_max)</span><br><span class="line">    ax.set_xticks(())</span><br><span class="line">    ax.set_yticks(())</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># iterate over classifiers</span></span><br><span class="line">    <span class="keyword">for</span> name, clf <span class="keyword">in</span> <span class="built_in">zip</span>(names, classifiers):</span><br><span class="line">        ax = plt.subplot(<span class="built_in">len</span>(datasets), <span class="built_in">len</span>(classifiers) + <span class="number">1</span>, i)</span><br><span class="line"></span><br><span class="line">        clf = make_pipeline(StandardScaler(), clf)</span><br><span class="line">        clf.fit(X_train, y_train)</span><br><span class="line">        score = clf.score(X_test, y_test)</span><br><span class="line">        DecisionBoundaryDisplay.from_estimator(</span><br><span class="line">            clf, X, cmap=cm, alpha=<span class="number">0.8</span>, ax=ax, eps=<span class="number">0.5</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Plot the training points</span></span><br><span class="line">        ax.scatter(</span><br><span class="line">            X_train[:, <span class="number">0</span>], X_train[:, <span class="number">1</span>], c=y_train, cmap=cm_bright, edgecolors=<span class="string">&quot;k&quot;</span></span><br><span class="line">        )</span><br><span class="line">        <span class="comment"># Plot the testing points</span></span><br><span class="line">        ax.scatter(</span><br><span class="line">            X_test[:, <span class="number">0</span>],</span><br><span class="line">            X_test[:, <span class="number">1</span>],</span><br><span class="line">            c=y_test,</span><br><span class="line">            cmap=cm_bright,</span><br><span class="line">            edgecolors=<span class="string">&quot;k&quot;</span>,</span><br><span class="line">            alpha=<span class="number">0.6</span>,</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        ax.set_xlim(x_min, x_max)</span><br><span class="line">        ax.set_ylim(y_min, y_max)</span><br><span class="line">        ax.set_xticks(())</span><br><span class="line">        ax.set_yticks(())</span><br><span class="line">        <span class="keyword">if</span> ds_cnt == <span class="number">0</span>:</span><br><span class="line">            ax.set_title(name)</span><br><span class="line">        ax.text(</span><br><span class="line">            x_max - <span class="number">0.3</span>,</span><br><span class="line">            y_min + <span class="number">0.3</span>,</span><br><span class="line">            (<span class="string">&quot;%.2f&quot;</span> % score).lstrip(<span class="string">&quot;0&quot;</span>),</span><br><span class="line">            size=<span class="number">15</span>,</span><br><span class="line">            horizontalalignment=<span class="string">&quot;right&quot;</span>,</span><br><span class="line">        )</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 </div>
         </div>
         
@@ -483,7 +434,7 @@
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -491,7 +442,7 @@
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -499,7 +450,7 @@
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -520,13 +471,18 @@
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -537,6 +493,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -563,11 +525,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -676,7 +634,7 @@
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

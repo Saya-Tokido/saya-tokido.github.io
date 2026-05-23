@@ -17,12 +17,12 @@
   
     <meta name="keywords" content="Tutorial" />
   
-  <meta name="description" content="启动docker可以通过以下命令启动docker的守护程序 1systemctl start docker   systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F; 例如docker的服务文件为docker.service 配置切换国内镜像 1234567sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json">
+  <meta name="description" content="启动docker可以通过以下命令启动docker的守护程序 1systemctl start docker  systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F; 例如docker的服务文件为docker.service 配置切换国内镜像 1234567sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json &amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker command">
 <meta property="og:url" content="https://pure-master.github.io/2024/04/09/docker-command/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="启动docker可以通过以下命令启动docker的守护程序 1systemctl start docker   systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F; 例如docker的服务文件为docker.service 配置切换国内镜像 1234567sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json">
+<meta property="og:description" content="启动docker可以通过以下命令启动docker的守护程序 1systemctl start docker  systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F; 例如docker的服务文件为docker.service 配置切换国内镜像 1234567sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json &amp;">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
 <meta property="article:published_time" content="2024-04-09T13:01:21.000Z">
@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1123
+                            1081
                         
                         字
                     </li>
@@ -244,12 +244,10 @@
             <hr />
             <div itemprop="articleBody"><h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><p>可以通过以下命令启动docker的守护程序</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker </span><br></pre></td></tr></table></figure>
-
 <p><code>systemctl</code>启动的应用程序，通过搜索后缀为<code>.service</code>的文件,存放目录为<code>/usr/lib/systemd/system/</code></p>
 <p>例如docker的服务文件为<code>docker.service</code></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>切换国内镜像</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://yxzrazem.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>在<code>/etc/docker/daemon.json</code>中修改，若不存在则创建该文件</p>
 </li>
@@ -257,23 +255,16 @@
 </li>
 <li><p>重新加载 Systemd 守护程序管理器的配置文件</p>
 </li>
-<li><p>重启docker服务</p>
-</li>
+<li>重启docker服务</li>
 </ul>
 <h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>查看网络</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br></pre></td></tr></table></figure>
-
 <p>删除网络</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network rm &lt;NETWORK ID&gt;</span><br></pre></td></tr></table></figure>
-
 <p>创建网络</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create &lt;NETWORK NAME&gt;</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h2><p>运行容器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run &lt;IMAGE NAME&gt;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p><code>-d</code> 后台运行</p>
 </li>
@@ -292,54 +283,21 @@
 </ul>
 <p>查询容器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>-a</code>查看所有容器包括停止的容器</li>
 </ul>
 <p>停止容器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop &lt;CONTAINER&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <p>删除容器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
-
-
-
 <p>进入容器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;container_id_or_name&gt; bash</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
 <h2 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h2><p>查询镜像</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
-
-
 <p>删除镜像</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi [OPTIONS] IMAGE [IMAGE...]</span><br></pre></td></tr></table></figure>
-
-
-
 <p>拉取镜像</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [OPTIONS] NAME[:TAG|@DIGEST]</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 </div>
         </div>
         
@@ -409,8 +367,7 @@
             const title         = "「docker command」";
             const excerpt       = `启动docker可以通过以下命令启动docker的守护程序
 1systemctl start docker 
-
-systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为/usr/lib/systemd/sys...`;
+systemctl启动的应用程序，通过搜索后缀为.service的文件,存放目录为/usr/lib/systemd/syst...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -483,7 +440,7 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -491,7 +448,7 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -499,7 +456,7 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -520,13 +477,18 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -537,6 +499,12 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -563,11 +531,7 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -676,7 +640,7 @@ systemctl启动的应用程序，通过搜索后缀为.service的文件,存放�
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

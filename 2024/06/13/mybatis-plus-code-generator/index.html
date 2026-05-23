@@ -244,12 +244,8 @@
             <hr />
             <div itemprop="articleBody"><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><code>Mybatis Plus</code> 中提供了mysql CRUD的代码生成器，减少样板代码的编写</p>
 <h2 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h2><h3 id="dependency"><a href="#dependency" class="headerlink" title="dependency"></a>dependency</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-generator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.freemarker<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>freemarker<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.32<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="usage"><a href="#usage" class="headerlink" title="usage"></a>usage</h3><p>直接上代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">finalProjectPath</span> <span class="operator">=</span> System.getProperty(<span class="string">&quot;user.dir&quot;</span>);</span><br><span class="line">    FastAutoGenerator.create(<span class="string">&quot;jdbc:mysql://10.16.40.100:3306/test?useSSL=false&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;root&quot;</span>)</span><br><span class="line">            .globalConfig(builder -&gt; builder</span><br><span class="line">                    .author(<span class="string">&quot;yourName&quot;</span>)</span><br><span class="line">                    .outputDir(Paths.get(System.getProperty(<span class="string">&quot;user.dir&quot;</span>)) + <span class="string">&quot;/src/main/java&quot;</span>)</span><br><span class="line">                    .commentDate(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>)</span><br><span class="line">            )</span><br><span class="line">            .packageConfig(builder -&gt; builder</span><br><span class="line">                    .parent(<span class="string">&quot;com.ljz.mybatis&quot;</span>)</span><br><span class="line">                    .entity(<span class="string">&quot;po&quot;</span>)</span><br><span class="line">                    .service(<span class="string">&quot;service&quot;</span>)</span><br><span class="line">                    .serviceImpl(<span class="string">&quot;service.impl&quot;</span>)</span><br><span class="line">                    .mapper(<span class="string">&quot;mapper&quot;</span>)</span><br><span class="line">                    .xml(<span class="string">&quot;mapper&quot;</span>)</span><br><span class="line">                    .pathInfo(Map.of(</span><br><span class="line">                                    OutputFile.xml, finalProjectPath + <span class="string">&quot;/src/main/resources/mapper&quot;</span>,</span><br><span class="line">                                    OutputFile.controller, <span class="string">&quot;&quot;</span></span><br><span class="line">                            )</span><br><span class="line">                    )</span><br><span class="line">            )</span><br><span class="line">            .strategyConfig(builder -&gt; builder</span><br><span class="line">                    .addInclude(<span class="string">&quot;t_status&quot;</span>)</span><br><span class="line">                    .addTablePrefix(<span class="string">&quot;t_&quot;</span>)</span><br><span class="line">                    .entityBuilder()</span><br><span class="line">                    .formatFileName(<span class="string">&quot;%sPO&quot;</span>)</span><br><span class="line">                    .enableLombok()</span><br><span class="line">                    .enableTableFieldAnnotation()</span><br><span class="line">                    .controllerBuilder()</span><br><span class="line">                    .disable()</span><br><span class="line">                    .serviceBuilder()</span><br><span class="line">                    .formatServiceFileName(<span class="string">&quot;%sService&quot;</span>)</span><br><span class="line">                    .formatServiceImplFileName(<span class="string">&quot;%sServiceImpl&quot;</span>)</span><br><span class="line">                    .mapperBuilder()</span><br><span class="line">                    .formatMapperFileName(<span class="string">&quot;%sMapper&quot;</span>)</span><br><span class="line">                    .formatXmlFileName(<span class="string">&quot;%sMapper&quot;</span>)</span><br><span class="line">                    .build()</span><br><span class="line">            )</span><br><span class="line">            .templateEngine(<span class="keyword">new</span> <span class="title class_">FreemarkerTemplateEngine</span>())</span><br><span class="line">            .execute();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>首先配置数据库连接，因为需要依据数据库的表结构创建类</p>
 <p>全局配置中配置用户名等用于类注释</p>
 <p>包配置中用于配置包名和路径，尤其是<code>mapper.xml</code>的路径需要手动配置到<code>resources</code>路径下</p>
@@ -259,10 +255,8 @@
 </li>
 <li><p>设置表前缀，因为依据表的名称来生成类名，所以可能需要去掉开头的<code>t_</code></p>
 </li>
-<li><p>指定各层的类名，<code>%s</code>为占位符，值为表名</p>
-</li>
-<li><p>可以用<code>disable()</code> 配置不需要生成的层</p>
-</li>
+<li>指定各层的类名，<code>%s</code>为占位符，值为表名</li>
+<li>可以用<code>disable()</code> 配置不需要生成的层</li>
 </ul>
 <p>最后选择模板引擎，并执行</p>
 </div>
@@ -406,7 +400,7 @@ Detailsdependency1234567891011&lt;dependency&gt;    &lt;group...`;
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -414,7 +408,7 @@ Detailsdependency1234567891011&lt;dependency&gt;    &lt;group...`;
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -422,7 +416,7 @@ Detailsdependency1234567891011&lt;dependency&gt;    &lt;group...`;
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -443,13 +437,18 @@ Detailsdependency1234567891011&lt;dependency&gt;    &lt;group...`;
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -460,6 +459,12 @@ Detailsdependency1234567891011&lt;dependency&gt;    &lt;group...`;
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -486,11 +491,7 @@ Detailsdependency1234567891011&lt;dependency&gt;    &lt;group...`;
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -599,7 +600,7 @@ Detailsdependency1234567891011&lt;dependency&gt;    &lt;group...`;
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

@@ -17,12 +17,12 @@
   
     <meta name="keywords" content="Tutorial" />
   
-  <meta name="description" content="准备服务镜像mysql:latest  app:latest redis:latest 准备挂载数据预先将需要挂载的数据准备好 可以先启动容器，再复制到本地目录 123docker run -d mysql:latestdocker cp &lt;containerId&gt;:&#x2F;var&#x2F;lib&#x2F;mysql &#x2F;home&#x2F;docker&#x2F;volumes&#x2F;mysql  同理，将mysql和redis 的">
+  <meta name="description" content="准备服务镜像mysql:latest  app:latest redis:latest 准备挂载数据预先将需要挂载的数据准备好 可以先启动容器，再复制到本地目录 123docker run -d mysql:latestdocker cp &lt;containerId&gt;:&#x2F;var&#x2F;lib&#x2F;mysql &#x2F;home&#x2F;docker&#x2F;volumes&#x2F;mysql 同理，将mysql和redis 的数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker-compose deploy microservices">
 <meta property="og:url" content="https://pure-master.github.io/2024/06/13/docker-compose-deploy-microservices/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="准备服务镜像mysql:latest  app:latest redis:latest 准备挂载数据预先将需要挂载的数据准备好 可以先启动容器，再复制到本地目录 123docker run -d mysql:latestdocker cp &lt;containerId&gt;:&#x2F;var&#x2F;lib&#x2F;mysql &#x2F;home&#x2F;docker&#x2F;volumes&#x2F;mysql  同理，将mysql和redis 的">
+<meta property="og:description" content="准备服务镜像mysql:latest  app:latest redis:latest 准备挂载数据预先将需要挂载的数据准备好 可以先启动容器，再复制到本地目录 123docker run -d mysql:latestdocker cp &lt;containerId&gt;:&#x2F;var&#x2F;lib&#x2F;mysql &#x2F;home&#x2F;docker&#x2F;volumes&#x2F;mysql 同理，将mysql和redis 的数">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
 <meta property="article:published_time" content="2024-06-13T03:19:43.000Z">
@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.30K
+                            ~2.29K
                         
                         字
                     </li>
@@ -248,11 +248,9 @@
 <h2 id="准备挂载数据"><a href="#准备挂载数据" class="headerlink" title="准备挂载数据"></a>准备挂载数据</h2><p>预先将需要挂载的数据准备好</p>
 <p>可以先启动容器，再复制到本地目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d mysql:latest</span><br><span class="line"></span><br><span class="line">docker cp &lt;containerId&gt;:/var/lib/mysql /home/docker/volumes/mysql</span><br></pre></td></tr></table></figure>
-
 <p>同理，将mysql和redis 的数据文件和配置文件准备好</p>
 <h2 id="创建子网"><a href="#创建子网" class="headerlink" title="创建子网"></a>创建子网</h2><p>手动创建一个子网，用于各服务之间通过服务名直接通信</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create --driver bridge --subnet 192.168.1.0/24 --gateway 192.168.1.1 appsubnet</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>driver 是指定连接模式，默认桥接</li>
 <li>subnet指定子网ip范围</li>
@@ -262,14 +260,9 @@
 <h2 id="准备docker-compose"><a href="#准备docker-compose" class="headerlink" title="准备docker-compose"></a>准备docker-compose</h2><p>从github上下载指定系统的dockercompose</p>
 <p>赋予<code>docker-compose</code> 可执行文件的权限</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x &lt;docker-compose file&gt;</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="准备docker-compose启动配置文件"><a href="#准备docker-compose启动配置文件" class="headerlink" title="准备docker-compose启动配置文件"></a>准备docker-compose启动配置文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim docker-compose.yml</span><br></pre></td></tr></table></figure>
-
 <p>编写docker-compose.yml</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;2.27.1&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mysql:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:latest</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/docker/volumes/mysql/data:/var/lib/mysql</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/docker/volumes/mysql/my.cnf:/etc/mysql/my.cnf</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">appsubnet:</span></span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.103</span></span><br><span class="line">  <span class="attr">app:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">app:latest</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;24689:24689&quot;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">appsubnet:</span></span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.105</span></span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">redis:latest</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">appsubnet:</span></span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.104</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/docker/volumes/redis/data:/data</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/docker/volumes/redis/redis.conf:/usr/local/etc/redis/redis.conf</span></span><br><span class="line">    <span class="attr">command:</span> [<span class="string">&quot;redis-server&quot;</span>, <span class="string">&quot;/usr/local/etc/redis/redis.conf&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">appsubnet:</span></span><br><span class="line">    <span class="attr">external:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">appsubnet</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>version 版本号，高版本dockerc-ompose不指定也可</li>
 <li>services 下列出有哪些服务，以及容器启动方式<ul>
@@ -303,11 +296,9 @@
 </ul>
 <h2 id="启动docker-compose"><a href="#启动docker-compose" class="headerlink" title="启动docker-compose"></a>启动docker-compose</h2><p>cd 到<code>docker-compose.yml</code> 文件所在目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行docker-compose 假设docker-compose在上级目录</span> </span><br><span class="line">../dockercompose up -d</span><br></pre></td></tr></table></figure>
-
 <p>可以看到所有微服务启动了</p>
 <h2 id="测试服务是否可以访问"><a href="#测试服务是否可以访问" class="headerlink" title="测试服务是否可以访问"></a>测试服务是否可以访问</h2><p>使用<code>curl</code>发送 post 请求</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H &quot;Content-Type: application/json&quot; -X POST -d &#x27;&#123;&quot;userName&quot;: &quot;mitsuha&quot;, &quot;password&quot;:&quot;7e3317f40e886b0788bab33e6efcc03e33a6a6fbc320edec772fa7dea745ec07&quot;&#125;&#x27;  http://192.168.1.105:24689/login</span><br></pre></td></tr></table></figure>
-
 </div>
         </div>
         
@@ -453,7 +444,7 @@ redis:latest
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -461,7 +452,7 @@ redis:latest
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -469,7 +460,7 @@ redis:latest
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -490,13 +481,18 @@ redis:latest
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -507,6 +503,12 @@ redis:latest
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -533,11 +535,7 @@ redis:latest
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -646,7 +644,7 @@ redis:latest
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>

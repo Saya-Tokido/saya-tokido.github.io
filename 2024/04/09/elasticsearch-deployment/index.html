@@ -17,12 +17,12 @@
   
     <meta name="keywords" content="Tutorial" />
   
-  <meta name="description" content="Run ElasticSearchCreate a new docker network1docker network create es-net      Pull the Elasticsearch Docker image1docker pull docker.elastic.co&#x2F;elasticsearch&#x2F;elasticsearch:8.12.2            Edit conf">
+  <meta name="description" content="Run ElasticSearchCreate a new docker network1docker network create es-net Pull the Elasticsearch Docker image1docker pull docker.elastic.co&#x2F;elasticsearch&#x2F;elasticsearch:8.12.2 Edit config filecopy conf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="elasticsearch deployment">
 <meta property="og:url" content="https://pure-master.github.io/2024/04/09/elasticsearch-deployment/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="Run ElasticSearchCreate a new docker network1docker network create es-net      Pull the Elasticsearch Docker image1docker pull docker.elastic.co&#x2F;elasticsearch&#x2F;elasticsearch:8.12.2            Edit conf">
+<meta property="og:description" content="Run ElasticSearchCreate a new docker network1docker network create es-net Pull the Elasticsearch Docker image1docker pull docker.elastic.co&#x2F;elasticsearch&#x2F;elasticsearch:8.12.2 Edit config filecopy conf">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
 <meta property="article:published_time" content="2024-04-09T10:42:26.000Z">
@@ -220,7 +220,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~4.74K
+                            ~4.61K
                         
                         字
                     </li>
@@ -243,46 +243,12 @@
             
             <hr />
             <div itemprop="articleBody"><h1 id="Run-ElasticSearch"><a href="#Run-ElasticSearch" class="headerlink" title="Run ElasticSearch"></a>Run ElasticSearch</h1><h2 id="Create-a-new-docker-network"><a href="#Create-a-new-docker-network" class="headerlink" title="Create a new docker network"></a>Create a new docker network</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create es-net</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h2 id="Pull-the-Elasticsearch-Docker-image"><a href="#Pull-the-Elasticsearch-Docker-image" class="headerlink" title="Pull the Elasticsearch Docker image"></a>Pull the Elasticsearch Docker image</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull docker.elastic.co/elasticsearch/elasticsearch:8.12.2</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
 <h2 id="Edit-config-file"><a href="#Edit-config-file" class="headerlink" title="Edit config file"></a>Edit config file</h2><h3 id="copy-config-file"><a href="#copy-config-file" class="headerlink" title="copy config file"></a>copy config file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/docker/volumes/elasticsearch/</span><br><span class="line">docker cp es:/usr/share/elasticsearch/config .</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h3 id="edit-elasticsearch-yml"><a href="#edit-elasticsearch-yml" class="headerlink" title="edit elasticsearch.yml"></a>edit elasticsearch.yml</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cluster.name:</span> <span class="string">&quot;docker-cluster&quot;</span></span><br><span class="line"><span class="attr">network.host:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">discovery.type:</span> <span class="string">&quot;single-node&quot;</span></span><br><span class="line"><span class="attr">xpack.security.enrollment.enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 <h2 id="Start-an-Elasticsearch-container"><a href="#Start-an-Elasticsearch-container" class="headerlink" title="Start an Elasticsearch container"></a>Start an Elasticsearch container</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w vm.max_map_count=262144</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <p><strong>remember to copy directory data and plugins</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">--name es \</span><br><span class="line">-m 4GB \</span><br><span class="line">-v /home/docker/volumes/elasticsearch/data:/usr/share/elasticsearch/data \</span><br><span class="line">-v /home/docker/volumes/elasticsearch/plugins:/usr/share/elasticsearch/plugins \</span><br><span class="line">-v /home/docker/volumes/elasticsearch/config:/usr/share/elasticsearch/config \</span><br><span class="line">--privileged \</span><br><span class="line">--net es-net \</span><br><span class="line">-p 9200:9200 \</span><br><span class="line">-p 9300:9300 \</span><br><span class="line">-d \</span><br><span class="line">docker.elastic.co/elasticsearch/elasticsearch:8.12.2</span><br></pre></td></tr></table></figure>
-
 <p>命令解释：</p>
 <ul>
 <li><code>-e &quot;cluster.name=es-docker-cluster&quot;</code>：设置集群名称</li>
@@ -301,26 +267,10 @@
 <li><code>-t</code>：分配一个伪终端 (pseudo-TTY)，这样可以在容器内部通过命令行与用户进行交互。</li>
 </ul>
 <h2 id="Config-the-certificate"><a href="#Config-the-certificate" class="headerlink" title="Config the certificate"></a>Config the certificate</h2><h3 id="enter-the-container"><a href="#enter-the-container" class="headerlink" title="enter the container"></a>enter the container</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it es bash</span><br><span class="line">cd bin</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="generates-a-new-local-certificate-authority"><a href="#generates-a-new-local-certificate-authority" class="headerlink" title="generates a new local certificate authority"></a>generates a new local certificate authority</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elasticsearch-certutil ca</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h3 id="generates-a-new-certificate-with-the-certificate-authority"><a href="#generates-a-new-certificate-with-the-certificate-authority" class="headerlink" title="generates a new certificate with the  certificate authority"></a>generates a new certificate with the  certificate authority</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elasticsearch-certutil cert --ca elastic-stack-ca.p12</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 <h2 id="Copy-the-generated-elastic-password-and-enrollment-token"><a href="#Copy-the-generated-elastic-password-and-enrollment-token" class="headerlink" title="Copy the generated elastic password and enrollment token"></a>Copy the generated <code>elastic</code> password and enrollment token</h2><p>These credentials are only shown when you start Elasticsearch for the first time. You can regenerate the credentials using the following commands.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it es /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic</span><br><span class="line">docker exec -it es /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p><code>-s kibana</code> 表示为 Kibana 生成 Enrollment Token</p>
 </li>
@@ -329,105 +279,25 @@
 </ul>
 <p>You can store the <code>elastic</code> password as an environment variable in your shell.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ELASTIC_PASSWORD=&quot;your_password&quot;</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="Copy-the-http-ca-crt-SSL-certificate-from-the-container-to-your-local-machine"><a href="#Copy-the-http-ca-crt-SSL-certificate-from-the-container-to-your-local-machine" class="headerlink" title="Copy the http_ca.crt SSL certificate from the container to your local machine"></a>Copy the <code>http_ca.crt</code> SSL certificate from the container to your local machine</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp es:/usr/share/elasticsearch/config/certs/http_ca.crt .</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="Make-a-REST-API-call-to-Elasticsearch-to-ensure-the-Elasticsearch-container-is-running"><a href="#Make-a-REST-API-call-to-Elasticsearch-to-ensure-the-Elasticsearch-container-is-running" class="headerlink" title="Make a REST API call to Elasticsearch to ensure the Elasticsearch container is running"></a>Make a REST API call to Elasticsearch to ensure the Elasticsearch container is running</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --cacert http_ca.crt -u elastic:$ELASTIC_PASSWORD https://localhost:9200</span><br></pre></td></tr></table></figure>
-
-
-
 <h1 id="Run-Kibana"><a href="#Run-Kibana" class="headerlink" title="Run Kibana"></a>Run Kibana</h1><h2 id="Pull-the-Kibana-Docker-image"><a href="#Pull-the-Kibana-Docker-image" class="headerlink" title="Pull the Kibana Docker image"></a>Pull the Kibana Docker image</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull docker.elastic.co/kibana/kibana:8.12.2</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="Start-a-Kibana-container"><a href="#Start-a-Kibana-container" class="headerlink" title="Start a Kibana container"></a>Start a Kibana container</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">--name kibana \</span><br><span class="line">-e ELASTICSEARCH_HOSTS=http://es:9200 \</span><br><span class="line">--net es-net \</span><br><span class="line">-p 5601:5601 \</span><br><span class="line">-d \</span><br><span class="line">docker.elastic.co/kibana/kibana:8.12.2</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 <h2 id="Add-elasticsearch-user"><a href="#Add-elasticsearch-user" class="headerlink" title="Add elasticsearch user"></a>Add elasticsearch user</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it es bash</span><br></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd bin</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elasticsearch-reset-password -u kibana_system</span><br></pre></td></tr></table></figure>
-
 <p>Then will print the password of <code>kibana_system</code></p>
 <h2 id="Edit-config-file-1"><a href="#Edit-config-file-1" class="headerlink" title="Edit config file"></a>Edit config file</h2><h3 id="copy-config-file-1"><a href="#copy-config-file-1" class="headerlink" title="copy config file"></a>copy config file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp kibana:/usr/share/kibana/config .</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 <h3 id="edit-kibana-yml"><a href="#edit-kibana-yml" class="headerlink" title="edit kibana.yml"></a>edit kibana.yml</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ** THIS IS AN AUTO-GENERATED FILE **</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Default Kibana configuration for docker target</span></span><br><span class="line"><span class="attr">server.host:</span> <span class="string">&quot;0.0.0.0&quot;</span></span><br><span class="line"><span class="attr">server.shutdownTimeout:</span> <span class="string">&quot;5s&quot;</span></span><br><span class="line"><span class="attr">elasticsearch.hosts:</span> [ <span class="string">&quot;http://es:9200&quot;</span> ]</span><br><span class="line"><span class="attr">elasticsearch.username:</span> <span class="string">&quot;kibana_system&quot;</span></span><br><span class="line"><span class="attr">elasticsearch.password:</span> <span class="string">&quot;your_password&quot;</span></span><br><span class="line"><span class="attr">monitoring.ui.container.elasticsearch.enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 <h2 id="Rerun-Kibana"><a href="#Rerun-Kibana" class="headerlink" title="Rerun Kibana"></a>Rerun Kibana</h2><h3 id="stop-and-rm-kibana"><a href="#stop-and-rm-kibana" class="headerlink" title="stop and rm kibana"></a>stop and rm kibana</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stop kibana</span><br><span class="line">docker rm kibana</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h3 id="start-kibana"><a href="#start-kibana" class="headerlink" title="start kibana"></a>start kibana</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">--name kibana \</span><br><span class="line">-e ELASTICSEARCH_HOSTS=http://es:9200 \</span><br><span class="line">-v /home/docker/volumes/kibana/config:/usr/share/kibana/config \</span><br><span class="line">--net es-net \</span><br><span class="line">-p 5601:5601 \</span><br><span class="line">-d \</span><br><span class="line">docker.elastic.co/kibana/kibana:8.12.2</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <p>When Kibana starts, it outputs a unique generated link to the terminal. To access Kibana, open this link in a web browser</p>
 <h2 id="Enter-the-enrollment-token"><a href="#Enter-the-enrollment-token" class="headerlink" title="Enter the enrollment token"></a>Enter the enrollment token</h2><p>In your browser, enter the enrollment token that was generated when you started Elasticsearch.</p>
 <p>To regenerate the token, run:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it es /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 <h2 id="Log-in-to-Kibana"><a href="#Log-in-to-Kibana" class="headerlink" title="Log in to Kibana"></a>Log in to Kibana</h2><p>Log in to Kibana as the <code>elastic</code> user with the password that was generated when you started Elasticsearch.</p>
 <p>To regenerate the password, run:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it es /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
 </div>
         </div>
         
@@ -496,12 +366,7 @@
             const hostUrl       = "https://pure-master.github.io/2024/04/09/elasticsearch-deployment/";
             const title         = "「elasticsearch deployment」";
             const excerpt       = `Run ElasticSearchCreate a new docker network1docker network create es-net
-
-
-
-
-
-Pull the Elasticsearch Docker image1do...`;
+Pull the Elasticsearch Docker image1docker ...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -574,7 +439,7 @@ Pull the Elasticsearch Docker image1do...`;
                 文章
             </span>
             <span class="count">
-                43
+                44
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -582,7 +447,7 @@ Pull the Elasticsearch Docker image1do...`;
                 分类
             </span>
             <span class="count">
-                0
+                1
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -590,7 +455,7 @@ Pull the Elasticsearch Docker image1do...`;
                 标签
             </span>
             <span class="count">
-                6
+                9
             </span>
         </a>
     </div>
@@ -611,13 +476,18 @@ Pull the Elasticsearch Docker image1do...`;
 </aside>
                 
                 
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
 
             
                 
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
+        <a href="/tags/Algorithm/" style="font-size: 0.75em;">Algorithm</a> <a href="/tags/C/" style="font-size: 0.6em;">C++</a> <a href="/tags/Hash-Table/" style="font-size: 0.6em;">Hash-Table</a> <a href="/tags/Java/" style="font-size: 0.6em;">Java</a> <a href="/tags/LeetCode/" style="font-size: 0.7em;">LeetCode</a> <a href="/tags/Machine-Learning/" style="font-size: 0.6em;">Machine Learning</a> <a href="/tags/String/" style="font-size: 0.6em;">String</a> <a href="/tags/Tutorial/" style="font-size: 0.8em;">Tutorial</a> <a href="/tags/thoughts/" style="font-size: 0.65em;">thoughts</a>
       </div>
   </aside>
 
@@ -628,6 +498,12 @@ Pull the Elasticsearch Docker image1do...`;
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2026/05/23/group-anagrams/"><i class="fa  fa-book"></i> Group Anagrams</a>
+            
+          
         
           
           
@@ -654,11 +530,7 @@ Pull the Elasticsearch Docker image1do...`;
           
         
           
-          
-            <a class="list-group-item" href="/2024/06/13/scikit-learn-Classification/"><i class="fa  fa-book"></i> scikit-learn Classification</a>
             
-          
-        
           
             
           
@@ -767,7 +639,7 @@ Pull the Elasticsearch Docker image1do...`;
                     </ul>
                     <ul class="kratos-copyright">
                         <div>
-                            <li>&copy; 2025 ljz's Blog 版权所有.</li>
+                            <li>&copy; 2026 ljz's Blog 版权所有.</li>
                             <li>本站已运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>
