@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>Best Time to Buy and Sell Stock III | ljz&#39;s Blog</title>
+  <title>Find All Anagrams in a String | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -15,21 +15,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="Algorithm, LeetCode" />
+    <meta name="keywords" content="C++, Hash-Table, LeetCode, Sliding-Window, String" />
   
-  <meta name="description" content="DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day. Find the maximum profit you can achieve. You may complete at most two transactions. Note: You may">
+  <meta name="description" content="1. Problem Link438. Find All Anagrams in a String - LeetCode 2. Problem DescriptionGiven two strings s and p, return an array of all the start indices of p‘s anagrams in s. You may return the answer i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Best Time to Buy and Sell Stock III">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/07/Best-Time-to-Buy-and-Sell-Stock-III/index.html">
+<meta property="og:title" content="Find All Anagrams in a String">
+<meta property="og:url" content="https://pure-master.github.io/2026/05/24/Find-All-Anagrams-in-a-String/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day. Find the maximum profit you can achieve. You may complete at most two transactions. Note: You may">
+<meta property="og:description" content="1. Problem Link438. Find All Anagrams in a String - LeetCode 2. Problem DescriptionGiven two strings s and p, return an array of all the start indices of p‘s anagrams in s. You may return the answer i">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2024-04-07T13:18:12.000Z">
-<meta property="article:modified_time" content="2024-04-19T13:55:51.840Z">
+<meta property="article:published_time" content="2026-05-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T04:02:41.866Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta property="article:tag" content="LeetCode">
-<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Hash-Table">
+<meta property="article:tag" content="String">
+<meta property="article:tag" content="Sliding-Window">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
   
@@ -204,15 +207,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/07/Best-Time-to-Buy-and-Sell-Stock-III/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/05/24/Find-All-Anagrams-in-a-String/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Best Time to Buy and Sell Stock III</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Find All Anagrams in a String</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-07T13:18:12.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-07</time></li>
+                <li><time datetime="2026-05-23T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-05-24</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -221,7 +224,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.63K
+                            ~2.68K
                         
                         字
                     </li>
@@ -233,37 +236,56 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1713534951840"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1779595361866"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95%E4%B8%80"><span class="toc-number">2.1.</span> <span class="toc-text">解法一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95%E4%BA%8C"><span class="toc-number">2.2.</span> <span class="toc-text">解法二</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-number">1.</span> <span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-number">2.</span> <span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-number">3.</span> <span class="toc-text">3. Core Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-number">4.</span> <span class="toc-text">4. C++ Solution</span></a></li></ol>
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>ith</code> day.</p>
-<p>Find the maximum profit you can achieve. You may complete <strong>at most two transactions</strong>.</p>
-<p><strong>Note:</strong> You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).</p>
+            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-all-anagrams-in-a-string/description/?envType=study-plan-v2&amp;envId=top-100-liked">438. Find All Anagrams in a String - LeetCode</a></p>
+<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>Given two strings <code>s</code> and <code>p</code>, return an array of all the start indices of <code>p</code>‘s anagrams in <code>s</code>. You may return the answer in <strong>any order</strong>.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: prices = [3,3,5,0,0,3,1,4]</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: Buy on day 4 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3.</span><br><span class="line">Then buy on day 7 (price = 1) and sell on day 8 (price = 4), profit = 4-1 = 3.</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Input:</strong> <code>s = &quot;cbaebabacd&quot;, p = &quot;abc&quot;</code></li>
+<li><strong>Output:</strong> <code>[0,6]</code></li>
+<li><strong>Explanation:</strong><ul>
+<li>The substring with start index = 0 is <code>&quot;cba&quot;</code>, which is an anagram of <code>&quot;abc&quot;</code>.</li>
+<li>The substring with start index = 6 is <code>&quot;bac&quot;</code>, which is an anagram of <code>&quot;abc&quot;</code>.</li>
+</ul>
+</li>
+</ul>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: prices = [1,2,3,4,5]</span><br><span class="line">Output: 4</span><br><span class="line">Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.</span><br><span class="line">Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are engaging multiple transactions at the same time. You must sell before buying again.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: prices = [7,6,4,3,1]</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: In this case, no transaction is done, i.e. max profit = 0.</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Input:</strong> <code>s = &quot;abab&quot;, p = &quot;ab&quot;</code></li>
+<li><strong>Output:</strong> <code>[0,1,2]</code></li>
+<li><strong>Explanation:</strong><ul>
+<li>The substring with start index = 0 is <code>&quot;ab&quot;</code>, which is an anagram of <code>&quot;ab&quot;</code>.</li>
+<li>The substring with start index = 1 is <code>&quot;ba&quot;</code>, which is an anagram of <code>&quot;ab&quot;</code>.</li>
+<li>The substring with start index = 2 is <code>&quot;ab&quot;</code>, which is an anagram of <code>&quot;ab&quot;</code>.</li>
+</ul>
+</li>
+</ul>
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>1 &lt;= prices.length &lt;= 105</code></li>
-<li><code>0 &lt;= prices[i] &lt;= 105</code></li>
+<li>1 &lt;= s.length, p.length &lt;= 3 * 10^4</li>
+<li><code>s</code> and <code>p</code> consist of lowercase English letters.</li>
 </ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>分为四种状态，第一次购买后，第一次卖出后，第二次购买后，第二次卖出后，分别为<code>dp[i][0] dp[i][1] dp[i][2] dp[i][3]</code> ，其中 <code>i</code>代表天数</p>
-<p>第一天假设买了股票，所以设置<code>dp[0][0]</code>为<code>prices[0]</code></p>
-<p>至于设置<code>dp[0][2]</code>为<code>prices[0]</code>,是为了防止在只卖一次的情况下对最终结果造成干扰，因为第一次买入值为负，但<code>dp[0][2]</code>的值为<code>0</code>，假设只买入一次，在股票涨到最高值时，<code>dp[i][0]</code>依旧小于<code>0</code>因此<code>dp[i][1]</code>（即卖出后得到的钱），小于股票最高价；而<code>dp[i][3]</code>却为股票最高价导致最后得到的结果出现偏差。得到一个结论：<strong>变量使用前要记得初始化为正确的值</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=prices.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(n,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(<span class="number">4</span>,<span class="number">0</span>));</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>]=-prices[<span class="number">0</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">2</span>]=-prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="comment">//记录遇到过的最低股价</span></span><br><span class="line">            dp[i][<span class="number">0</span>]=<span class="built_in">max</span>(dp[i<span class="number">-1</span>][<span class="number">0</span>],-prices[i]);</span><br><span class="line">            <span class="comment">//记录遇到过的最高股价与最低股价的差距，即第一次卖出赚到过的钱</span></span><br><span class="line">            dp[i][<span class="number">1</span>]=<span class="built_in">max</span>(dp[i<span class="number">-1</span>][<span class="number">1</span>],dp[i<span class="number">-1</span>][<span class="number">0</span>]+prices[i]);</span><br><span class="line">            <span class="comment">//将第一次卖出赚到过的钱用于买股票，寻找剩余最多的钱；或代替第一次购买</span></span><br><span class="line">            dp[i][<span class="number">2</span>]=<span class="built_in">max</span>(dp[i<span class="number">-1</span>][<span class="number">2</span>],dp[i<span class="number">-1</span>][<span class="number">1</span>]-prices[i]);</span><br><span class="line">            <span class="comment">//第二次卖出后剩下的钱的最大值；或代替第一次卖出</span></span><br><span class="line">            dp[i][<span class="number">3</span>]=<span class="built_in">max</span>(dp[i<span class="number">-1</span>][<span class="number">3</span>],dp[i<span class="number">-1</span>][<span class="number">2</span>]+prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n<span class="number">-1</span>][<span class="number">3</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>在解法一中可以发现,<code>dp</code>数组只访问了上一次的值，而与此前历史的值无关，因此二维数组可以简化为四个变量<code>dp0 dp1 dp2 dp3</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=prices.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> dp0,dp1,dp2,dp3;</span><br><span class="line">        dp0=-prices[<span class="number">0</span>];</span><br><span class="line">        dp2=-prices[<span class="number">0</span>];</span><br><span class="line">        dp1=<span class="number">0</span>;</span><br><span class="line">        dp3=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dp0=<span class="built_in">max</span>(dp0,-prices[i]);</span><br><span class="line">            dp1=<span class="built_in">max</span>(dp1,dp0+prices[i]);</span><br><span class="line">            dp2=<span class="built_in">max</span>(dp2,dp1-prices[i]);</span><br><span class="line">            dp3=<span class="built_in">max</span>(dp3,dp2+prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</div>
+<h2 id="3-Core-Idea"><a href="#3-Core-Idea" class="headerlink" title="3. Core Idea"></a>3. Core Idea</h2><ul>
+<li><strong>Approach</strong>: Fixed-Size Sliding Window.</li>
+<li><strong>Mechanism</strong>:<ul>
+<li>Since an anagram is just a permutation of a string, any valid substring in <code>s</code> must have the exact same character frequencies and length as <code>p</code>.</li>
+<li>We use a frequency array <code>cntP</code> of size 26 to count characters in <code>p</code>, and another array <code>window</code> to track the characters inside our current sliding window in <code>s</code>.</li>
+<li>We iterate through <code>s</code> using a right pointer <code>r</code>. In each step, we expand the window by adding <code>s[r]</code>.</li>
+<li>To maintain a fixed window size equal to <code>p.length</code>, whenever the window length exceeds <code>p.length</code>, we shrink the window from the left by removing <code>s[l]</code> and incrementing <code>l</code>.</li>
+<li>Because both arrays have a fixed size of 26, checking if <code>window == cntP</code> takes $O(1)$ constant time. If they are equal, we append the starting index <code>l</code> to our results.</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findAnagrams</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> ns = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> np = p.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (ns &lt; np) <span class="keyword">return</span> ans;</span><br><span class="line"></span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">cntP</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">window</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 统计 p</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : p) &#123;</span><br><span class="line">            cntP[c - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> r = <span class="number">0</span>; r &lt; ns; r++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 加入右边字符</span></span><br><span class="line">            window[s[r] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 保持窗口长度 == np</span></span><br><span class="line">            <span class="keyword">if</span> (r - l + <span class="number">1</span> &gt; np) &#123;</span><br><span class="line"></span><br><span class="line">                window[s[l] - <span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 判断是否匹配</span></span><br><span class="line">            <span class="keyword">if</span> (window == cntP) &#123;</span><br><span class="line">                ans.<span class="built_in">push_back</span>(l);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -316,7 +338,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/07/Best-Time-to-Buy-and-Sell-Stock-III/",
+                text: "https://pure-master.github.io/2026/05/24/Find-All-Anagrams-in-a-String/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -328,10 +350,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/07/Best-Time-to-Buy-and-Sell-Stock-III/";
-            const title         = "「Best Time to Buy and Sell Stock III」";
-            const excerpt       = `DescriptionYou are given an array prices where prices[i] is the price of a given stock on the ith day.
-Find the maxim...`;
+            const hostUrl       = "https://pure-master.github.io/2026/05/24/Find-All-Anagrams-in-a-String/";
+            const title         = "「Find All Anagrams in a String」";
+            const excerpt       = `1. Problem Link438. Find All Anagrams in a String - LeetCode
+2. Problem DescriptionGiven two strings s and p, return ...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -350,10 +372,10 @@ Find the maxim...`;
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>
+                    <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/Hash-Table/" rel="tag">Hash-Table</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>, <a class="tag-none-link" href="/tags/Sliding-Window/" rel="tag">Sliding-Window</a>, <a class="tag-none-link" href="/tags/String/" rel="tag">String</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-19T13:55:51.840Z" itemprop="dateModified">最后编辑：2024-04-19</time>
+                    <time datetime="2026-05-24T04:02:41.866Z" itemprop="dateModified">最后编辑：2026-05-24</time>
                 </div>
             </div>
         </footer>
@@ -362,13 +384,9 @@ Find the maxim...`;
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Linux command" href="/2024/04/04/Linux-command/">&lt; 上一篇</a>
+                <a title=" Longest Substring Without Repeating Characters" href="/2026/05/24/Longest-Substring-Without-Repeating-Characters/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Best Time to Buy and Sell Stock IV" href="/2024/04/08/Best-Time-to-Buy-and-Sell-Stock-IV/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
@@ -436,7 +454,7 @@ Find the maxim...`;
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95%E4%B8%80"><span class="toc-text">解法一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B3%95%E4%BA%8C"><span class="toc-text">解法二</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-text">3. Core Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-text">4. C++ Solution</span></a></li></ol>
     </div>
 </aside>
                 
