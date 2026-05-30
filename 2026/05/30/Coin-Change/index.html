@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>Subarray Sum Equals K | ljz&#39;s Blog</title>
+  <title>Coin Change | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -15,24 +15,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="Array, C++, Hash-Table, LeetCode, Prefix-Sum" />
+    <meta name="keywords" content="Array, Breadth-First-Search, C++, Dynamic-Programming, LeetCode" />
   
-  <meta name="description" content="1. Problem Link560. Subarray Sum Equals K - LeetCode 2. Problem DescriptionGiven an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k. A subarray is a">
+  <meta name="description" content="1. Problem Link322. Coin Change - LeetCode 2. Problem DescriptionYou are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Subarray Sum Equals K">
-<meta property="og:url" content="https://pure-master.github.io/2026/05/24/Subarray-Sum-Equals-K/index.html">
+<meta property="og:title" content="Coin Change">
+<meta property="og:url" content="https://pure-master.github.io/2026/05/30/Coin-Change/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="1. Problem Link560. Subarray Sum Equals K - LeetCode 2. Problem DescriptionGiven an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k. A subarray is a">
+<meta property="og:description" content="1. Problem Link322. Coin Change - LeetCode 2. Problem DescriptionYou are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2026-05-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-24T08:23:16.717Z">
+<meta property="article:published_time" content="2026-05-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-30T02:03:09.417Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="Hash-Table">
-<meta property="article:tag" content="Prefix-Sum">
+<meta property="article:tag" content="Dynamic-Programming">
+<meta property="article:tag" content="Breadth-First-Search">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
   
@@ -207,15 +207,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/05/24/Subarray-Sum-Equals-K/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/05/30/Coin-Change/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Subarray Sum Equals K</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Coin Change</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2026-05-23T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-05-24</time></li>
+                <li><time datetime="2026-05-29T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-05-30</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -224,7 +224,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.80K
+                            ~1.99K
                         
                         字
                     </li>
@@ -236,7 +236,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1779610996717"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1780106589417"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -246,36 +246,45 @@
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subarray-sum-equals-k/?envType=study-plan-v2&amp;envId=top-100-liked">560. Subarray Sum Equals K - LeetCode</a></p>
-<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return the total number of subarrays whose sum equals to <code>k</code>.</p>
-<p>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>
+            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/coin-change/description/?envType=study-plan-v2&amp;envId=top-100-liked">322. Coin Change - LeetCode</a></p>
+<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>You are given an integer array <code>coins</code> representing coins of different denominations and an integer <code>amount</code> representing a total amount of money.</p>
+<p>Return <em>the fewest number of coins that you need to make up that amount</em>. If that amount of money cannot be made up by any combination of the coins, return <code>-1</code>.</p>
+<p>You may assume that you have an infinite number of each kind of coin.</p>
 <p><strong>Example 1:</strong></p>
 <ul>
-<li><strong>Input:</strong> <code>nums = [1,1,1]</code>, k = 2</li>
-<li><strong>Output:</strong> <code>2</code></li>
+<li><strong>Input:</strong> <code>coins = [1,2,5]</code>, <code>amount = 11</code></li>
+<li><strong>Output:</strong> <code>3</code></li>
+<li><strong>Explanation:</strong> <code>11 = 5 + 5 + 1</code></li>
 </ul>
 <p><strong>Example 2:</strong></p>
 <ul>
-<li><strong>Input:</strong> <code>nums = [1,2,3]</code>, k = 3</li>
-<li><strong>Output:</strong> <code>2</code></li>
+<li><strong>Input:</strong> <code>coins = [2]</code>, <code>amount = 3</code></li>
+<li><strong>Output:</strong> <code>-1</code></li>
+</ul>
+<p><strong>Example 3:</strong></p>
+<ul>
+<li><strong>Input:</strong> <code>coins = [1]</code>, <code>amount = 0</code></li>
+<li><strong>Output:</strong> <code>0</code></li>
 </ul>
 <p><strong>Constraints:</strong></p>
 <ul>
-<li>1 &lt;= nums.length &lt;= 2 * 10^4</li>
-<li>-1000 &lt;= nums[i] &lt;= 1000</li>
-<li>-10^7 &lt;= k &lt;= 10^7</li>
+<li>1 &lt;= coins.length &lt;= 12</li>
+<li>1 &lt;= coins[i] &lt;= 2^31 - 1</li>
+<li>0 &lt;= amount &lt;= 10^4</li>
 </ul>
 <h2 id="3-Core-Idea"><a href="#3-Core-Idea" class="headerlink" title="3. Core Idea"></a>3. Core Idea</h2><ul>
-<li><strong>Approach</strong>: Prefix Sum + Hash Map (Frequency Map).</li>
+<li><strong>Approach</strong>: Dynamic Programming (Unbounded Knapsack variation).</li>
 <li><strong>Mechanism</strong>:<ul>
-<li>The sum of a subarray from index <code>i</code> to <code>j</code> can be calculated using prefix sums: <code>sum(i, j) = prefix[j] - prefix[i - 1]</code>.</li>
-<li>We want to find the number of pairs <code>(i, j)</code> such that <code>prefix[j] - prefix[i - 1] = k</code>, which can be rearranged to <code>prefix[i - 1] = prefix[j] - k</code>.</li>
-<li>As we iterate through the array, we accumulate the current prefix sum (<code>prefix</code>). We then check if <code>prefix - k</code> exists in our hash map <code>cnt</code>. If it does, it means we have found valid subarrays that sum up to <code>k</code>, so we add its frequency to our total answer <code>ans</code>.</li>
-<li><strong>Edge Case</strong>: We initialize <code>cnt[0] = 1</code> because a prefix sum of 0 conceptually occurs once before we even look at any elements (handling subarrays that start directly from index 0).</li>
+<li>Let <code>dp[i]</code> represent the minimum number of coins needed to make up the amount <code>i</code>.</li>
+<li>We initialize the DP table with a large placeholder value <code>0x3f3f3f3f</code> (effectively infinity) to denote unreachable states, and set <code>dp[0] = 0</code> since 0 coins are needed to make an amount of 0.</li>
+<li>For each coin <code>n</code> in <code>coins</code>, we iterate through all amounts <code>i</code> from <code>n</code> up to <code>amount</code>. </li>
+<li>If we choose to use the current coin <code>n</code>, the problem reduces to finding the minimum coins needed for the remaining amount <code>i - n</code>, plus 1 for the current coin.</li>
+<li><strong>State Transition Equation</strong>: <code>dp[i] = min(dp[i], dp[i - n] + 1)</code>.</li>
+<li>Finally, if <code>dp[amount]</code> remains equal to <code>0x3f3f3f3f</code>, it means the amount cannot be formed by any combination, so we return <code>-1</code>.</li>
 </ul>
 </li>
 </ul>
-<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">subarraySum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; cnt;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 前缀和 0 出现 1 次</span></span><br><span class="line">        cnt[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> prefix = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> x : nums) &#123;</span><br><span class="line"></span><br><span class="line">            prefix += x;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 找 prefix-k 出现过几次</span></span><br><span class="line">            <span class="keyword">if</span> (cnt.<span class="built_in">count</span>(prefix - k)) &#123;</span><br><span class="line">                ans += cnt[prefix - k];</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 记录当前前缀和</span></span><br><span class="line">            cnt[prefix]++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">coinChange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; coins, <span class="type">int</span> amount)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(amount + <span class="number">1</span>, <span class="number">0x3f3f3f3f</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> n : coins) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = n; i &lt;= amount; i++) &#123;</span><br><span class="line">                dp[i] = <span class="built_in">min</span>(dp[i], dp[i - n] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dp[amount] == <span class="number">0x3f3f3f3f</span> ? <span class="number">-1</span> : dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -328,7 +337,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2026/05/24/Subarray-Sum-Equals-K/",
+                text: "https://pure-master.github.io/2026/05/30/Coin-Change/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -340,10 +349,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2026/05/24/Subarray-Sum-Equals-K/";
-            const title         = "「Subarray Sum Equals K」";
-            const excerpt       = `1. Problem Link560. Subarray Sum Equals K - LeetCode
-2. Problem DescriptionGiven an array of integers nums and an int...`;
+            const hostUrl       = "https://pure-master.github.io/2026/05/30/Coin-Change/";
+            const title         = "「Coin Change」";
+            const excerpt       = `1. Problem Link322. Coin Change - LeetCode
+2. Problem DescriptionYou are given an integer array coins representing co...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -362,10 +371,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/Array/" rel="tag">Array</a>, <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/Hash-Table/" rel="tag">Hash-Table</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>, <a class="tag-none-link" href="/tags/Prefix-Sum/" rel="tag">Prefix-Sum</a>
+                    <a class="tag-none-link" href="/tags/Array/" rel="tag">Array</a>, <a class="tag-none-link" href="/tags/Breadth-First-Search/" rel="tag">Breadth-First-Search</a>, <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic-Programming</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2026-05-24T08:23:16.717Z" itemprop="dateModified">最后编辑：2026-05-24</time>
+                    <time datetime="2026-05-30T02:03:09.417Z" itemprop="dateModified">最后编辑：2026-05-30</time>
                 </div>
             </div>
         </footer>
@@ -374,13 +383,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 3Sum" href="/2026/05/23/3Sum/">&lt; 上一篇</a>
+                <a title=" House Robber" href="/2026/05/30/House-Robber/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Sliding Window Maximum" href="/2026/05/24/Sliding-Window-Maximum/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
