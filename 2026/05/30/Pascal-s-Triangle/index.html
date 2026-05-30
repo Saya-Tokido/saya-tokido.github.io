@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>Sort List | ljz&#39;s Blog</title>
+  <title>Pascal&#39;s Triangle | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -15,21 +15,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="Algorithm, LeetCode" />
+    <meta name="keywords" content="Array, C++, Dynamic-Programming, LeetCode" />
   
-  <meta name="description" content="DescriptionGiven the head of a linked list, return the list after sorting it in ascending order. Example 1:  12Input: head &#x3D; [4,2,1,3]Output: [1,2,3,4] Example 2:  12Input: head &#x3D; [-1,5,3,4,0]Output:">
+  <meta name="description" content="1. Problem Link118. Pascal’s Triangle - LeetCode 2. Problem DescriptionGiven an integer numRows, return the first numRows of Pascal’s triangle. In Pascal’s triangle, each number is the sum of the two">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sort List">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/20/Sort-List/index.html">
+<meta property="og:title" content="Pascal&#39;s Triangle">
+<meta property="og:url" content="https://pure-master.github.io/2026/05/30/Pascal-s-Triangle/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="DescriptionGiven the head of a linked list, return the list after sorting it in ascending order. Example 1:  12Input: head &#x3D; [4,2,1,3]Output: [1,2,3,4] Example 2:  12Input: head &#x3D; [-1,5,3,4,0]Output:">
+<meta property="og:description" content="1. Problem Link118. Pascal’s Triangle - LeetCode 2. Problem DescriptionGiven an integer numRows, return the first numRows of Pascal’s triangle. In Pascal’s triangle, each number is the sum of the two">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2024-04-20T08:56:18.000Z">
-<meta property="article:modified_time" content="2024-04-20T09:31:31.965Z">
+<meta property="article:published_time" content="2026-05-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-30T00:32:22.819Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta property="article:tag" content="LeetCode">
-<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Dynamic-Programming">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
   
@@ -204,15 +206,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/20/Sort-List/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/05/30/Pascal-s-Triangle/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Sort List</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Pascal's Triangle</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-20T08:56:18.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-20</time></li>
+                <li><time datetime="2026-05-29T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-05-30</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -221,7 +223,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.65K
+                            1428
                         
                         字
                     </li>
@@ -233,51 +235,42 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1713605491965"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1780101142819"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-number">1.</span> <span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-number">2.</span> <span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-number">3.</span> <span class="toc-text">3. Core Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-number">4.</span> <span class="toc-text">4. C++ Solution</span></a></li></ol>
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given the <code>head</code> of a linked list, return <em>the list after sorting it in <strong>ascending order</strong></em>.</p>
+            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/pascals-triangle/description/?envType=study-plan-v2&amp;envId=top-100-liked">118. Pascal’s Triangle - LeetCode</a></p>
+<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>Given an integer <code>numRows</code>, return the first <code>numRows</code> of Pascal’s triangle.</p>
+<p>In <strong>Pascal’s triangle</strong>, each number is the sum of the two numbers directly above it as shown:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   1 1</span><br><span class="line">  1 2 1</span><br><span class="line"> 1 3 3 1</span><br><span class="line">1 4 6 4 1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>Example 1:</strong></p>
-<p><img src="/images/Sort-List-2.jpg" alt="Example 1"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: head = [4,2,1,3]</span><br><span class="line">Output: [1,2,3,4]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Input:</strong> <code>numRows = 5</code></li>
+<li><strong>Output:</strong> <code>[[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]</code></li>
+</ul>
 <p><strong>Example 2:</strong></p>
-<p><img src="/images/Sort-List-1.jpg" alt="Example 2"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: head = [-1,5,3,4,0]</span><br><span class="line">Output: [-1,0,3,4,5]</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: head = []</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Input:</strong> <code>numRows = 1</code></li>
+<li><strong>Output:</strong> <code>[[1]]</code></li>
+</ul>
 <p><strong>Constraints:</strong></p>
 <ul>
-<li>The number of nodes in the list is in the range <code>[0, 5 * 104]</code>.</li>
-<li><code>-105 &lt;= Node.val &lt;= 105</code></li>
+<li>1 &lt;= numRows &lt;= 30</li>
 </ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p><code>O(nlogn)</code>时间复杂度 <code>O(1)</code>空间复杂度<strong>归并排序</strong></p>
-<p>首先判断需要排序的链表是否为空</p>
-<p>求出链表的长度传入排序函数</p>
-<p>归并排序函数由核心三部分组成</p>
-<ul>
-<li>排序前半部分</li>
-<li>排序后半部分</li>
-<li>将前后两部分合并</li>
+<h2 id="3-Core-Idea"><a href="#3-Core-Idea" class="headerlink" title="3. Core Idea"></a>3. Core Idea</h2><ul>
+<li><strong>Approach</strong>: Dynamic Programming / Row-by-Row Simulation.</li>
+<li><strong>Mechanism</strong>:</li>
+<li>We construct the triangle row by row. The $i$-th row (0-indexed) has exactly <code>i + 1</code> elements.</li>
+<li>For any row, the first and last elements are always <code>1</code>.</li>
+<li>For the inner elements at index <code>j</code> (where <code>1 &lt;= j &lt; i</code>), the value is calculated by adding the two adjacent elements from the previous row: <code>row[j] = retNums[i - 1][j - 1] + retNums[i - 1][j]</code>.</li>
 </ul>
-<p>首先需要将链表分成可排序的两部分，此处使用二分法</p>
-<p>如果<code>count</code>为<code>0</code>代表链表不可再分，直接返回头节点皆可</p>
-<p>为了方便合并（无须记录何时遍历到当前链表的末尾）在拆分时需要将前半部分的末尾指向<code>nullptr</code>，因此先将<code>part2</code>定位到<code>part1</code>的末尾，在赋值给temp，然后将<code>part2</code>指向第二部分的头部，而<code>temp</code>作为<code>part1</code>的末尾指向<code>nullptr</code></p>
-<p>将两部分的合并是通过从头遍历两个链表进行的，为保留指针头部位置和方便遍历数组，定义了一个头节点（也可以选出两个链表中的最小节点直接作为头节点，但代码稍复杂）</p>
-<ul>
-<li>分别用两个指针遍历两个链表</li>
-<li>找出值当前值最小的节点，并将其作为合并链表的下一个节点，然后选出节点的链表的指针后移</li>
-<li>直到其中一个链表为空，将合并链表的尾指针指向另一个链表的剩余部分皆可</li>
-<li>返回合并后的链表</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ListNode</span> &#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    ListNode* next;</span><br><span class="line">    <span class="built_in">ListNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    <span class="built_in">ListNode</span>(<span class="type">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    <span class="built_in">ListNode</span>(<span class="type">int</span> x, ListNode* next) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(next) &#123;&#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">sortList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">nullptr</span> == head) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        ListNode* node = head;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">nullptr</span> != node) &#123;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">fun</span>(head,count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">fun</span><span class="params">(ListNode* head, <span class="type">int</span> count)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">1</span> == count) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = count &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        ListNode* part1=head;</span><br><span class="line">        ListNode* part2=head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; mid; i++) &#123;</span><br><span class="line">            part2 = part2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* temp = part2;</span><br><span class="line">        part2 = part2-&gt;next;</span><br><span class="line">        temp-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        part1=<span class="built_in">fun</span>(part1, mid);</span><br><span class="line">        part2=<span class="built_in">fun</span>(part2, count - mid);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">merge</span>(part1, part2);</span><br><span class="line">         </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">merge</span><span class="params">(ListNode* part1, ListNode* part2)</span> </span>&#123;</span><br><span class="line">        ListNode *head=<span class="keyword">new</span> <span class="built_in">ListNode</span>();</span><br><span class="line">        ListNode* temp = head;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">nullptr</span> != part1 &amp;&amp; <span class="literal">nullptr</span> != part2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (part1-&gt;val &gt; part2-&gt;val) &#123;</span><br><span class="line">                temp-&gt;next = part2;</span><br><span class="line">                part2 = part2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                temp-&gt;next = part1;</span><br><span class="line">                part1 = part1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            temp = temp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp-&gt;next = <span class="literal">nullptr</span> == part1 ? part2 : part1;</span><br><span class="line">        <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</div>
+<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">generate</span>(<span class="type">int</span> numRows) &#123;</span><br><span class="line">        </span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; retNums;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numRows; i++) &#123;</span><br><span class="line">            <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">row</span><span class="params">(i + <span class="number">1</span>)</span></span>;</span><br><span class="line">            row[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            row[i] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt; i; j++) &#123;</span><br><span class="line">                row[j] = retNums[i - <span class="number">1</span>][j - <span class="number">1</span>] + retNums[i - <span class="number">1</span>][j];</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            retNums.<span class="built_in">push_back</span>(row);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> retNums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -330,7 +323,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/20/Sort-List/",
+                text: "https://pure-master.github.io/2026/05/30/Pascal-s-Triangle/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -342,12 +335,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/20/Sort-List/";
-            const title         = "「Sort List」";
-            const excerpt       = `DescriptionGiven the head of a linked list, return the list after sorting it in ascending order.
-Example 1:
-
-12Input:...`;
+            const hostUrl       = "https://pure-master.github.io/2026/05/30/Pascal-s-Triangle/";
+            const title         = "「Pascal's Triangle」";
+            const excerpt       = `1. Problem Link118. Pascal’s Triangle - LeetCode
+2. Problem DescriptionGiven an integer numRows, return the first num...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -366,10 +357,10 @@ Example 1:
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>
+                    <a class="tag-none-link" href="/tags/Array/" rel="tag">Array</a>, <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic-Programming</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-20T09:31:31.965Z" itemprop="dateModified">最后编辑：2024-04-20</time>
+                    <time datetime="2026-05-30T00:32:22.819Z" itemprop="dateModified">最后编辑：2026-05-30</time>
                 </div>
             </div>
         </footer>
@@ -378,13 +369,9 @@ Example 1:
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Convert Sorted Array to Binary Search Tree" href="/2024/04/19/Convert-Sorted-Array-to-Binary-Search-Tree/">&lt; 上一篇</a>
+                <a title=" Find All Anagrams in a String" href="/2026/05/24/Find-All-Anagrams-in-a-String/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Construct Quad Tree" href="/2024/04/21/Construct-Quad-Tree/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
@@ -452,7 +439,7 @@ Example 1:
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-text">3. Core Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-text">4. C++ Solution</span></a></li></ol>
     </div>
 </aside>
                 
