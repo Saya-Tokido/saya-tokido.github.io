@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>All forms of string case conversion | ljz&#39;s Blog</title>
+  <title>Word Break | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -15,20 +15,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="Algorithm" />
+    <meta name="keywords" content="Array, C++, Dynamic-Programming, Hash-Table, LeetCode, String" />
   
-  <meta name="description" content="DescriptionGiven a string, convert uppercase letters to lowercase letters, or convert lowercase letters to uppercase letters, and output all forms 1234567891011输入用例 1:&quot;a1b2&quot;输出用例 1:[&quot;a1b">
+  <meta name="description" content="1. Problem Link139. Word Break - LeetCode 2. Problem DescriptionGiven a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more">
 <meta property="og:type" content="article">
-<meta property="og:title" content="All forms of string case conversion">
-<meta property="og:url" content="https://pure-master.github.io/2024/05/07/All-forms-of-string-case-conversion/index.html">
+<meta property="og:title" content="Word Break">
+<meta property="og:url" content="https://pure-master.github.io/2026/05/30/Word-Break/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="DescriptionGiven a string, convert uppercase letters to lowercase letters, or convert lowercase letters to uppercase letters, and output all forms 1234567891011输入用例 1:&quot;a1b2&quot;输出用例 1:[&quot;a1b">
+<meta property="og:description" content="1. Problem Link139. Word Break - LeetCode 2. Problem DescriptionGiven a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2024-05-07T12:27:18.000Z">
-<meta property="article:modified_time" content="2024-05-07T12:27:18.505Z">
+<meta property="article:published_time" content="2026-05-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-30T02:53:05.065Z">
 <meta property="article:author" content="Lao Jinzan">
-<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Dynamic-Programming">
+<meta property="article:tag" content="Hash-Table">
+<meta property="article:tag" content="String">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
   
@@ -203,15 +208,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/05/07/All-forms-of-string-case-conversion/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/05/30/Word-Break/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">All forms of string case conversion</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Word Break</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-05-07T12:27:18.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-05-07</time></li>
+                <li><time datetime="2026-05-29T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-05-30</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -220,7 +225,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.54K
+                            ~2.43K
                         
                         字
                     </li>
@@ -232,30 +237,60 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1715084838505"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1780109585065"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-number">2.2.</span> <span class="toc-text">代码讲解</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-number">1.</span> <span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-number">2.</span> <span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-number">3.</span> <span class="toc-text">3. Core Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-number">4.</span> <span class="toc-text">4. C++ Solution</span></a></li></ol>
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a string, convert uppercase letters to lowercase letters, or convert lowercase letters to uppercase letters, and output all forms</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入用例 1:</span><br><span class="line">&quot;a1b2&quot;</span><br><span class="line"></span><br><span class="line">输出用例 1:</span><br><span class="line">[&quot;a1b2&quot;, &quot;A1b2&quot;, &quot;a1B2&quot;, &quot;A1B2&quot;]</span><br><span class="line"></span><br><span class="line">输入用例 2:</span><br><span class="line">&quot;3z4&quot;</span><br><span class="line"></span><br><span class="line">输出用例 2:</span><br><span class="line">[&quot;3z4&quot;, &quot;3Z4&quot;]</span><br></pre></td></tr></table></figure>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>回溯，遍历每个字符，如果是数字直接插入，如果字符分两种情况</p>
-<h3 id="代码讲解"><a href="#代码讲解" class="headerlink" title="代码讲解"></a>代码讲解</h3><p><code>fun</code>为入口函数，接受一个字符串，并返回所有形式的字符串变换</p>
-<ol>
-<li>未遍历完整个字符串(下标<code>index</code>与<code>n</code>不相同)<ol>
-<li>如果当前字符是数字，直接接入当前字符，进入下一层</li>
-<li>如果当前字符是字母，接入当前字符进入下一层，返回后判断是否是大小写字母，接入另一者，进入下一层</li>
-</ol>
+            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-break/?envType=study-plan-v2&amp;envId=top-100-liked">139. Word Break - LeetCode</a></p>
+<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>Given a string <code>s</code> and a dictionary of strings <code>wordDict</code>, return <code>true</code> if <code>s</code> can be segmented into a space-separated sequence of one or more dictionary words.</p>
+<p><strong>Note</strong> that the same word in the dictionary may be reused multiple times in the segmentation.</p>
+<p><strong>Example 1:</strong></p>
+<ul>
+<li><strong>Input:</strong> <code>s = &quot;leetcode&quot;</code>, <code>wordDict = [&quot;leet&quot;,&quot;code&quot;]</code></li>
+<li><strong>Output:</strong> <code>true</code></li>
+<li><strong>Explanation:</strong> Return true because <code>&quot;leetcode&quot;</code> can be segmented as <code>&quot;leet code&quot;</code>.</li>
+</ul>
+<p><strong>Example 2:</strong></p>
+<ul>
+<li><strong>Input:</strong> <code>s = &quot;applepenapple&quot;</code>, <code>wordDict = [&quot;apple&quot;,&quot;pen&quot;]</code></li>
+<li><strong>Output:</strong> <code>true</code></li>
+<li><strong>Explanation:</strong> Return true because <code>&quot;applepenapple&quot;</code> can be segmented as <code>&quot;apple pen apple&quot;</code>. Note that you are allowed to reuse a dictionary word.</li>
+</ul>
+<p><strong>Example 3:</strong></p>
+<ul>
+<li><strong>Input:</strong> <code>s = &quot;catsandog&quot;</code>, <code>wordDict = [&quot;cats&quot;,&quot;dog&quot;,&quot;sand&quot;,&quot;and&quot;,&quot;cat&quot;]</code></li>
+<li><strong>Output:</strong> <code>false</code></li>
+</ul>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;= s.length &lt;= 300</li>
+<li>1 &lt;= wordDict.length &lt;= 1000</li>
+<li>1 &lt;= wordDict[i].length &lt;= 20</li>
+<li><code>s</code> and <code>wordDict[i]</code> consist of only lowercase English letters.</li>
+<li>All the strings of <code>wordDict</code> are unique.</li>
+</ul>
+<h2 id="3-Core-Idea"><a href="#3-Core-Idea" class="headerlink" title="3. Core Idea"></a>3. Core Idea</h2><ul>
+<li><strong>Approach</strong>: Dynamic Programming.</li>
+<li><strong>Mechanism</strong>:<ul>
+<li>Let <code>f[i]</code> be a boolean value representing whether the prefix of string <code>s</code> of length <code>i</code> (i.e., <code>s[0...i-1]</code>) can be segmented into words from <code>wordDict</code>.</li>
+<li>We initialize <code>f[0] = true</code> because an empty string is always a valid segmentation base case.</li>
+<li>For each length <code>i</code> from 1 to <code>n</code>:<ul>
+<li>We iterate through each word <code>w</code> in <code>wordDict</code>.</li>
+<li>If the length of <code>w</code> is less than or equal to <code>i</code> (<code>w.size() &lt;= i</code>) AND the substring of <code>s</code> ending at index <code>i - 1</code> with length <code>w.size()</code> matches <code>w</code>, then <code>f[i]</code> can transition from the state before this word was matched.</li>
+</ul>
 </li>
-<li>遍历完整个字符串，当前字符串即可</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;string&gt; strv;</span><br><span class="line">    string str;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">fun</span><span class="params">(string _str)</span> </span>&#123;</span><br><span class="line">        str = _str;</span><br><span class="line">        n = str.<span class="built_in">length</span>();</span><br><span class="line">        <span class="built_in">backtrack</span>(<span class="string">&quot;&quot;</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> strv;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtrack</span><span class="params">(string curr, <span class="type">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == index) &#123;</span><br><span class="line">            strv.<span class="built_in">push_back</span>(curr);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isdigit</span>(str[index])) &#123;</span><br><span class="line">            curr.<span class="built_in">push_back</span>(str[index]);</span><br><span class="line">            <span class="built_in">backtrack</span>(curr, index + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isalpha</span>(str[index])) &#123;</span><br><span class="line">            <span class="built_in">backtrack</span>(curr + str[index], index + <span class="number">1</span>);</span><br><span class="line">            <span class="type">char</span> temp;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isupper</span>(str[index])) &#123;</span><br><span class="line">                temp = <span class="built_in">tolower</span>(str[index]); <span class="comment">// Convert uppercase to lowercase</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                temp = <span class="built_in">toupper</span>(str[index]); <span class="comment">// Convert lowercase to uppercase</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">backtrack</span>(curr + temp, index + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</div>
+<li><strong>State Transition Equation</strong>: <code>f[i] = f[i] || f[i - w.size()]</code> (given that <code>s.substr(i - w.size(), w.size()) == w</code>).</li>
+<li>Finally, <code>f[n]</code> will hold the answer for the complete string.</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">wordBreak</span><span class="params">(string s, vector&lt;string&gt;&amp; wordDict)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">f</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        f[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; w : wordDict) &#123;</span><br><span class="line">                <span class="keyword">if</span> (w.<span class="built_in">size</span>() &lt;= i &amp;&amp; w == s.<span class="built_in">substr</span>(i - w.<span class="built_in">size</span>(), w.<span class="built_in">size</span>()))</span><br><span class="line">                    f[i] = f[i] || f[i - w.<span class="built_in">size</span>()];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -308,7 +343,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/05/07/All-forms-of-string-case-conversion/",
+                text: "https://pure-master.github.io/2026/05/30/Word-Break/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -320,9 +355,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/05/07/All-forms-of-string-case-conversion/";
-            const title         = "「All forms of string case conversion」";
-            const excerpt       = `DescriptionGiven a string, convert uppercase letters to lowercase letters, or convert lowercase letters to uppercase ...`;
+            const hostUrl       = "https://pure-master.github.io/2026/05/30/Word-Break/";
+            const title         = "「Word Break」";
+            const excerpt       = `1. Problem Link139. Word Break - LeetCode
+2. Problem DescriptionGiven a string s and a dictionary of strings wordDict...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -341,10 +377,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/Algorithm/" rel="tag">Algorithm</a>
+                    <a class="tag-none-link" href="/tags/Array/" rel="tag">Array</a>, <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic-Programming</a>, <a class="tag-none-link" href="/tags/Hash-Table/" rel="tag">Hash-Table</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>, <a class="tag-none-link" href="/tags/String/" rel="tag">String</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-05-07T12:27:18.505Z" itemprop="dateModified">最后编辑：2024-05-07</time>
+                    <time datetime="2026-05-30T02:53:05.065Z" itemprop="dateModified">最后编辑：2026-05-30</time>
                 </div>
             </div>
         </footer>
@@ -353,12 +389,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Search a 2D Matrix" href="/2024/05/07/Search-a-2D-Matrix/">&lt; 上一篇</a>
+                <a title=" Find All Anagrams in a String" href="/2026/05/24/Find-All-Anagrams-in-a-String/">&lt; 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" binarySearch usage" href="/2024/05/09/binarySearch-usage/">下一篇 &gt;</a>
+                <a title=" Perfect Squares" href="/2026/05/30/Perfect-Squares/">下一篇 &gt;</a>
             </div>
             
         </nav>
@@ -427,7 +463,7 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-text">代码讲解</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-text">3. Core Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-text">4. C++ Solution</span></a></li></ol>
     </div>
 </aside>
                 
