@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>Linux command | ljz&#39;s Blog</title>
+  <title>Perfect Squares | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -15,20 +15,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="Tutorial" />
+    <meta name="keywords" content="Breadth-First-Search, C++, Dynamic-Programming, LeetCode, Math" />
   
-  <meta name="description" content="本机与虚拟机之间交互 使用SSH连接Linux服务器： 12ssh username@Linuxaddress输入密码：    本机与Linux上传下载文件  从Linux服务器下载文件（文件夹）到本机 12scp username@Linuxaddress:&#x2F;home&#x2F;hhn&#x2F;code C:\Users\Administrator\Desktop输入密码：  从本机上传文件（文件夹）到Linux">
+  <meta name="description" content="1. Problem Link279. Perfect Squares - LeetCode 2. Problem DescriptionGiven an integer n, return the least number of perfect square numbers that sum to n. A perfect square is an integer that is the squ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux command">
-<meta property="og:url" content="https://pure-master.github.io/2024/04/04/Linux-command/index.html">
+<meta property="og:title" content="Perfect Squares">
+<meta property="og:url" content="https://pure-master.github.io/2026/05/30/Perfect-Squares/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="本机与虚拟机之间交互 使用SSH连接Linux服务器： 12ssh username@Linuxaddress输入密码：    本机与Linux上传下载文件  从Linux服务器下载文件（文件夹）到本机 12scp username@Linuxaddress:&#x2F;home&#x2F;hhn&#x2F;code C:\Users\Administrator\Desktop输入密码：  从本机上传文件（文件夹）到Linux">
+<meta property="og:description" content="1. Problem Link279. Perfect Squares - LeetCode 2. Problem DescriptionGiven an integer n, return the least number of perfect square numbers that sum to n. A perfect square is an integer that is the squ">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2024-04-04T14:22:12.000Z">
-<meta property="article:modified_time" content="2024-04-24T03:42:50.896Z">
+<meta property="article:published_time" content="2026-05-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-30T01:19:50.235Z">
 <meta property="article:author" content="Lao Jinzan">
-<meta property="article:tag" content="Tutorial">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Dynamic-Programming">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="Breadth-First-Search">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
   
@@ -203,15 +207,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2024/04/04/Linux-command/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/05/30/Perfect-Squares/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Linux command</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Perfect Squares</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2024-04-04T14:22:12.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2024-04-04</time></li>
+                <li><time datetime="2026-05-29T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-05-30</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -220,7 +224,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1311
+                            ~3.23K
                         
                         字
                     </li>
@@ -232,93 +236,64 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1713930170896"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1780103990235"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
                 <div class="kratos-post-inner-toc toc-div-class" >
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%9C%BA%E4%B8%8E%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%BA%A4%E4%BA%92"><span class="toc-number">1.</span> <span class="toc-text">本机与虚拟机之间交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">防火墙操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ip%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">ip操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">磁盘操作</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-number">1.</span> <span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-number">2.</span> <span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-number">3.</span> <span class="toc-text">3. Core Idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-1-Dynamic-Programming"><span class="toc-number">3.1.</span> <span class="toc-text">Method 1: Dynamic Programming</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-2-Lagrange%E2%80%99s-Four-Square-Theorem"><span class="toc-number">3.2.</span> <span class="toc-text">Method 2: Lagrange’s Four-Square Theorem</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-number">4.</span> <span class="toc-text">4. C++ Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Version-1-Dynamic-Programming"><span class="toc-number">4.1.</span> <span class="toc-text">Version 1: Dynamic Programming</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Version-2-Lagrange%E2%80%99s-Four-Square-Theorem-Math-Strategy"><span class="toc-number">4.2.</span> <span class="toc-text">Version 2: Lagrange’s Four-Square Theorem (Math Strategy)</span></a></li></ol></li></ol>
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="本机与虚拟机之间交互"><a href="#本机与虚拟机之间交互" class="headerlink" title="本机与虚拟机之间交互"></a>本机与虚拟机之间交互</h2><ul>
-<li><p>使用SSH连接Linux服务器：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh username@Linuxaddress</span><br><span class="line">输入密码：</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/perfect-squares/description/?envType=study-plan-v2&amp;envId=top-100-liked">279. Perfect Squares - LeetCode</a></p>
+<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>Given an integer <code>n</code>, return <em>the least number of perfect square numbers that sum to</em> <code>n</code>.</p>
+<p>A <strong>perfect square</strong> is an integer that is the square of an integer; in other words, it is the product of some integer with itself. For example, <code>1</code>, <code>4</code>, <code>9</code>, and <code>16</code> are perfect squares while <code>3</code> and <code>11</code> are not.</p>
+<p><strong>Example 1:</strong></p>
 <ul>
-<li><p>本机与Linux上传下载文件</p>
+<li><strong>Input:</strong> <code>n = 12</code></li>
+<li><strong>Output:</strong> <code>3</code></li>
+<li><strong>Explanation:</strong> <code>12 = 4 + 4 + 4</code>.</li>
+</ul>
+<p><strong>Example 2:</strong></p>
 <ul>
-<li><p>从Linux服务器下载文件（文件夹）到本机</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp username@Linuxaddress:/home/hhn/code C:\Users\Administrator\Desktop</span><br><span class="line">输入密码：</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从本机上传文件（文件夹）到Linux服务器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r C:\Users\Administrator\Desktop  		    username@Linuxaddress:/home/hhn/code </span><br><span class="line">输入密码：</span><br></pre></td></tr></table></figure>
-</li>
+<li><strong>Input:</strong> <code>n = 13</code></li>
+<li><strong>Output:</strong> <code>2</code></li>
+<li><strong>Explanation:</strong> <code>13 = 4 + 9</code>.</li>
 </ul>
-</li>
-</ul>
-<h2 id="防火墙操作"><a href="#防火墙操作" class="headerlink" title="防火墙操作"></a>防火墙操作</h2><ul>
-<li><p>Linux 开放端口</p>
+<p><strong>Constraints:</strong></p>
 <ul>
-<li><p>开启防火墙<br><code>systemctl start firewalld</code></p>
-<ul>
-<li><p>开放指定端口<br><code>firewall-cmd --zone=public --add-port=8848/tcp --permanent</code><br><code>--zone</code> 作用域<br><code>-add-port=1935/tcp</code> 添加端口，格式为：端口/通讯协议<br><code>--remove-port=1935/tcp</code> 关闭指定端口<br><code>--permanent</code> 永久生效，没有此参数重启后失效 </p>
+<li>1 &lt;= n &lt;= 10^4</li>
+</ul>
+<h2 id="3-Core-Idea"><a href="#3-Core-Idea" class="headerlink" title="3. Core Idea"></a>3. Core Idea</h2><p>This problem can be solved efficiently using two completely different perspectives: <strong>Dynamic Programming</strong> or <strong>Mathematical Theorem</strong>.</p>
+<h3 id="Method-1-Dynamic-Programming"><a href="#Method-1-Dynamic-Programming" class="headerlink" title="Method 1: Dynamic Programming"></a>Method 1: Dynamic Programming</h3><ul>
+<li><strong>Approach</strong>: Unbounded Knapsack-like DP.</li>
+<li><strong>Mechanism</strong>:<ul>
+<li>Let <code>dp[i]</code> represent the minimum number of perfect square numbers required to sum up to <code>i</code>.</li>
+<li>For each number <code>i</code> from 1 to <code>n</code>, we can try all possible perfect squares <code>j * j</code> that are less than or equal to <code>i</code>. </li>
+<li>If we choose to include <code>j * j</code>, the problem transitions to finding the minimum perfect squares for the remainder <code>i - j * j</code>.</li>
+<li><strong>State Transition Equation</strong>: <code>dp[i] = min(dp[i], dp[i - j * j] + 1)</code>.</li>
+</ul>
 </li>
-<li><p>查看指定端口<br><code>firewall-cmd --list-ports</code></p>
-</li>
-<li><p>重启防火墙<br><code>firewall-cmd --reload</code></p>
-</li>
-<li><p>查看端口号<br><code>netstat -ntlp</code> 查看当前所有tcp端口<br><code>netstat -ntulp |grep 8848</code>   查看所有8848端口使用情况 </p>
-</li>
-<li><p>查询进程端口占用</p>
-<p><code>ps -ef | grep [进程名]</code></p>
+</ul>
+<h3 id="Method-2-Lagrange’s-Four-Square-Theorem"><a href="#Method-2-Lagrange’s-Four-Square-Theorem" class="headerlink" title="Method 2: Lagrange’s Four-Square Theorem"></a>Method 2: Lagrange’s Four-Square Theorem</h3><ul>
+<li><strong>Approach</strong>: Mathematical Deduction.</li>
+<li><strong>Mechanism</strong>:<ul>
+<li><strong>Lagrange’s Four-Square Theorem</strong> states that every natural number can be represented as the sum of four integer squares (n = a^2 + b^2 + c^2 + d^2). Therefore, the answer will always be <strong>1, 2, 3, or 4</strong>.</li>
+<li><strong>Legendre’s Three-Square Theorem</strong> states that a natural number can be expressed as the sum of three squares if and only if it is <strong>not</strong> of the form n = 4^a <em> (8b + 7). If it matches this form, the answer is strictly <em>*4</em></em>.</li>
+<li>Based on these rules, we can evaluate the answer deterministically:<ol>
+<li>Check if <code>n</code> itself is a perfect square -&gt; Return <strong>1</strong>.</li>
+<li>Check if <code>n</code> can be split into two perfect squares (n - i^2 is a square) -&gt; Return <strong>2</strong>.</li>
+<li>Check if <code>n</code> satisfies the form 4^a <em> (8b + 7) after dividing out all factors of 4 -&gt; Return <em>*4</em></em>.</li>
+<li>If none of the above are met -&gt; Return <strong>3</strong>.</li>
+</ol>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><ul>
-<li><p>Linux 操作文件</p>
-<ul>
-<li><code>rm -rf 目录名</code>           删除目录连同目录下所有文件</li>
-<li><p><code>.tar.gz</code> 和 <code>.tgz</code></p>
-<ul>
-<li>解压：<code>tar -zxvf FileName.tar.gz</code></li>
-<li>压缩：<code>tar -zcvf FileName.tar.gz DirName</code></li>
-</ul>
-</li>
-<li><p><code>mkdir [-p] dirName</code></p>
-<pre><code>`-p` 确保目录名称存在，不存在的就建一个。
-</code></pre></li>
-<li><code>mv file1 /tmp</code>移动到指定目录</li>
-<li><code>mv file1 file2</code>重命名文件</li>
-<li><code>mv dir1 dir2</code>移动目录dir1到dir2</li>
-<li><code>mv file1 file2 dir1</code> 移动多个文件到目标目录</li>
-<li><code>mv *.pdf ~/Documents</code></li>
-<li><code>cp source.txt destination.txt</code>        复制文件到另一个位置</li>
-<li><code>cp -r source_dir destination_dir</code>     递归复制整个目录</li>
-</ul>
-</li>
-</ul>
-<h2 id="ip操作"><a href="#ip操作" class="headerlink" title="ip操作"></a>ip操作</h2><ul>
-<li>IPv4 转发<ul>
-<li><code>sysctl net.ipv4.ip_forward</code>   查看虚拟机是否开启ipv4转发</li>
-<li><code>sysctl -w net.ipv4.ip_forward=1</code> 开启ipv4转发</li>
-</ul>
-</li>
-</ul>
-<h2 id="磁盘操作"><a href="#磁盘操作" class="headerlink" title="磁盘操作"></a>磁盘操作</h2><p>查看虚拟机磁盘总占用情况</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
-<p>查看指定目录磁盘占用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -sh &lt;directory&gt;</span><br></pre></td></tr></table></figure>
-<p>查看当前目录各目录文件磁盘占用情况</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h --max-depth=1</span><br></pre></td></tr></table></figure>
-<p>查看系统中所有硬盘和分区情况</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
-</div>
+<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><h3 id="Version-1-Dynamic-Programming"><a href="#Version-1-Dynamic-Programming" class="headerlink" title="Version 1: Dynamic Programming"></a>Version 1: Dynamic Programming</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numSquares</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, INT_MAX)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j * j &lt;= i; j++) &#123;</span><br><span class="line">                dp[i] = <span class="built_in">min</span>(dp[i], dp[i - j * j] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Version-2-Lagrange’s-Four-Square-Theorem-Math-Strategy"><a href="#Version-2-Lagrange’s-Four-Square-Theorem-Math-Strategy" class="headerlink" title="Version 2: Lagrange’s Four-Square Theorem (Math Strategy)"></a>Version 2: Lagrange’s Four-Square Theorem (Math Strategy)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numSquares</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> isSquare = [](<span class="type">int</span> x) &#123;</span><br><span class="line">            <span class="type">int</span> r = <span class="built_in">sqrt</span>(x);</span><br><span class="line">            <span class="keyword">return</span> r * r == x;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Case 1: The number itself is a perfect square</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isSquare</span>(n)) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Case 2: The number is the sum of two perfect squares</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i * i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isSquare</span>(n - i * i))</span><br><span class="line">                <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Case 4: The number is of the form 4^a * (8b + 7)</span></span><br><span class="line">        <span class="type">int</span> m = n;</span><br><span class="line">        <span class="keyword">while</span> (m % <span class="number">4</span> == <span class="number">0</span>)</span><br><span class="line">            m /= <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (m % <span class="number">8</span> == <span class="number">7</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Case 3: The number is the sum of three perfect squares</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -371,7 +346,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2024/04/04/Linux-command/",
+                text: "https://pure-master.github.io/2026/05/30/Perfect-Squares/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -383,18 +358,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2024/04/04/Linux-command/";
-            const title         = "「Linux command」";
-            const excerpt       = `本机与虚拟机之间交互
-使用SSH连接Linux服务器：
-12ssh username@Linuxaddress输入密码：
-
-
-
-本机与Linux上传下载文件
-
-从Linux服务器下载文件（文件夹）到本机
-12scp username@...`;
+            const hostUrl       = "https://pure-master.github.io/2026/05/30/Perfect-Squares/";
+            const title         = "「Perfect Squares」";
+            const excerpt       = `1. Problem Link279. Perfect Squares - LeetCode
+2. Problem DescriptionGiven an integer n, return the least number of p...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -413,10 +380,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/Tutorial/" rel="tag">Tutorial</a>
+                    <a class="tag-none-link" href="/tags/Breadth-First-Search/" rel="tag">Breadth-First-Search</a>, <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic-Programming</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>, <a class="tag-none-link" href="/tags/Math/" rel="tag">Math</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2024-04-24T03:42:50.896Z" itemprop="dateModified">最后编辑：2024-04-24</time>
+                    <time datetime="2026-05-30T01:19:50.235Z" itemprop="dateModified">最后编辑：2026-05-30</time>
                 </div>
             </div>
         </footer>
@@ -425,12 +392,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" combinations and permutation" href="/2024/04/04/combinations-and-permutation/">&lt; 上一篇</a>
+                <a title=" Find All Anagrams in a String" href="/2026/05/24/Find-All-Anagrams-in-a-String/">&lt; 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" Best Time to Buy and Sell Stock III" href="/2024/04/07/Best-Time-to-Buy-and-Sell-Stock-III/">下一篇 &gt;</a>
+                <a title=" Pascal&#39;s Triangle" href="/2026/05/30/Pascal-s-Triangle/">下一篇 &gt;</a>
             </div>
             
         </nav>
@@ -499,7 +466,7 @@
         <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%9C%BA%E4%B8%8E%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B9%8B%E9%97%B4%E4%BA%A4%E4%BA%92"><span class="toc-text">本机与虚拟机之间交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E6%93%8D%E4%BD%9C"><span class="toc-text">防火墙操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ip%E6%93%8D%E4%BD%9C"><span class="toc-text">ip操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E6%93%8D%E4%BD%9C"><span class="toc-text">磁盘操作</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Problem-Link"><span class="toc-text">1. Problem Link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Problem-Description"><span class="toc-text">2. Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Core-Idea"><span class="toc-text">3. Core Idea</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-1-Dynamic-Programming"><span class="toc-text">Method 1: Dynamic Programming</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-2-Lagrange%E2%80%99s-Four-Square-Theorem"><span class="toc-text">Method 2: Lagrange’s Four-Square Theorem</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-C-Solution"><span class="toc-text">4. C++ Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Version-1-Dynamic-Programming"><span class="toc-text">Version 1: Dynamic Programming</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Version-2-Lagrange%E2%80%99s-Four-Square-Theorem-Math-Strategy"><span class="toc-text">Version 2: Lagrange’s Four-Square Theorem (Math Strategy)</span></a></li></ol></li></ol>
     </div>
 </aside>
                 
