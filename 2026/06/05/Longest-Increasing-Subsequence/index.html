@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>Group Anagrams | ljz&#39;s Blog</title>
+  <title>Longest Increasing Subsequence | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -15,23 +15,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="C++, Hash-Table, LeetCode, String" />
+    <meta name="keywords" content="Array, Binary-Search, C++, Dynamic-Programming, LeetCode" />
   
-  <meta name="description" content="1. Problem Link49. Group Anagrams - LeetCode 2. Problem DescriptionGiven an array of strings strs, group the anagrams together. You can return the answer in any order. Example 1:  Input: strs &#x3D; [&amp;quot">
+  <meta name="description" content="1. Problem Link300. Longest Increasing Subsequence - LeetCode 2. Problem DescriptionGiven an integer array nums, return the length of the longest strictly increasing subsequence. A subsequence is an a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Group Anagrams">
-<meta property="og:url" content="https://pure-master.github.io/2026/05/23/group-anagrams/index.html">
+<meta property="og:title" content="Longest Increasing Subsequence">
+<meta property="og:url" content="https://pure-master.github.io/2026/06/05/Longest-Increasing-Subsequence/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="1. Problem Link49. Group Anagrams - LeetCode 2. Problem DescriptionGiven an array of strings strs, group the anagrams together. You can return the answer in any order. Example 1:  Input: strs &#x3D; [&amp;quot">
+<meta property="og:description" content="1. Problem Link300. Longest Increasing Subsequence - LeetCode 2. Problem DescriptionGiven an integer array nums, return the length of the longest strictly increasing subsequence. A subsequence is an a">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2026-05-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-23T02:57:57.887Z">
+<meta property="article:published_time" content="2026-06-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-05T04:10:15.291Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Array">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="Hash-Table">
-<meta property="article:tag" content="String">
+<meta property="article:tag" content="Dynamic-Programming">
+<meta property="article:tag" content="Binary-Search">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
   
@@ -206,15 +207,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/05/23/group-anagrams/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/06/05/Longest-Increasing-Subsequence/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Group Anagrams</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Longest Increasing Subsequence</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2026-05-22T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-05-23</time></li>
+                <li><time datetime="2026-06-04T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-06-05</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -223,7 +224,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.83K
+                            ~2.25K
                         
                         字
                     </li>
@@ -235,7 +236,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1779505077887"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1780632615291"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -245,39 +246,43 @@
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/group-anagrams/description/?envType=study-plan-v2&amp;envId=top-100-liked">49. Group Anagrams - LeetCode</a></p>
-<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>Given an array of strings <code>strs</code>, group the anagrams together. You can return the answer in <strong>any order</strong>.</p>
+            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-increasing-subsequence/description/?envType=study-plan-v2&amp;envId=top-100-liked">300. Longest Increasing Subsequence - LeetCode</a></p>
+<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>Given an integer array <code>nums</code>, return the length of the longest strictly increasing subsequence.</p>
+<p>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</p>
 <p><strong>Example 1:</strong></p>
 <ul>
-<li><strong>Input:</strong> <code>strs = [&quot;eat&quot;,&quot;tea&quot;,&quot;tan&quot;,&quot;ate&quot;,&quot;nat&quot;,&quot;bat&quot;]</code></li>
-<li><strong>Output:</strong> <code>[[&quot;bat&quot;],[&quot;nat&quot;,&quot;tan&quot;],[&quot;ate&quot;,&quot;eat&quot;,&quot;tea&quot;]]</code></li>
-<li><strong>Explanation:</strong> * There is no string in <code>strs</code> that can be rearranged to form <code>&quot;bat&quot;</code>.<ul>
-<li>The strings <code>&quot;nat&quot;</code> and <code>&quot;tan&quot;</code> are anagrams as they can be rearranged to form each other.</li>
-<li>The strings <code>&quot;ate&quot;</code>, <code>&quot;eat&quot;</code>, and <code>&quot;tea&quot;</code> are anagrams as they can be rearranged to form each other.</li>
-</ul>
-</li>
+<li><strong>Input:</strong> <code>nums = [10,9,2,5,3,7,101,18]</code></li>
+<li><strong>Output:</strong> <code>4</code></li>
+<li><strong>Explanation:</strong> The longest increasing subsequence is <code>[2,3,7,101]</code>, therefore the length is 4.</li>
 </ul>
 <p><strong>Example 2:</strong></p>
 <ul>
-<li><strong>Input:</strong> <code>strs = [&quot;&quot;]</code></li>
-<li><strong>Output:</strong> <code>[[&quot;&quot;]]</code></li>
+<li><strong>Input:</strong> <code>nums = [0,1,0,3,2,3]</code></li>
+<li><strong>Output:</strong> <code>4</code></li>
 </ul>
 <p><strong>Example 3:</strong></p>
 <ul>
-<li><strong>Input:</strong> <code>strs = [&quot;a&quot;]</code></li>
-<li><strong>Output:</strong> <code>[[&quot;a&quot;]]</code></li>
+<li><strong>Input:</strong> <code>nums = [7,7,7,7,7,7,7]</code></li>
+<li><strong>Output:</strong> <code>1</code></li>
 </ul>
 <p><strong>Constraints:</strong></p>
 <ul>
-<li>1 &lt;= strs.length &lt;= 10^4</li>
-<li>0 &lt;= strs[i].length &lt;= 100</li>
-<li><code>strs[i]</code> consists of lowercase English letters.</li>
+<li>1 &lt;= nums.length &lt;= 2500</li>
+<li>-10^4 &lt;= nums[i] &lt;= 10^4</li>
 </ul>
+<p><strong>Follow up:</strong> Can you come up with an algorithm that runs in O(n log(n)) time complexity?</p>
 <h2 id="3-Core-Idea"><a href="#3-Core-Idea" class="headerlink" title="3. Core Idea"></a>3. Core Idea</h2><ul>
-<li><strong>Key</strong>: Anagrams sorted by character will yield identical strings (e.g., “eat” -&gt; “aet”, “tea” -&gt; “aet”).</li>
-<li><strong>Map</strong>: Use <code>unordered_map&lt;string, vector&lt;string&gt;&gt;</code> where the sorted string serves as the key, and the original strings are collected in the value vector.</li>
+<li><strong>Approach</strong>: Patient Sorting / Greedy + Binary Search.</li>
+<li><strong>Mechanism</strong>:<ul>
+<li>While standard DP solves this problem in O(n^2) time, your solution beautifully achieves the follow-up requirement of <strong>O(n log n)</strong>.</li>
+<li>Let <code>f</code> be an array where <code>f[i]</code> stores the smallest tail value among all strictly increasing subsequences of length <code>i + 1</code> found so far. We initialize <code>f</code> with a size of <code>n</code> filled with <code>INT_MAX</code>.</li>
+<li>For each number <code>num</code> in <code>nums</code>, we use <code>std::lower_bound</code> to find the first element in <code>f</code> that is greater than or equal to <code>num</code>. </li>
+<li>We greedily overwrite this position with <code>num</code> (<code>*it = num</code>). Replacing a larger tail value with a smaller one gives future elements a better chance to form a longer increasing subsequence.</li>
+<li>After passing through all elements, we look for the first placeholder <code>INT_MAX</code> in <code>f</code>. The index of this placeholder corresponds exactly to the maximum length of a valid strictly increasing subsequence.</li>
 </ul>
-<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">groupAnagrams</span>(vector&lt;string&gt;&amp; strs) &#123;</span><br><span class="line">        unordered_map&lt;string, vector&lt;string&gt;&gt; mp;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> string&amp; s : strs) &#123;</span><br><span class="line">            string key = s;</span><br><span class="line">            <span class="built_in">sort</span>(key.<span class="built_in">begin</span>(), key.<span class="built_in">end</span>());</span><br><span class="line">            mp[key].<span class="built_in">push_back</span>(s);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        vector&lt;vector&lt;string&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; [k, v] : mp) &#123;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(v);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLIS</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">f</span><span class="params">(n, INT_MAX)</span></span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; num : nums) &#123;</span><br><span class="line">            <span class="comment">// Binary search to find the insert/replace position</span></span><br><span class="line">            <span class="keyword">auto</span> it = std::<span class="built_in">lower_bound</span>(f.<span class="built_in">begin</span>(), f.<span class="built_in">end</span>(), num);</span><br><span class="line">            *it = num;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Find how many valid positions were filled (not equal to INT_MAX)</span></span><br><span class="line">        <span class="keyword">auto</span> it = std::<span class="built_in">lower_bound</span>(f.<span class="built_in">begin</span>(), f.<span class="built_in">end</span>(), INT_MAX);</span><br><span class="line">        <span class="keyword">return</span> it - f.<span class="built_in">begin</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -330,7 +335,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2026/05/23/group-anagrams/",
+                text: "https://pure-master.github.io/2026/06/05/Longest-Increasing-Subsequence/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -342,10 +347,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2026/05/23/group-anagrams/";
-            const title         = "「Group Anagrams」";
-            const excerpt       = `1. Problem Link49. Group Anagrams - LeetCode
-2. Problem DescriptionGiven an array of strings strs, group the anagrams...`;
+            const hostUrl       = "https://pure-master.github.io/2026/06/05/Longest-Increasing-Subsequence/";
+            const title         = "「Longest Increasing Subsequence」";
+            const excerpt       = `1. Problem Link300. Longest Increasing Subsequence - LeetCode
+2. Problem DescriptionGiven an integer array nums, retu...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -364,10 +369,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/Hash-Table/" rel="tag">Hash-Table</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>, <a class="tag-none-link" href="/tags/String/" rel="tag">String</a>
+                    <a class="tag-none-link" href="/tags/Array/" rel="tag">Array</a>, <a class="tag-none-link" href="/tags/Binary-Search/" rel="tag">Binary-Search</a>, <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic-Programming</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2026-05-23T02:57:57.887Z" itemprop="dateModified">最后编辑：2026-05-23</time>
+                    <time datetime="2026-06-05T04:10:15.291Z" itemprop="dateModified">最后编辑：2026-06-05</time>
                 </div>
             </div>
         </footer>
@@ -376,13 +381,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Longest Consecutive Sequence" href="/2026/05/23/longest-consecutive-sequence/">&lt; 上一篇</a>
+                <a title=" Coin Change" href="/2026/05/30/Coin-Change/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Trapping Rain Water" href="/2026/05/23/Trapping-Rain-Water/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
