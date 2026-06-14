@@ -20,13 +20,13 @@
   <meta name="description" content="1. Problem Link56. Merge Intervals - LeetCode 2. Problem DescriptionGiven an array of intervals where intervals[i] &#x3D; [start_i, end_i], merge all overlapping intervals, and return an array of the non-o">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Merge Intervals">
-<meta property="og:url" content="https://pure-master.github.io/2026/06/08/Merge-Intervals/index.html">
+<meta property="og:url" content="https://pure-master.github.io/2026/06/14/Merge-Intervals/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
 <meta property="og:description" content="1. Problem Link56. Merge Intervals - LeetCode 2. Problem DescriptionGiven an array of intervals where intervals[i] &#x3D; [start_i, end_i], merge all overlapping intervals, and return an array of the non-o">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2026-06-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-06-08T01:24:12.995Z">
+<meta property="article:published_time" content="2026-06-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-14T09:02:14.474Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Array">
@@ -206,7 +206,7 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/06/08/Merge-Intervals/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/06/14/Merge-Intervals/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
@@ -214,7 +214,7 @@
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2026-06-07T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-06-08</time></li>
+                <li><time datetime="2026-06-13T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-06-14</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -223,7 +223,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.72K
+                            ~2.64K
                         
                         字
                     </li>
@@ -235,7 +235,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1780881852995"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1781427734474"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -272,20 +272,20 @@
 <li>0 &lt;= start_i &lt;= end_i &lt;= 10^4</li>
 </ul>
 <h2 id="3-Core-Idea"><a href="#3-Core-Idea" class="headerlink" title="3. Core Idea"></a>3. Core Idea</h2><ul>
-<li><strong>Approach</strong>: Sorting + Greedy.</li>
+<li><strong>Approach</strong>: Sorting + Elegant Greedy.</li>
 <li><strong>Mechanism</strong>:<ul>
 <li>We sort the intervals based on their start values. If two intervals have the same start value, they are sorted by their end values. Sorting ensures that all potentially overlapping intervals are adjacent to each other.</li>
-<li>We maintain a running interval tracker bounded by <code>left</code> and <code>right</code>, initialized to the first interval’s endpoints.</li>
-<li>As we iterate through the rest of the intervals from index 1:<ul>
-<li><strong>Overlap Scenario</strong>: If the start of the current interval is less than or equal to <code>right</code> (<code>intervals[i][0] &lt;= right</code>), it overlaps with our tracked interval. We merge them greedily by updating <code>right</code> to be the maximum of its current value and the current interval’s end (<code>max(right, intervals[i][1])</code>).</li>
-<li><strong>Disjoint Scenario</strong>: If the start of the current interval is strictly greater than <code>right</code>, there is a gap. The tracked interval <code>[left, right]</code> is now complete and can be pushed to <code>ans</code>. We then reset <code>left</code> and <code>right</code> to match the current interval to start tracking a new merged group.</li>
+<li>Instead of using explicit <code>left</code> and <code>right</code> tracker variables and manually handling edge cases after the loop, we can directly utilize the result array <code>ans</code>.</li>
+<li>We iterate through each interval <code>cur</code> in the sorted list:<ul>
+<li><strong>Disjoint Scenario</strong>: If <code>ans</code> is empty, or if the end of the last merged interval in <code>ans</code> is strictly less than the start of the current interval (<code>ans.back()[1] &lt; cur[0]</code>), there is no overlap. We push <code>cur</code> directly into <code>ans</code> as a new independent interval.</li>
+<li><strong>Overlap Scenario</strong>: If <code>ans.back()[1] &gt;= cur[0]</code>, the current interval overlaps with the last interval we inserted. We dynamically merge them by updating the end boundary of the last interval to <code>max(ans.back()[1], cur[1])</code>.</li>
 </ul>
 </li>
-<li>After the loop finishes, the last tracked interval group must be pushed to <code>ans</code> as well.</li>
+<li>This optimization simplifies the logic, removes post-loop collection code, and improves code readability.</li>
 </ul>
 </li>
 </ul>
-<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">merge</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; intervals) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">sort</span>(intervals.<span class="built_in">begin</span>(), intervals.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> left = intervals[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="type">int</span> right = intervals[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; intervals.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (intervals[i][<span class="number">0</span>] &lt;= right) &#123;</span><br><span class="line"></span><br><span class="line">                right = <span class="built_in">max</span>(right, intervals[i][<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">                ans.<span class="built_in">push_back</span>(&#123;left, right&#125;);</span><br><span class="line"></span><br><span class="line">                left = intervals[i][<span class="number">0</span>];</span><br><span class="line">                right = intervals[i][<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ans.<span class="built_in">push_back</span>(&#123;left, right&#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">merge</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; intervals) &#123;</span><br><span class="line">        <span class="comment">// 1. 按区间左端点升序排序</span></span><br><span class="line">        <span class="built_in">sort</span>(intervals.<span class="built_in">begin</span>(), intervals.<span class="built_in">end</span>());</span><br><span class="line">        </span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2. 遍历区间，利用结果集 ans 的末尾元素进行合并评估</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; cur : intervals) &#123;</span><br><span class="line">            <span class="comment">// 如果 ans 为空，或者当前区间的左端点大于 ans 最后一个区间的右端点，说明不重叠</span></span><br><span class="line">            <span class="keyword">if</span> (ans.<span class="built_in">empty</span>() || ans.<span class="built_in">back</span>()[<span class="number">1</span>] &lt; cur[<span class="number">0</span>]) &#123;</span><br><span class="line">                ans.<span class="built_in">push_back</span>(cur);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 存在重叠，直接更新 ans 最后一个区间的右端点</span></span><br><span class="line">                ans.<span class="built_in">back</span>()[<span class="number">1</span>] = <span class="built_in">max</span>(ans.<span class="built_in">back</span>()[<span class="number">1</span>], cur[<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -338,7 +338,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2026/06/08/Merge-Intervals/",
+                text: "https://pure-master.github.io/2026/06/14/Merge-Intervals/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -350,7 +350,7 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2026/06/08/Merge-Intervals/";
+            const hostUrl       = "https://pure-master.github.io/2026/06/14/Merge-Intervals/";
             const title         = "「Merge Intervals」";
             const excerpt       = `1. Problem Link56. Merge Intervals - LeetCode
 2. Problem DescriptionGiven an array of intervals where intervals[i] = ...`;
@@ -375,7 +375,7 @@
                     <a class="tag-none-link" href="/tags/Array/" rel="tag">Array</a>, <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>, <a class="tag-none-link" href="/tags/Sorting/" rel="tag">Sorting</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2026-06-08T01:24:12.995Z" itemprop="dateModified">最后编辑：2026-06-08</time>
+                    <time datetime="2026-06-14T09:02:14.474Z" itemprop="dateModified">最后编辑：2026-06-14</time>
                 </div>
             </div>
         </footer>
@@ -384,13 +384,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Longest Increasing Subsequence" href="/2026/06/05/Longest-Increasing-Subsequence/">&lt; 上一篇</a>
+                <a title=" Product of Array Except Self" href="/2026/06/09/Product-of-Array-Except-Self/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" Set Matrix Zeroes" href="/2026/06/09/Set-Matrix-Zeroes/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
@@ -488,6 +484,12 @@
         
           
           
+            <a class="list-group-item" href="/2026/06/14/Merge-Intervals/"><i class="fa  fa-book"></i> Merge Intervals</a>
+            
+          
+        
+          
+          
             <a class="list-group-item" href="/2026/06/09/Product-of-Array-Except-Self/"><i class="fa  fa-book"></i> Product of Array Except Self</a>
             
           
@@ -495,12 +497,6 @@
           
           
             <a class="list-group-item" href="/2026/06/09/Set-Matrix-Zeroes/"><i class="fa  fa-book"></i> Set Matrix Zeroes</a>
-            
-          
-        
-          
-          
-            <a class="list-group-item" href="/2026/06/08/Merge-Intervals/"><i class="fa  fa-book"></i> Merge Intervals</a>
             
           
         
