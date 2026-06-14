@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="/images/mitsuha.jpg">
   
-  <title>Container With Most Water | ljz&#39;s Blog</title>
+  <title>Spiral Matrix | ljz&#39;s Blog</title>
   
   <meta name="author" content="Lao Jinzan" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -15,24 +15,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="Array, C++, Greedy, LeetCode, Two-Pointers" />
+    <meta name="keywords" content="Array, C++, LeetCode, Matrix, Simulation" />
   
-  <meta name="description" content="1. Problem Link11. Container With Most Water - LeetCode 2. Problem DescriptionYou are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the i-t">
+  <meta name="description" content="1. Problem Link54. Spiral Matrix - LeetCode 2. Problem DescriptionGiven an m x n matrix, return all elements of the matrix in spiral order. Example 1:  Input: matrix &#x3D; [[1,2,3],[4,5,6],[7,8,9]] Output">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Container With Most Water">
-<meta property="og:url" content="https://pure-master.github.io/2026/05/23/Container-With-Most-Water/index.html">
+<meta property="og:title" content="Spiral Matrix">
+<meta property="og:url" content="https://pure-master.github.io/2026/06/14/Spiral-Matrix/index.html">
 <meta property="og:site_name" content="ljz&#39;s Blog">
-<meta property="og:description" content="1. Problem Link11. Container With Most Water - LeetCode 2. Problem DescriptionYou are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the i-t">
+<meta property="og:description" content="1. Problem Link54. Spiral Matrix - LeetCode 2. Problem DescriptionGiven an m x n matrix, return all elements of the matrix in spiral order. Example 1:  Input: matrix &#x3D; [[1,2,3],[4,5,6],[7,8,9]] Output">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pure-master.github.io/images/mitsuha.jpg">
-<meta property="article:published_time" content="2026-05-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-23T06:56:25.404Z">
+<meta property="article:published_time" content="2026-06-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-14T11:48:15.651Z">
 <meta property="article:author" content="Lao Jinzan">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Array">
-<meta property="article:tag" content="Two-Pointers">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="Greedy">
+<meta property="article:tag" content="Matrix">
+<meta property="article:tag" content="Simulation">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pure-master.github.io/images/mitsuha.jpg">
   
@@ -207,15 +207,15 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/05/23/Container-With-Most-Water/">
+    <link itemprop="mainEntityOfPage" href="https://pure-master.github.io/2026/06/14/Spiral-Matrix/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Container With Most Water</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Spiral Matrix</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><time datetime="2026-05-22T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-05-23</time></li>
+                <li><time datetime="2026-06-13T16:00:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2026-06-14</time></li>
                 <li itemprop="author" itemscope itemtype="https://schema.org/Person">
                     <i class="fa fa-user"></i> 作者 <span itemprop="name">Lao Jinzan</span>
                 </li>
@@ -224,7 +224,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.91K
+                            ~2.84K
                         
                         字
                     </li>
@@ -236,7 +236,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1779519385404"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1781437695651"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -246,38 +246,41 @@
                 </div>
             
             <hr />
-            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/container-with-most-water/description/?envType=study-plan-v2&amp;envId=top-100-liked">11. Container With Most Water - LeetCode</a></p>
-<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>You are given an integer array <code>height</code> of length <code>n</code>. There are <code>n</code> vertical lines drawn such that the two endpoints of the i-th line are <code>(i, 0)</code> and <code>(i, height[i])</code>.</p>
-<p>Find two lines that together with the x-axis form a container, such that the container contains the most water.</p>
-<p>Return the <em>maximum amount of water</em> a container can store.</p>
-<p><strong>Notice</strong> that you may not slant the container.</p>
+            <div itemprop="articleBody"><h2 id="1-Problem-Link"><a href="#1-Problem-Link" class="headerlink" title="1. Problem Link"></a>1. Problem Link</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/spiral-matrix/description/?envType=study-plan-v2&amp;envId=top-100-liked">54. Spiral Matrix - LeetCode</a></p>
+<h2 id="2-Problem-Description"><a href="#2-Problem-Description" class="headerlink" title="2. Problem Description"></a>2. Problem Description</h2><p>Given an <code>m x n</code> matrix, return <em>all elements of the matrix in spiral order</em>.</p>
 <p><strong>Example 1:</strong></p>
 <ul>
-<li><strong>Input:</strong> <code>height = [1,8,6,2,5,4,8,3,7]</code></li>
-<li><strong>Output:</strong> <code>49</code></li>
-<li><strong>Explanation:</strong> The vertical lines are represented by array <code>[1,8,6,2,5,4,8,3,7]</code>. In this case, the max area of water (the blue section) the container can contain is 7 * (8 - 1) = 49.</li>
+<li><strong>Input:</strong> <code>matrix = [[1,2,3],[4,5,6],[7,8,9]]</code></li>
+<li><strong>Output:</strong> <code>[1,2,3,6,9,8,7,4,5]</code></li>
 </ul>
 <p><strong>Example 2:</strong></p>
 <ul>
-<li><strong>Input:</strong> <code>height = [1,1]</code></li>
-<li><strong>Output:</strong> <code>1</code></li>
+<li><strong>Input:</strong> <code>matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]</code></li>
+<li><strong>Output:</strong> <code>[1,2,3,4,8,12,11,10,9,5,6,7]</code></li>
 </ul>
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>n == height.length</code></li>
-<li>2 &lt;= n &lt;= 10^5</li>
-<li>0 &lt;= height[i] &lt;= 10^4</li>
+<li><code>m == matrix.length</code></li>
+<li><code>n == matrix[i].length</code></li>
+<li>1 &lt;= m, n &lt;= 10</li>
+<li>-100 &lt;= matrix[i][j] &lt;= 100</li>
 </ul>
 <h2 id="3-Core-Idea"><a href="#3-Core-Idea" class="headerlink" title="3. Core Idea"></a>3. Core Idea</h2><ul>
-<li><strong>Approach</strong>: Two-Pointers (Greedy strategy).</li>
+<li><strong>Approach</strong>: Boundary Contraction Simulation.</li>
 <li><strong>Mechanism</strong>:<ul>
-<li>We initialize two pointers: <code>l</code> at the beginning (<code>0</code>) and <code>r</code> at the end (<code>height.size() - 1</code>) of the array.</li>
-<li>The area of the container is always restricted by the shorter line: <code>Area = (r - l) * min(height[l], height[r])</code>.</li>
-<li>To maximize the area, we try to find a taller line by moving the pointer pointing to the <strong>shorter side</strong>. Moving the pointer pointing to the taller side would never increase the area, because the width decreases by 1 and the height is bounded by the shorter line anyway.</li>
+<li>We set up 4 moving boundaries that wrap around the remaining elements of our matrix: <code>top</code> (0), <code>bottom</code> (m - 1), <code>left</code> (0), and <code>right</code> (n - 1).</li>
+<li>We loop under the premise that a valid block exists (<code>top &lt;= bottom &amp;&amp; left &lt;= right</code>). Inside each iteration, we execute a 4-step sequence simulating a clockwise outer shell rotation:<ol>
+<li><strong>Move Right</strong>: Traverse the <code>top</code> row from <code>left</code> to <code>right</code>. Then increment <code>top</code> to strip away this processed row.</li>
+<li><strong>Move Down</strong>: Traverse the <code>right</code> column from <code>top</code> to <code>bottom</code>. Then decrement <code>right</code> to strip away this processed column.</li>
+<li><strong>Move Left</strong>: First, check if <code>top &lt;= bottom</code> still holds true (as updating borders in previous steps could make the remaining window invalid). Traverse the <code>bottom</code> row from <code>right</code> down to <code>left</code>, then decrement <code>bottom</code>.</li>
+<li><strong>Move Up</strong>: Check if <code>left &lt;= right</code> still holds true. Traverse the <code>left</code> column from <code>bottom</code> up to <code>top</code>, then increment <code>left</code>.</li>
+</ol>
+</li>
+<li>The shrinking boundary logic naturally guides the iteration directly to the inner concentric shells until no matrix segments are left.</li>
 </ul>
 </li>
 </ul>
-<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxArea</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> r = height.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            <span class="type">int</span> area = (r - l) * <span class="built_in">min</span>(height[l], height[r]);</span><br><span class="line">            ans = <span class="built_in">max</span>(ans, area);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 移动较短的那一边</span></span><br><span class="line">            <span class="keyword">if</span> (height[l] &lt; height[r]) &#123;</span><br><span class="line">                l++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                r--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+<h2 id="4-C-Solution"><a href="#4-C-Solution" class="headerlink" title="4. C++ Solution"></a>4. C++ Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">spiralOrder</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> m = matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> n = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化上下左右四个核心边界线</span></span><br><span class="line">        <span class="type">int</span> top = <span class="number">0</span>, bottom = m - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = n - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (top &lt;= bottom &amp;&amp; left &lt;= right) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 1. 从左到右遍历当前的上边界</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = left; j &lt;= right; j++)</span><br><span class="line">                ans.<span class="built_in">push_back</span>(matrix[top][j]);</span><br><span class="line">            top++; <span class="comment">// 上边界下移</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 2. 从上到下遍历当前的右边界</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = top; i &lt;= bottom; i++)</span><br><span class="line">                ans.<span class="built_in">push_back</span>(matrix[i][right]);</span><br><span class="line">            right--; <span class="comment">// 右边界左移</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 3. 从右到左遍历当前的下边界（需重新验证是否依然存在有效行）</span></span><br><span class="line">            <span class="keyword">if</span> (top &lt;= bottom) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = right; j &gt;= left; j--)</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(matrix[bottom][j]);</span><br><span class="line">                bottom--; <span class="comment">// 下边界上移</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 4. 从下到上遍历当前的左边界（需重新验证是否依然存在有效列）</span></span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = bottom; i &gt;= top; i--)</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(matrix[i][left]);</span><br><span class="line">                left++; <span class="comment">// 左边界右移</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -330,7 +333,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://pure-master.github.io/2026/05/23/Container-With-Most-Water/",
+                text: "https://pure-master.github.io/2026/06/14/Spiral-Matrix/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -342,10 +345,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://pure-master.github.io/2026/05/23/Container-With-Most-Water/";
-            const title         = "「Container With Most Water」";
-            const excerpt       = `1. Problem Link11. Container With Most Water - LeetCode
-2. Problem DescriptionYou are given an integer array height o...`;
+            const hostUrl       = "https://pure-master.github.io/2026/06/14/Spiral-Matrix/";
+            const title         = "「Spiral Matrix」";
+            const excerpt       = `1. Problem Link54. Spiral Matrix - LeetCode
+2. Problem DescriptionGiven an m x n matrix, return all elements of the m...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -364,10 +367,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/Array/" rel="tag">Array</a>, <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/Greedy/" rel="tag">Greedy</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>, <a class="tag-none-link" href="/tags/Two-Pointers/" rel="tag">Two-Pointers</a>
+                    <a class="tag-none-link" href="/tags/Array/" rel="tag">Array</a>, <a class="tag-none-link" href="/tags/C/" rel="tag">C++</a>, <a class="tag-none-link" href="/tags/LeetCode/" rel="tag">LeetCode</a>, <a class="tag-none-link" href="/tags/Matrix/" rel="tag">Matrix</a>, <a class="tag-none-link" href="/tags/Simulation/" rel="tag">Simulation</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2026-05-23T06:56:25.404Z" itemprop="dateModified">最后编辑：2026-05-23</time>
+                    <time datetime="2026-06-14T11:48:15.651Z" itemprop="dateModified">最后编辑：2026-06-14</time>
                 </div>
             </div>
         </footer>
@@ -376,12 +379,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Move Zeroes" href="/2026/05/23/Move-Zeroes/">&lt; 上一篇</a>
+                <a title=" Product of Array Except Self" href="/2026/06/09/Product-of-Array-Except-Self/">&lt; 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" 3Sum" href="/2026/05/23/3Sum/">下一篇 &gt;</a>
+                <a title=" Merge Intervals" href="/2026/06/14/Merge-Intervals/">下一篇 &gt;</a>
             </div>
             
         </nav>
